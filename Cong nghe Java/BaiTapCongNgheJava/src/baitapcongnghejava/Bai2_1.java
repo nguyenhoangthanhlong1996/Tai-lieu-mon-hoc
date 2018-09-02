@@ -5,72 +5,132 @@ import java.util.*;
 
 public class Bai2_1 {
 
-    static int demcach = 1; //đếm số cách giải
-    static int n = 8; //bàn cờ n*n
-    static int quanhau[] = new int[n]; //lưu một cách sắp xếp
-    static boolean cot[] = new boolean[n]; //lưu trạng thái của các cột
-    static boolean cheophu[] = new boolean[2 * n - 1]; //lưu trạng thái của các đường chéo phụ
-    static boolean cheochinh[] = new boolean[2 * n - 1]; //lưu trạng thái của các đường chéo chính
+    //định nghĩa các thuộc tính dữ liệu
+    static final int MAX = 7; //chỉ số max của hàng và cột
+    static int cachso = 0; //số cách sắp đã tìm được
 
-    //Khởi tạo các mảng lưu trạng thái ban đầu
-    static void KhoiTao() {
-        //ban đầu tất cả các cột đều còn trống (tức là chưa có con hậu nào được đặt ở bất kỳ cột nào)
-        for (int i = 0; i < n; i++) {
-            cot[i] = true;
+    static int[] hang = new int[MAX + 1]; //danh sách chỉ số hàng đã thử trong từng cột
+    static int c; //vị trị cột đang sắp
+//Điểm nhập của chương trình
+
+    public static void main(String[] args) {
+// khởi động trạng thái xuất phát
+        for (c = 0; c <= MAX; c++) {
+            hang[c] = -1;
         }
-        //ban đầu tất cả các đường chéo chính, chéo phụ đều còn trống)
-        for (int i = 0; i < 2 * n - 1; i++) {
-            cheophu[i] = true;
-            cheochinh[i] = true;
+        cachso = 0;
+//bắt đầu đặt con hậu ở cột 0 vào hàng 0
+        hang[0] = 0;
+//bắt đầu tìm hàng cho con hậu ở cột thứ 2 (chỉ số là 1)
+        c = 1;
+        while (Tim1cach()) {
+// tìm được cách sắp 8 con hậu
+            InKetqua();
+//lùi lại cột trước để tiếp tục tìm cách sắp khác
+            c--;
         }
+// hết cách --> dừng chương trình
+        System.out.println("Số nghiệm là " + cachso);
+        return;
     }
+//cố gắng tìm 1 phương án sắp 8 con hậu
 
-    //Hàm in ra 1 cách sắp xếp
-    static void InCachSapXepQuanHau() {
-        System.out.println("Cách số " + demcach++ + " :");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+    static boolean Tim1cach() {
+        int h;
+        while (c <= MAX) {
+// tìm chỉ số hàng cho con hậu ở cột c
+            h = timhang(c);
+            if (h >= 0) { //nếu tìm được
+//lưu hàng vào danh sách kết quả rồi tăng chỉ số cột để tiếp tục
+                hang[c++] = h;
+                continue;
+            }
+//trường hợp không tìm được hàng cho con hậu ở cột c
+            if (c > 0) {
+//nếu cột c không phải là cột đầu tiên thì :
+//xét lại cột c từ hàng đầu rồi lùi cột c
+                hang[c--] = -1;
+                continue;
+            }
+//hết cách
+            return false;
+        }
+
+        return true;
+    }//hết hàm Tim1cach
+//hàm cố gắng tìm chỉ số hàng cho con hậu ở cột c
+//trả về chỉ số hàng tìm được hay -1 để báo sai
+
+    static int timhang(int c) {
+        int h, hmin = hang[c] + 1;
+        for (h = hmin; h <= MAX; h++) // thử hàng h
+        {
+            if (testvitri(h, c)) {
+                return h;
+            }
+        }
+        return -1;
+    }
+//hàm kiểm tra xem có thể đặt con hậu ở vị trí h,c ?
+//trả về TRUE nếu được, FALSE nếu không
+
+    static boolean testvitri(int h, int c) {
+        int c1, h1;
+//cột c đang kiểm tra nên chưa có con hậu nào
+// xem có con hậu nào nằm ở hàng h ?
+        for (c1 = 0; c1 < c; c1++) {
+            if (hang[c1] == h) {
+                return false;
+            }
+        }
+// xem có con hậu nào nằm trên đường chéo trên trái - dưới phải
+        c1 = c - 1;
+        h1 = h - 1;
+        while (c1 >= 0 && h1 >= 0) {
+            if (hang[c1] == h1) {
+                return false;
+            }
+            h1--;
+            c1--;
+        }
+// xem có con hậu nào nằm trên đường chéo trên phải - dưới trái
+        c1 = c - 1;
+        h1 = h + 1;
+        while (c1 >= 0 && h1 <= MAX) {
+            if (hang[c1] == h1) {
+                return false;
+            }
+            h1++;
+            c1--;
+        }
+        return true;
+    }
+//hàm in kết quả 1 cách sắp 8 con hậu theo yêu cầu
+
+    static void InKetqua() {
+        int h, c;
+        System.out.println("Cách sắp thứ : " + (++cachso));
+        for (h = 0; h <= MAX; h++) {
+// Hiển thị hàng lưới ngang của bàn cờ
+            for (c = 0; c <= MAX; c++) {
                 System.out.print("+---");
             }
-            System.out.print("+\n");
-            for (int j = 0; j < n; j++) {
-                if (quanhau[i] == j) {
-                    System.out.print("|\u2006\u2006\u2655\u2006\u2006");
+            System.out.println("+");
+// Hiển thị nội dung hàng thứ h của bàn cờ
+            for (c = 0; c <= MAX; c++) {
+                if (hang[c] == h) {
+                    System.out.print("| x ");
                 } else {
-                    System.out.print("|   ");
+                    System.out.print("| ");
                 }
             }
-            System.out.print("|\n");
+            System.out.println("|");
         }
-        for (int j = 0; j < n; j++) {
+
+// Hiển thị hàng lưới ngang cuối cùng của bàn cờ
+        for (c = 0; c <= MAX; c++) {
             System.out.print("+---");
         }
         System.out.println("+");
-    }
-
-    //Hàm xếp 1 quân hậu
-    static void XepQuanHau(int d) { //truyền vào tham số là vị trí dòng
-        for (int c = 0; c < n; c++) {
-            if (cot[c] == true && cheophu[d + c] == true && cheochinh[d - c + n - 1] == true) {
-                quanhau[d] = c; //quân hậu ở hàng thứ d sẽ được xếp ở cột thứ c
-                cot[c] = false; //báo hiệu cột này đã có 1 quân hậu được xếp
-                cheophu[d + c] = false; //báo hiệu đường chéo phụ này đã có 1 quân hậu được xếp
-                cheochinh[d - c + n - 1] = false; //báo hiệu đường chéo chính này đã có 1 quân hậu được xếp
-                if (d == n - 1) { //kiểm tra xem đã sắp xong con hậu cuối cùng hay chưa
-                    InCachSapXepQuanHau();
-                } else {
-                    XepQuanHau(d + 1); //thực hiện sắp con hậu ở dòng kế tiếp
-                }
-                //đưa các trạng thái về ban đầu để xét cho các cách khác
-                cot[c] = true;
-                cheophu[d + c] = true;
-                cheochinh[d - c + n - 1] = true;
-            }
-        }
-    }
-
-    public static void main(String[] args) {
-        KhoiTao();
-        XepQuanHau(0);
     }
 }
