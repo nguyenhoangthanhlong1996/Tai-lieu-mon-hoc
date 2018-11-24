@@ -1,0 +1,5 @@
+print("\n")
+arr1 = None
+arr1 = 'abc'
+
+print(type(arr1))
