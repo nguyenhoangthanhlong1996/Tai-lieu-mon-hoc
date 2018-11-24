@@ -1,0 +1,11 @@
+﻿Câu 1:
+	b) - Phần tử cha của phần tử <author> là <book>.
+	   - Phần tử anh em của phần tử <author> là: <title>, <edition>, <description>, <year>.
+Câu 2:
+	a) Sai cú pháp. Vì phần tử <item> trong <list> không có thẻ đóng.
+	b) Sai cú pháp. Vì 2 phần tử <item> không được bao bởi một root element
+	c) Đúng cú pháp. Vì tuân theo đúng các quy tắc sau:
+		- Có một root element
+		- Đầy đủ thẻ mở, đóng
+		- Một phần tử (element) có thể chứa dữ liệu hoặc nhiều phần tử con khác (child element)
+	d) Sai cú pháp. Vì không tuân theo cấu trúc cây của XML, phần tử <author> là con của phần tử <title> nhưng thẻ đóng của nó lại nằm bên ngoài <title>

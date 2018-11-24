@@ -6,7 +6,7 @@
                 <h1 style="padding:0; margin:0;"><xsl:value-of select="title"/></h1>
                 <h3 style="font-weight:normal; padding:0; margin:10px 0;"><xsl:value-of select="edition"/></h3>
                 <h3 style="font-weight:normal; padding:0; margin-top:30px; margin-bottom:0;">By</h3>
-                <xsl:for-each select="list-authors/author">
+                <xsl:for-each select="author">
                     <h3 style="padding:0; margin:0;"><xsl:value-of select="."/></h3>
                 </xsl:for-each>
                 <div style="border: 1px solid black; padding:15px; text-align:left; margin-top:30px;"><xsl:value-of select="desciption"/></div>
