@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="25dip"
+        android:text="Pathname của file cần đọc/ghi : " />
+    <EditText android:id="@+id/txtFile"
+        android:textSize="14sp"
+        android:layout_width="fill_parent"
+        android:layout_height="30dip"
+        android:layout_marginTop="10dp"
+        android:height="20dp">
+        <requestFocus/> </EditText>
+    <TextView android:id="@+id/txtOutput"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+    </TextView>
+</LinearLayout>

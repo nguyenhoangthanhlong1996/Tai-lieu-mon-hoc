@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="135dip"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/strA" />
+        <EditText android:id="@+id/txtA"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/strB" />
+        <EditText android:id="@+id/txtB"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <requestFocus/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/strC" />
+        <EditText android:id="@+id/txtC"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="35dip"
+        android:text="@string/strBatdau"
+        android:layout_gravity="center_horizontal"
+        android:onClick="btnStart_Click"
+        />
+    <TextView android:id="@+id/lblKetqua"
+        android:layout_width="wrap_content"
+        android:layout_height="25dip"
+        android:text="" />
+    <TextView android:id="@+id/lblX1"
+        android:layout_width="wrap_content"
+        android:layout_height="25dip"
+        android:text="" />
+    <TextView android:id="@+id/lblX2"
+        android:layout_width="wrap_content"
+        android:layout_height="25dip"
+        android:text="" />
+</GridLayout>

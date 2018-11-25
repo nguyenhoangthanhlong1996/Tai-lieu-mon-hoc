@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ASGPTB2</string>
+    <string name="action_settings">Settings</string>
+    <string name="strBatdau">Bắt đầu giải</string>
+    <string name="strA">Nhập a:</string>
+    <string name="strB">Nhập b:</string>
+    <string name="strC">Nhập c:</string>
+    <string name="strVonghiem">Phương trình vô nghiệm</string>
+    <string name="strConghiem">Phương trình có 2 nghiệm thực :</string>
+</resources>
