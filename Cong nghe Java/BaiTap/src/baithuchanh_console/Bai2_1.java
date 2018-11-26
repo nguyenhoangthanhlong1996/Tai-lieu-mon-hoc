@@ -1,4 +1,4 @@
-package baithuchanh_1_2;
+package baithuchanh_console;
 
 import java.io.*;
 import java.util.*;
