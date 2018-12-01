@@ -7,23 +7,23 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class MyThread extends Thread {
-	// ₫ịnh nghĩa các hằng, thuộc tính cần dùng
+	// â‚«á»‹nh nghÄ©a cÃ¡c háº±ng, thuá»™c tÃ­nh cáº§n dÃ¹ng
 	final double PI = 3.1416;
-	final int xCell = 30; // ₫ộ rộng của mỗi cell (pixel)
-	final int yCell = 30; // ₫ộ cao của mỗi cell (pixel)
-	public Boolean fstart; // trạng thái Start của thread
-	public Boolean fstop; // trạng thái Start của thread
-	public Boolean fsuspend; // trạng thái Suspend của thread
-	public Boolean WaitOne = false; // trạng thái chờ truy xuất cell
-	public BufferedImage Pic; // icon miêu tả thread
-	int xCount; // ₫ộ rộng vùng chạy của thread (số cell)
-	int yCount; // ₫ộ cao vùng chạy của thread (số cell)
-	int tgchay; // thời gian tính trước mỗi bước chạy của thread
-	public Point Pos = new Point(); // vị trí của thread trong vùng chạy
-	double dblGocChay; // góc chạy của thread
-	double tx, ty; // bước tăng theo x và y
-	MainForm frm; // ₫ối tượng quản lý Form ứng dụng
-	// hàm khởi tạo các thông số của thread
+	final int xCell = 30; // â‚«á»™ rá»™ng cá»§a má»—i cell (pixel)
+	final int yCell = 30; // â‚«á»™ cao cá»§a má»—i cell (pixel)
+	public Boolean fstart; // tráº¡ng thÃ¡i Start cá»§a thread
+	public Boolean fstop; // tráº¡ng thÃ¡i Start cá»§a thread
+	public Boolean fsuspend; // tráº¡ng thÃ¡i Suspend cá»§a thread
+	public Boolean WaitOne = false; // tráº¡ng thÃ¡i chá»? truy xuáº¥t cell
+	public BufferedImage Pic; // icon miÃªu táº£ thread
+	int xCount; // â‚«á»™ rá»™ng vÃ¹ng cháº¡y cá»§a thread (sá»‘ cell)
+	int yCount; // â‚«á»™ cao vÃ¹ng cháº¡y cá»§a thread (sá»‘ cell)
+	int tgchay; // thá»?i gian tÃ­nh trÆ°á»›c má»—i bÆ°á»›c cháº¡y cá»§a thread
+	public Point Pos = new Point(); // vá»‹ trÃ­ cá»§a thread trong vÃ¹ng cháº¡y
+	double dblGocChay; // gÃ³c cháº¡y cá»§a thread
+	double tx, ty; // bÆ°á»›c tÄƒng theo x vÃ  y
+	MainForm frm; // â‚«á»‘i tÆ°á»£ng quáº£n lÃ½ Form á»©ng dá»¥ng
+	// hÃ m khá»Ÿi táº¡o cÃ¡c thÃ´ng sá»‘ cá»§a thread
 
 	public MyThread(Random rnd, int xMax, int yMax, MainForm frm) {
 		xCount = xMax;
@@ -35,7 +35,7 @@ public class MyThread extends Thread {
 		tgchay = 1500 + 100 * rnd.nextInt(100);
 	}
 
-	// ₫ịnh nghĩa hàm giả lập công việc tính toán của thread
+	// â‚«á»‹nh nghÄ©a hÃ m giáº£ láº­p cÃ´ng viá»‡c tÃ­nh toÃ¡n cá»§a thread
 	void MySleep(long count) {
 		long i, j, k = 0;
 		for (i = 0; i < count; i++)
@@ -43,7 +43,7 @@ public class MyThread extends Thread {
 				k = k + 1;
 	}
 
-	// tác vụ chức năng của thread
+	// tÃ¡c vá»¥ chá»©c nÄƒng cá»§a thread
 	public void run() {
 		int x1, y1;
 		int x2, y2;
@@ -52,13 +52,13 @@ public class MyThread extends Thread {
 		try {
 			// xin khóa truy xuất cell xuất phát (do thuộc tính Pos qui ₫ịnh)
 			frm.mutList[Pos.y][Pos.x].acquire();
-			while (fstart) { // lặp trong khi chưa có yêu cầu kết thúc
-				// xác ₫ịnh tọa ₫ộ hiện hành của thread
+			while (fstart) { // láº·p trong khi chÆ°a cÃ³ yÃªu cáº§u káº¿t thÃºc
+				// xÃ¡c â‚«á»‹nh tá»?a â‚«á»™ hiá»‡n hÃ nh cá»§a thread
 				x1 = Pos.x;
 				y1 = Pos.y;
-				// hiển thị icon của thread ở (x1,y1)
+				// hiá»ƒn thá»‹ icon cá»§a thread á»Ÿ (x1,y1)
 				frm.gh.drawImage(Pic, xCell * x1, yCell * y1, null);
-				// xác ₫ịnh màu vẽ hướng chạy của icon
+				// xÃ¡c â‚«á»‹nh mÃ u váº½ hÆ°á»›ng cháº¡y cá»§a icon
 				Color c = new Color(Pic.getRGB(1, 1), true);
 				int yR, yG, yB;
 				if (c.getRed() > 128)
@@ -74,30 +74,30 @@ public class MyThread extends Thread {
 				else
 					yB = 255;
 				frm.gh.setColor(new Color(yR, yG, yB));
-				if (tx >= 0 && ty >= 0) { // hiện mũi tên góc dưới phải
+				if (tx >= 0 && ty >= 0) { // hiá»‡n mÅ©i tÃªn gÃ³c dÆ°á»›i pháº£i
 					x = xCell * x1 + xCell - 2;
 					y = yCell * y1 + yCell - 2;
 					frm.gh.drawLine(x, y, x - 10, y);
 					frm.gh.drawLine(x, y, x, y - 10);
-				} else if (tx >= 0 && ty < 0) { // hiện mũi tên góc trên phải
+				} else if (tx >= 0 && ty < 0) { // hiá»‡n mÅ©i tÃªn gÃ³c trÃªn pháº£i
 					x = xCell * x1 + xCell - 2;
 					y = yCell * y1 + 2;
 					frm.gh.drawLine(x, y, x - 10, y);
 					frm.gh.drawLine(x, y, x, y + 10);
-				} else if (tx < 0 && ty >= 0) { // hiện mũi tên góc dưới trái
+				} else if (tx < 0 && ty >= 0) { // hiá»‡n mÅ©i tÃªn gÃ³c dÆ°á»›i trÃ¡i
 					x = xCell * x1 + 2;
 					y = yCell * y1 + yCell - 2;
 					frm.gh.drawLine(x, y, x + 10, y);
 					frm.gh.drawLine(x, y, x, y - 10);
-				} else { // hiện mũi tên góc trên trái
+				} else { // hiá»‡n mÅ©i tÃªn gÃ³c trÃªn trÃ¡i
 					x = xCell * x1 + 2;
 					y = yCell * y1 + 2;
 					frm.gh.drawLine(x, y, x + 10, y);
 					frm.gh.drawLine(x, y, x, y + 10);
 				}
-				// giả lập thực hiện công việc của thread
+				// giáº£ láº­p thá»±c hiá»‡n cÃ´ng viá»‡c cá»§a thread
 				MySleep(tgchay);
-				// xác ₫ịnh vị trí mới của thread
+				// xÃ¡c â‚«á»‹nh vá»‹ trÃ­ má»›i cá»§a thread
 				HieuchinhVitri();
 				x2 = Pos.x;
 				y2 = Pos.y;
@@ -107,11 +107,11 @@ public class MyThread extends Thread {
 					if (kq == true || fstart == false)
 						break;
 				}
-				// Xóa icon ở vị trí cũ
+				// XÃ³a icon á»Ÿ vá»‹ trÃ­ cÅ©
 				frm.gh.drawImage(frm.blackPic, xCell * x1, yCell * y1, null);
 				// mở khóa cell cũ (x1,y1) cho các thread khác truy xuất
 				frm.mutList[y1][x1].release();
-				if (kq == false && fstart == false) { // xóa thread
+				if (kq == false && fstart == false) { // xÃ³a thread
 					this.stop();
 					this.fstop = true;
 					return;
@@ -120,20 +120,20 @@ public class MyThread extends Thread {
 		} catch (Exception e) {
 			this.stop();
 		}
-		// xóa icon của thread trước khi ngừng
+		// xÃ³a icon cá»§a thread trÆ°á»›c khi ngá»«ng
 		x1 = Pos.x;
 		y1 = Pos.y;
 		frm.gh.drawImage(frm.blackPic, xCell * x1, yCell * y1, null);
 		// mở khóa cell (x1,y1) cho các thread khác truy xuất
 		frm.mutList[y1][x1].release();
-		// dừng Thread
+		// dá»«ng Thread
 		fstop = true;
 		stop();
 	}
 
 	// =================================================
-	// Hiệu chỉnh góc chạy của thread
-	// ₫ể tránh các trường hợp thread chạy thẳng ₫ứng hay ngang
+	// Hiá»‡u chá»‰nh gÃ³c cháº¡y cá»§a thread
+	// â‚«á»ƒ trÃ¡nh cÃ¡c trÆ°á»?ng há»£p thread cháº¡y tháº³ng â‚«á»©ng hay ngang
 	// =================================================
 	double ChinhGocChay(double dblGocChay) {
 		double goc = dblGocChay;
@@ -149,7 +149,8 @@ public class MyThread extends Thread {
 	}
 
 	// =========================================================
-	// Tính góc phản xạ mới khi thread ₫ụng thành ₫ứng (bên trái hay phải).
+	// TÃ­nh gÃ³c pháº£n xáº¡ má»›i khi thread â‚«á»¥ng thÃ nh â‚«á»©ng (bÃªn trÃ¡i
+	// hay pháº£i).
 	// =========================================================
 	double DoiGocChayX(double dblGocChay) {
 		double goc;
@@ -161,50 +162,51 @@ public class MyThread extends Thread {
 	}
 
 	// =========================================================
-	// Tính góc phản xạ mới khi thread ₫ụng thành ngang (trên hay dưới).
+	// TÃ­nh gÃ³c pháº£n xáº¡ má»›i khi thread â‚«á»¥ng thÃ nh ngang (trÃªn hay
+	// dÆ°á»›i).
 	// =========================================================
 	double DoiGocChayY(double dblGocChay) {
 		return ChinhGocChay(360 - dblGocChay);
 	}
 
 	// =========================================================
-	// Hiệu chỉnh vị trí của thread
+	// Hiá»‡u chá»‰nh vá»‹ trÃ­ cá»§a thread
 	// =========================================================
 	public void HieuchinhVitri() {
 		int x, y;
 		x = Pos.x;
 		y = Pos.y;
 		if (x == 0 || x == xCount - 1 || y == 0 || y == yCount - 1) {
-			// icon ₫ụng thành ngang hay dọc -> thay ₫ổi góc chạy
+			// icon â‚«á»¥ng thÃ nh ngang hay dá»?c -> thay â‚«á»•i gÃ³c cháº¡y
 			if (x == 0 || x == xCount - 1)
 				dblGocChay = DoiGocChayX(dblGocChay);
 			else if (y == 0 || y == yCount - 1)
 				dblGocChay = DoiGocChayY(dblGocChay);
 		}
-		// Hiệu chỉnh tọa ₫ộ x của thread
+		// Hiá»‡u chá»‰nh tá»?a â‚«á»™ x cá»§a thread
 		tx = 2 * Math.cos(dblGocChay * PI / 180);
 		x = x + (int) tx;
 		if (x < 0)
 			x = 0;
 		else if (x >= xCount)
 			x = xCount - 1;
-		// Hiệu chỉnh tọa ₫ộ y của thread
+		// Hiá»‡u chá»‰nh tá»?a â‚«á»™ y cá»§a thread
 		ty = 2 * Math.sin(dblGocChay * PI / 180);
 		y = y + (int) ty;
 		if (y < 0)
 			y = 0;
 		else if (y >= yCount)
 			y = yCount - 1;
-		// chỉnh góc chạy khi ₫ụng 1 trong 4 góc
-		if (x == 0 && y == 0) // góc trên trái
+		// chá»‰nh gÃ³c cháº¡y khi â‚«á»¥ng 1 trong 4 gÃ³c
+		if (x == 0 && y == 0) // gÃ³c trÃªn trÃ¡i
 			ChinhGocChay(dblGocChay + 45);
-		else if (x == 0 && y == yCount - 1) // góc dưới trái
+		else if (x == 0 && y == yCount - 1) // gÃ³c dÆ°á»›i trÃ¡i
 			ChinhGocChay(dblGocChay + 45);
-		else if (x == xCount - 1 && y == 0) // góc trên phải
+		else if (x == xCount - 1 && y == 0) // gÃ³c trÃªn pháº£i
 			ChinhGocChay(dblGocChay + 45);
-		else if (x == xCount - 1 && y == yCount - 1) // góc dưới phải
+		else if (x == xCount - 1 && y == yCount - 1) // gÃ³c dÆ°á»›i pháº£i
 			ChinhGocChay(dblGocChay + 45);
-		// Lưu vị trí mới
+		// LÆ°u vá»‹ trÃ­ má»›i
 		Pos.x = (int) x;
 		Pos.y = (int) y;
 	}

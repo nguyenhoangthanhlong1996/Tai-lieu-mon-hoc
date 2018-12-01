@@ -38,7 +38,7 @@ public class MainForm extends JFrame {
 		// ₫ọc bitmap miêu tả cell nền từ file
 		URL url;
 		try {
-			url = this.getClass().getClassLoader().getResource("images/Black.jpg");
+			url = this.getClass().getClassLoader().getResource("images/Black.bmp");
 			blackPic = ImageIO.read(url);
 		} catch (Exception e) {
 		}
@@ -51,7 +51,7 @@ public class MainForm extends JFrame {
 			threadLst[i].fstop = threadLst[i].fsuspend = threadLst[i].fstart = false;
 			char c = (char) (i + 65);
 			try { // ₫ọc bitmap miêu tả thread c từ file
-				url = this.getClass().getClassLoader().getResource("images/Image" + c + ".jpg");
+				url = this.getClass().getClassLoader().getResource("images/Image" + c + ".bmp");
 				threadLst[i].Pic = ImageIO.read(url);
 			} catch (Exception e) {
 				System.out.println(e.toString());
@@ -70,20 +70,20 @@ public class MainForm extends JFrame {
 		// xác ₫ịnh chức năng mà user muốn và thực hiện
 		if (evt.isControlDown() && evt.isShiftDown()) { // dừng Thread
 			threadLst[newch - 65].fstart = false;
-		} else if (evt.isControlDown()) { // giảm ₫ộ ưu tiên tối thiểu
-			threadLst[newch - 65].setPriority(1);
 		} else if (evt.isControlDown() && evt.isAltDown()) { // tạm dừng thread
 			if (threadLst[newch - 65].fstart && !threadLst[newch - 65].fsuspend) {
 				threadLst[newch - 65].suspend();
 				threadLst[newch - 65].fsuspend = true;
 			}
+		} else if (evt.isControlDown()) { // giảm ₫ộ ưu tiên tối thiểu
+			threadLst[newch - 65].setPriority(Thread.MIN_PRIORITY);
 		} else if (evt.isAltDown()) { // cho thread chạy lại
 			if (threadLst[newch - 65].fstart && threadLst[newch - 65].fsuspend) {
 				threadLst[newch - 65].resume();
 				threadLst[newch - 65].fsuspend = false;
 			}
 		} else if (evt.isShiftDown()) { // tăng ₫ộ ưu tiên tối ₫a
-			threadLst[newch - 65].setPriority(31);
+			threadLst[newch - 65].setPriority(Thread.MAX_PRIORITY);
 		} else { // tạo mới thread và bắt ₫ầu chạy
 			if (!threadLst[newch - 65].fstart) {
 				threadLst[newch - 65].fstart = true;

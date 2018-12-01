@@ -10,14 +10,17 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
     //định nghĩa các thuộc tính cần dùng
     TextView txtOutput;
     TextView txtFile;
+    File file;
 
     //hàm kiểm tra thẻ nhớ ngoài có cho đọc/ghi không
     public boolean isExternalStorageWritable() {
@@ -30,27 +33,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //xác ịnh pathname của file cần ghi/ọc
-        String fname = "/storage/extSdCard/data.bin";
+        //xác ịnh pathname của file cần ghi/ọ
+        String pathSDCard = Environment.getExternalStorageDirectory().getPath();
+        file = new File(pathSDCard,"data.bin" );
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 //xác ịnh các ối tợng giao diện
         txtOutput = (TextView) findViewById(R.id.txtOutput);
         txtFile = (EditText) findViewById(R.id.txtFile);
-//hiển thị pathname của file ghi/ọc
-        txtFile.setText(fname);
 //kiểm tra xem có thể ghi/ọc không
         if (!isExternalStorageWritable()) return;
 //to dữ liệu và ghi chúng ra file
-        if (Create_Write_File(fname))
+        if (Create_Write_File())
 //ọc dữ liệu từ file vào các biến và hiển thị kết qu ể kiểm tra
-            Read_Disp_File(fname);
+            Read_Disp_File();
     }
 
     //hàm to file và thử ghi số biến dữ liệu lên file
-    private boolean Create_Write_File(String fname) {
+    private boolean Create_Write_File() {
         try {
 //1. to ối tợng qun lý file xuất
+
             FileOutputStream fout = new
-                    FileOutputStream("/storage/extSdCard/data.bin");
+                    FileOutputStream(file);
 //2. to ối tợng qun lý file xuất có ệm (nếu cần hiệu qu)
             BufferedOutputStream bouts = new BufferedOutputStream(fout);
 //3. to ối tợng ghi file nhị phân
@@ -77,10 +85,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //hàm ọc dữ liệu từ file vào các biến rồi hiển thị nội dung
-    private boolean Read_Disp_File(String fname) {
+    private boolean Read_Disp_File() {
         try {
 //1. to ối tợng qun lý file nhập
-            FileInputStream fin = new FileInputStream(fname);
+            FileInputStream fin = new FileInputStream(file);
 //2. to ối tợng qun lý file nhập có ệm (nếu cần hiệu qu)
             BufferedInputStream bins = new BufferedInputStream(fin);
 //3. to ối tợng ọc file nhị phân

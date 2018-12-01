@@ -1,6 +1,8 @@
 package baithuchanh6_3;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -16,51 +18,28 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-
-public class Clock extends JPanel {
-	JFrame frame;
-	Image imgDongHo, imgKimGio, imgKimPhut, imgKimGiay;
-	final int sizeDongHo = 500;
+public class Clock extends JFrame {
 	final int sizeFrame = 700;
-	final double scaleKimDongHo = 1.5;
-	double angle = 0;
-	Timer timer;
+	PanelClock panelClock = new PanelClock(sizeFrame, 25);
+	PanelClockwise panelClockwise = new PanelClockwise(sizeFrame, 25);
 
 	public Clock() {
-		try {
-			setBackground(Color.RED);
-			frame = new JFrame("Clock");
-			frame.setSize(sizeFrame, sizeFrame);
-			frame.add(this);
-			frame.setVisible(true);
-			imgDongHo = ImageIO.read(getClass().getClassLoader().getResource("baithuchanh6_3\\dongho.png"));
-			imgKimGio = ImageIO.read(getClass().getClassLoader().getResource("baithuchanh6_3\\kimgio.png"));
-			imgKimPhut = ImageIO.read(getClass().getClassLoader().getResource("baithuchanh6_3\\kimphut.png"));
-			imgKimGiay = ImageIO.read(getClass().getClassLoader().getResource("baithuchanh6_3\\kimgiay.png"));
-			repaint();
-			timer = new Timer(200, new ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					angle++;
-					repaint();
-				}
-			});
-			timer.start();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace(); 
-		}
+		setSize(sizeFrame, sizeFrame);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setLayout(null);
+		add(panelClockwise);
+		add(panelClock);
+		setVisible(true);
+
 	}
-	
-	@Override
-	protected void paintComponent(Graphics g) {
-		Graphics2D g2d = (Graphics2D) g;
-		
-		//g2d.drawImage(imgDongHo,getWidth() / 2 - sizeDongHo / 2,getHeight() / 2 - sizeDongHo / 2, sizeDongHo, sizeDongHo,this);
-		AffineTransform transform = new AffineTransform();
-		transform.rotate(Math.toRadians(angle), getWidth()/2,getHeight()/2);
-		g2d.drawImage(imgKimGio, transform, null);
-		
+
+	public void startTypeMiliSecond() {
+		panelClockwise.startMiliSecond();
+	}
+
+	public void startTypeSecond() {
+		panelClockwise.startSecond();
 	}
 }

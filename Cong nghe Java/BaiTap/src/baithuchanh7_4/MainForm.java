@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 public class MainForm extends JFrame {
-	// ₫ịnh nghĩa các thuộc tính cần dùng
+	// â‚«á»‹nh nghÄ©a cÃ¡c thuá»™c tÃ­nh cáº§n dÃ¹ng
 	public Semaphore[][] mutList;
 	public Image blackPic;
 	MyThread[] threadLst;
@@ -20,31 +20,31 @@ public class MainForm extends JFrame {
 	final int xCount = 25;
 	final int yCount = 20;
 	Graphics gh;
-	// tạo ₫ối tượng sinh số ngẫu nhiên
+	// táº¡o â‚«á»‘i tÆ°á»£ng sinh sá»‘ ngáº«u nhiÃªn
 	public Random rnd = new Random();
 
-	// tác vụ khởi tạo form
+	// tÃ¡c vá»¥ khá»Ÿi táº¡o form
 	public MainForm() {
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		// thiết lập tác vụ xử lý sự kiện ấn phím trên form
+		// thiáº¿t láº­p tÃ¡c vá»¥ xá»­ lÃ½ sá»± kiá»‡n áº¥n phÃ­m trÃªn form
 		addKeyListener(new java.awt.event.KeyAdapter() {
 			public void keyPressed(java.awt.event.KeyEvent evt) {
 				formKeyPressed(evt);
 			}
 		});
-		// thiết lập lại kích thước form theo yêu cầu
+		// thiáº¿t láº­p láº¡i kÃ­ch thÆ°á»›c form theo yÃªu cáº§u
 		this.setSize(xCount * 30, yCount * 30);
 		this.setLocation(0, 0);
-		// thiết lập màu nền ₫en cho form
+		// thiáº¿t láº­p mÃ u ná»?n â‚«en cho form
 		this.getContentPane().setBackground(Color.BLACK);
-		// ₫ọc bitmap miêu tả cell nền từ file
+		// â‚«á»?c bitmap miÃªu táº£ cell ná»?n tá»« file
 		URL url;
 		try {
-			url = this.getClass().getClassLoader().getResource("images/Black.jpg");
+			url = this.getClass().getClassLoader().getResource("images/Black.bmp");
 			blackPic = ImageIO.read(url);
 		} catch (Exception e) {
 		}
-		// tạo danh sách chứa 26 thread từ A-Z
+		// táº¡o danh sÃ¡ch chá»©a 26 thread tá»« A-Z
 		threadLst = new MyThread[26];
 		int i;
 		// tạo ma trận semaphore nhị phân ₫ể bảo vệ các cell màn hình
@@ -53,13 +53,13 @@ public class MainForm extends JFrame {
 		for (h = 0; h < yCount; h++)
 			for (cot = 0; cot < xCount; cot++)
 				mutList[h][cot] = new Semaphore(1);
-		// Lặp thiết lập trạng thái ban ₫ầu cho 26 thread từ A-Z
+		// Láº·p thiáº¿t láº­p tráº¡ng thÃ¡i ban â‚«áº§u cho 26 thread tá»« A-Z
 		for (i = 0; i < 26; i++) {
 			threadLst[i] = new MyThread(rnd, xCount, yCount, this);
 			threadLst[i].fstop = threadLst[i].fsuspend = threadLst[i].fstart = false;
 			char c = (char) (i + 65);
-			try { // ₫ọc bitmap miêu tả thread c từ file
-				url = this.getClass().getClassLoader().getResource("images/Image" + c + ".jpg");
+			try { // â‚«á»?c bitmap miÃªu táº£ thread c tá»« file
+				url = this.getClass().getClassLoader().getResource("images/Image" + c + ".bmp");
 				threadLst[i].Pic = ImageIO.read(url);
 			} catch (Exception e) {
 				System.out.println(e.toString());
@@ -67,32 +67,32 @@ public class MainForm extends JFrame {
 		}
 	}
 
-	// tác vụ xử lý việc ấn phím
+	// tÃ¡c vá»¥ xá»­ lÃ½ viá»‡c áº¥n phÃ­m
 	private void formKeyPressed(java.awt.event.KeyEvent evt) {
-		// lưu ₫ối tượng Graphics của form ₫ể vẽ icon khi cần
+		// lÆ°u â‚«á»‘i tÆ°á»£ng Graphics cá»§a form â‚«á»ƒ váº½ icon khi cáº§n
 		gh = this.getGraphics();
-		// xác ₫ịnh mã phím ấn, nếu không phải từ A-Z thì phớt lờ
+		// xÃ¡c â‚«á»‹nh mÃ£ phÃ­m áº¥n, náº¿u khÃ´ng pháº£i tá»« A-Z thÃ¬ phá»›t lá»?
 		int newch = evt.getKeyCode();
 		if (newch < 0x41 || newch > 0x5a)
 			return;
-		// xác ₫ịnh chức năng mà user muốn và thực hiện
-		if (evt.isControlDown() && evt.isShiftDown()) { // dừng Thread
+		// xÃ¡c â‚«á»‹nh chá»©c nÄƒng mÃ  user muá»‘n vÃ  thá»±c hiá»‡n
+		if (evt.isControlDown() && evt.isShiftDown()) { // dá»«ng Thread
 			threadLst[newch - 65].fstart = false;
-		} else if (evt.isControlDown()) { // giảm ₫ộ ưu tiên tối thiểu
-			threadLst[newch - 65].setPriority(1);
-		} else if (evt.isControlDown() && evt.isAltDown()) { // tạm dừng thread
+		} else if (evt.isControlDown() && evt.isAltDown()) { // táº¡m dá»«ng thread
 			if (threadLst[newch - 65].fstart && !threadLst[newch - 65].fsuspend) {
 				threadLst[newch - 65].suspend();
 				threadLst[newch - 65].fsuspend = true;
 			}
-		} else if (evt.isAltDown()) { // cho thread chạy lại
+		} else if (evt.isControlDown()) { // giáº£m â‚«á»™ Æ°u tiÃªn tá»‘i thiá»ƒu
+			threadLst[newch - 65].setPriority(Thread.MIN_PRIORITY);
+		} else if (evt.isAltDown()) { // cho thread cháº¡y láº¡i
 			if (threadLst[newch - 65].fstart && threadLst[newch - 65].fsuspend) {
 				threadLst[newch - 65].resume();
 				threadLst[newch - 65].fsuspend = false;
 			}
-		} else if (evt.isShiftDown()) { // tăng ₫ộ ưu tiên tối ₫a
-			threadLst[newch - 65].setPriority(31);
-		} else { // tạo mới thread và bắt ₫ầu chạy
+		} else if (evt.isShiftDown()) { // tÄƒng â‚«á»™ Æ°u tiÃªn tá»‘i â‚«a
+			threadLst[newch - 65].setPriority(Thread.MAX_PRIORITY);
+		} else { // táº¡o má»›i thread vÃ  báº¯t â‚«áº§u cháº¡y
 			if (!threadLst[newch - 65].fstart) {
 				threadLst[newch - 65].fstart = true;
 				threadLst[newch - 65].fsuspend = false;
