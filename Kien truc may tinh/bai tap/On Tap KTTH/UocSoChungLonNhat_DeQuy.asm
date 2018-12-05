@@ -34,44 +34,27 @@
 		
 	#thu tuc tim uoc chung lon nhat, tham so a truyen vao $a1, b truyen vao $a2, ket qua duoc luu o $v1
 	uoc_chung_lon_nhat:
-		#lay gia tri tuyet doi cua a va b
-		abs $a1,$a1
-		abs $a2,$a2
 		#kiem tra xem a va b deu = 0
-		add $t0,$a1,$a2  # t = a + b
+		add $t0,$a1,$a2
 		beqz $t0,a_b_bang_khong
-		beq $a1,0,L
-		beq $a2,0,L
-	lap:
-		beq $a1,$a2,thoat_lap
-		bgt $a1,$a2,a_lon_hon_b
-		sub $a2,$a2,$a1
-		j lap
-	a_lon_hon_b:
-		sub $a1,$a1,$a2
-		j lap
-	thoat_lap:
-		move $v1,$a1
-		#xuat chuoi 3
-		la $a0,chuoi3
-		li $v0,4
-		syscall
-		#in ket qua
-		li $v0,1
-		move $a0,$v1
-		syscall
+	de_quy:
+		rem $t0,$a1,$a2
+		#luu t0 va dia chi tra ve trong ham cha
+		addi $sp,$sp,-12
+		sw $a1,0($sp)
+		sw $a2,4($sp)
+		sw $ra,8($sp)
+		#kiem tra dung de quy
+		bnez $t0,L
+		#tra ve ket qua
+		move $v1,$a2
+		#khoi phuc gia tri con tro sp
+		addi $sp,$sp,12
 		jr $ra
 	L:
-		add $v1,$a1,$a2	
-		#xuat chuoi 3
-		la $a0,chuoi3
-		li $v0,4
-		syscall
-		#in ket qua
-		li $v0,1
-		move $a0,$v1
-		syscall
-		jr $ra
+		move $a1,$a2
+		move $a2,$t0
+		jal uoc_chung_lon_nhat
 	a_b_bang_khong:
 		#xuat chuoi 4
 		la $a0,chuoi4
