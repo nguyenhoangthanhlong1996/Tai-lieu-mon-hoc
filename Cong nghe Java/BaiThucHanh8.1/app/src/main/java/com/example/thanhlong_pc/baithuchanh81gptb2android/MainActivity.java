@@ -90,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
         strVonghiem = getResources().getString(R.string.strVonghiem);
         strConghiem = getResources().getString(R.string.strConghiem);
 
-//        //Sử dụng giao diện tạo bằng XML LinearLayout
-//        UseXMLLinearLayout();
+        //Sử dụng giao diện tạo bằng XML LinearLayout
+        UseXMLLinearLayout();
 //        //Sử dụng giao diện tạo bằng XML AbsoluteLayout
 //        UseXMLAbsoluteLayout();
 //        //Sử dụng giao diện tạo bằng XML TableLayout
