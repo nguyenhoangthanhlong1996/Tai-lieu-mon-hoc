@@ -1,3 +1,4 @@
+#Nhap mang
 .data
 	str1: .asciiz "Nhap n: "
 	str2: .asciiz "Nhap so thu "

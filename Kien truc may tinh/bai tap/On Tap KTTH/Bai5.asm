@@ -1,4 +1,4 @@
-#Bài 5: Tính S(n) = 1-2+3-4+...+((-1)^(n+1)))n v?i n > 0
+#Tinh S(n) = 1-2+3-4+...+((-1)^(n+1)))n voi n > 0
 .data
 	chuoi1: .asciiz "Nhap n: "
 	chuoi2: .asciiz "Ket qua: "
