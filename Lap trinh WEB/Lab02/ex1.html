@@ -6,10 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        body {
+            padding: 50px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        a {
+            color: blue;
+        }
+    </style>
 </head>
 
 <body>
-    <img src="shape.png" alt="" width="380px" height="70px">
+    <img src="images/logo.png" alt="" width="350" />
     <h1>About</h1>
     <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -19,27 +34,31 @@
         id est laborum.
     </p>
     <h1>Intro</h1>
-    <video width="600" height="auto" controls>
-        <source src="video.mp4" type="video/mp4"/>
+    <video width="600" height="400" controls>
+        <source src="video.MP4" type="video/mp4" />
         Your browser does not support the video tag.
     </video>
     <h1>Our location</h1>
     <ul>
         <li>USA</li>
+        <li>
             <ul>
                 <li><a href="">New York</a></li>
                 <li><a href="">Columbus</a></li>
-                <li><a href="">Austin</a></a></li>
+                <li><a href="">Austin</a></li>
                 <li><a href="">Phily</a></li>
             </ul>
+        </li>
         <li>World</li>
-        <ul>
-            <li><a href="">Ottawa</a></li>
-            <li><a href="">Sydney</a></li>
-        </ul>
+        <li>
+            <ul>
+                <li><a href="">Ottawa</a></li>
+                <li><a href="">Sydney</a></li>
+            </ul>
+        </li>
     </ul>
     <h1>Upcoming Classes</h1>
-    <table border="1">
+    <table>
         <tr>
             <th>Location</th>
             <th>Topic</th>
@@ -64,21 +83,15 @@
     </div>
     <fieldset>
         <legend>Gender:</legend>
-        Female <input type="radio" name="gender" checked="true"/>
-        Male <input type="radio" name="gender"/>
+        Female <input type="radio" name="gender" checked="checked" />
+        Male <input type="radio" name="gender" />
     </fieldset><br>
     Experience:<br>
-    <textarea  rows="3" cols="30"></textarea><br />
-    <input style="margin-top: 8px;" type="button" value="Sign Up"/><br /><br /><br /><br />
-    <span style="color: blue; font-weight: bold; "><a href="https://twitter.com/">Twitter</a> | <a href="https://facebook.com/">Facebook</a> | <a href="https://www.flickr.com/">Flickr</a></span>
+    <textarea rows="3" cols="30"></textarea><br />
+    <input style="margin-top: 8px;" type="button" value="Sign Up" /><br /><br /><br /><br />
+    <span style="color: blue; font-weight: bold; "><a href="https://twitter.com/">Twitter</a> | <a
+            href="https://facebook.com/">Facebook</a> | <a href="https://www.flickr.com/">Flickr</a></span>
 </body>
 <!--CSS-->
-<style>
-    body {
-        padding: 50px;
-    }
-    a {
-        color: blue;
-    }
-</style>
+
 </html>
