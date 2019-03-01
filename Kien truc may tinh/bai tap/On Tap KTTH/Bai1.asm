@@ -1,4 +1,4 @@
-#Bài 1: T(fact m? r?ng)
+#Tinh fact mo rong n m
 .data
 	chuoi1: .asciiz "Nhap n: "
 	chuoi2: .asciiz "Nhap m: "
