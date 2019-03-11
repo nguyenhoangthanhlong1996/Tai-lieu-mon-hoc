@@ -1,0 +1,9 @@
+regex lay cau hoi hop le: ^[0-9]{2}\.\s.*\na\.\s.*\nb\.\s.*\nc\.\s.*\nd\.\s.*\n\s[a-d]
+
+
+
+DELETE from questions;
+ALTER TABLE questions AUTO_INCREMENT = 1;
+
+DELETE from answers;
+ALTER TABLE answers AUTO_INCREMENT = 1;
