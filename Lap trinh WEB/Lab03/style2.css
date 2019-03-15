@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+.wrapper {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: darkgray;
+    height: 50px;
+}
+.header h1 {
+    line-height: 50px;
+}
+
+.menu {
+    height: 50px;
+    background-color: blue;
+}
+.menu ul {
+    list-style: none;
+}
+.menu ul li {
+    float: left;
+    margin: 0 20px;
+}
+.menu ul li a {
+    color: white;
+    line-height: 50px;
+}
+
+.content-left, .content-right {
+    float: left;
+}
+.content-left {
+    width: 250px;
+}
+.content-left ul {
+    margin: 0 30px;
+}
+.content-left .first {
+    background-color: yellow;
+    height: 150px;
+}
+.content-left .second {
+    background-color: gray;
+    height: 150px;
+}
+
+.content-right {
+    width: 550px;
+}
+.content-right p {
+    margin: 25px 10px;
+}
