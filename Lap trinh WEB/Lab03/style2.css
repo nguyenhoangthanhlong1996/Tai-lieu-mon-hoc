@@ -57,6 +57,37 @@
 .content-right {
     width: 550px;
 }
-.content-right p {
+.content-right > p {
     margin: 25px 10px;
+}
+.content-right .bottom-content {
+    height: 128px;
+}
+.content-right .bottom-content .column1, .column2 {
+    float: left;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-right .bottom-content .column1 {
+    background-color: green;
+}
+.content-right .bottom-content .column2 {
+    background-color: red;
+}
+.content-right .bottom-content .column1 p {
+    margin: 0 10px;
+}
+.content-right .bottom-content .column2 p {
+    margin: 0 10px;
+}
+
+.footer {
+    height: 50px;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

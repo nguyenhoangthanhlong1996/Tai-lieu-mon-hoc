@@ -26,6 +26,7 @@
 
 .menu ul {
     list-style: none;
+    overflow: hidden;
 }
 
 .menu ul li {
@@ -38,7 +39,7 @@
 }
 
 .column1 {
-    width: 70%;
+    width: 520px;
     background-color: aquamarine;
 }
 .column1-content {
@@ -53,7 +54,7 @@
 }
 
 .column2 {
-    width: 30%;
+    width: 230px;
     background-color: cornflowerblue;
 }
 .column2 .column2-content {
