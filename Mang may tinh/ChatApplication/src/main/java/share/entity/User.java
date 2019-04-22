@@ -5,16 +5,29 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
 public class User {
     private String username;
     private String name;
-    private Byte gender;
+    private boolean gender;
     private String avatar;
     private Timestamp createdAt;
     private Timestamp updatedAt;
+
+    public User() {
+    }
+
+    public User(String username, String name, boolean gender, String avatar) {
+        this.username = username;
+        this.name = name;
+        this.gender = gender;
+        this.avatar = avatar;
+        this.createdAt = new Timestamp(new Date().getTime());
+        this.updatedAt = new Timestamp(new Date().getTime());
+    }
 
     @Id
     @Column(name = "username")
@@ -38,11 +51,11 @@ public class User {
 
     @Basic
     @Column(name = "gender")
-    public Byte getGender() {
+    public boolean getGender() {
         return gender;
     }
 
-    public void setGender(Byte gender) {
+    public void setGender(boolean gender) {
         this.gender = gender;
     }
 

@@ -9,12 +9,14 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.SignUp">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.SignUp">
    <top>
       <HBox alignment="CENTER_RIGHT" onMouseDragged="#titleBarDragged" onMousePressed="#titleBarPresssed" prefHeight="45.0" prefWidth="366.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: gray;" BorderPane.alignment="CENTER">
          <children>
@@ -54,11 +56,11 @@
       </HBox>
    </top>
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="wrapper" stylesheets="@../styles/SignIn.css">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" styleClass="wrapper">
          <children>
             <FontAwesomeIconView fill="#ff3f04" glyphName="WECHAT" size="90">
                <VBox.margin>
-                  <Insets bottom="40.0" />
+                  <Insets />
                </VBox.margin>
             </FontAwesomeIconView>
             <JFXTextField fx:id="txtUsername" prefHeight="25.0" prefWidth="388.0" promptText="Tên tài khoản" styleClass="inputText">
@@ -69,7 +71,7 @@
                   <Insets />
                </opaqueInsets>
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets />
                </VBox.margin>
             </JFXTextField>
             <JFXTextField fx:id="txtFullName" prefHeight="25.0" prefWidth="388.0" promptText="Họ tên" styleClass="inputText">
@@ -77,12 +79,36 @@
                   <Font size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets />
                </VBox.margin>
             </JFXTextField>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Label text="Giới tính">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="rdbtnMale" mnemonicParsing="false" text="Nam" />
+                  <RadioButton fx:id="rdbtnFemale" mnemonicParsing="false" text="Nữ" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Hyperlink onAction="#chooseAvatar" text="Ảnh đại diện">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Hyperlink>
+                  <ImageView fx:id="ivAvatar" fitHeight="88.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
             <JFXPasswordField fx:id="txtPassword" promptText="Mật khẩu">
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets />
                </VBox.margin>
                <font>
                   <Font size="18.0" />
@@ -90,7 +116,7 @@
             </JFXPasswordField>
             <JFXPasswordField fx:id="txtRetypePassword" promptText="Nhập lại mật khẩu">
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets />
                </VBox.margin>
                <font>
                   <Font size="18.0" />
@@ -101,7 +127,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets top="47.0" />
+                  <Insets top="11.0" />
                </VBox.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -124,7 +150,7 @@
                   <Insets />
                </opaqueInsets>
                <VBox.margin>
-                  <Insets top="36.0" />
+                  <Insets />
                </VBox.margin>
             </HBox>
          </children>

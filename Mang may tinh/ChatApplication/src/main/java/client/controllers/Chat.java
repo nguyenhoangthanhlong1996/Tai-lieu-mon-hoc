@@ -3,13 +3,11 @@ package client.controllers;
 
 
 import client.Config;
-import client.object.Conversation;
-import client.object.Message;
-import client.object.Timeline;
+import client.objectUI.Conversation;
+import client.objectUI.Message;
+import client.objectUI.Timeline;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;

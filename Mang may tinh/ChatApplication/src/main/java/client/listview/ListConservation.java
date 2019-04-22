@@ -1,6 +1,6 @@
 package client.listview;
 
-import client.object.Conversation;
+import client.objectUI.Conversation;
 
 import java.util.ArrayList;
 

@@ -10,7 +10,14 @@ compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
 javadoc.options.encoding = 'UTF-8'
 
-mainClassName = 'client.Main'
+task(Client, dependsOn: 'classes', type: JavaExec) {
+    main = 'client.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
+task(Server, dependsOn: 'classes', type: JavaExec) {
+    main = 'server.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
 
 repositories {
     mavenCentral()

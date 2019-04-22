@@ -50,7 +50,7 @@ public class SignIn {
 
     @FXML
     void btnSignInClick(ActionEvent event) {
-        System.out.println("Đăng nhập");
+
     }
 
     @FXML
