@@ -17,4 +17,8 @@ public class Chat extends Application {
         stage.setMinHeight(700);
         stage.show();
     }
+
+    public void show() {
+        Application.launch();
+    }
 }

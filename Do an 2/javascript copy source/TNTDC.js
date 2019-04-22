@@ -14524,17 +14524,23 @@ d. go on
 //Regex 1 câu trắc nghiệm hợp lệ
 const regexMCQValid = /^[0-9]{2}\.\s.*\na\.\s.*\nb\.\s.*\nc\.\s.*\nd\.\s.*\n\s[a-d]/gm;
 
+//Giới hạn số lượng câu hỏi
+let totalQuestion = 500;
+
 //Lấy tất cả câu hỏi
 const regexQuestions = /(?<=^[0-9][0-9]\.\s).*/gm;
 let arrQuestions = content.match(regexQuestions);
+arrQuestions = arrQuestions.slice(0,totalQuestion);
 document.write('Tổng số câu hỏi: '+arrQuestions.length+'<br>');
 //Lấy tất cả câu trả lời đúng
 const regexCorrectAnswers = /(?<=^\s).*/gm;
 let arrCorrectAnswers = content.match(regexCorrectAnswers);
+arrCorrectAnswers = arrCorrectAnswers.slice(0,totalQuestion);
 document.write('Tổng số đáp án đúng: ' + arrCorrectAnswers.length+'<br>');
 //Lấy tất cả câu trả lời
 const regexAnswers = /(?<=^[a-d]\.\s).*/gm;
 var arrAnswers = content.match(regexAnswers);
+arrAnswers = arrAnswers.slice(0,totalQuestion*4)
 document.write('Tổng số đáp án: '+arrAnswers.length+'<br>');
 
 
@@ -14552,7 +14558,7 @@ document.write('Tổng số đáp án: '+arrAnswers.length+'<br>');
 
 
 //Duyệt mảng câu trả lời
-let idQuestionStartWith = 1;
+let idQuestionStartWith = 801;
 let idQuestion = 0;
 let indexQuestion = 0;
 arrAnswers.forEach((value, index) => {
@@ -14577,13 +14583,13 @@ arrAnswers.forEach((value, index) => {
 function stringInsertQuestion(contentQuestion) {
     contentQuestion = contentQuestion.replace(/'/g, "\\'");
     contentQuestion = contentQuestion.replace(/"/g, '\\"');
-    return `INSERT INTO questions (id, content, id_category, created_at, updated_at) VALUES (NULL, "${contentQuestion}", 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);`
+    return `INSERT INTO questions (id, content, note, id_category, id_user, created_at, updated_at) VALUES (NULL, "${contentQuestion}", NULL, 3, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);`
 }
 
 function stringInsertAnswer(contentAnswer, isTrue, idQuestion) {
     contentAnswer = contentAnswer.replace(/'/g, "\\'");
     contentAnswer = contentAnswer.replace(/"/g, '\\"');
-    return `INSERT INTO answers (id, content, correct_answer, id_question, created_at, updated_at) VALUES (NULL, "${contentAnswer}", ${isTrue}, ${idQuestion}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);`;
+    return `INSERT INTO answers (id, content, correct, id_question, created_at, updated_at) VALUES (NULL, "${contentAnswer}", ${isTrue}, ${idQuestion}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);`;
 }
 
 function removeSpaceString(string) {
