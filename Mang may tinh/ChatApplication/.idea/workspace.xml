@@ -5,60 +5,10 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/share/data/SignUpData.java" line="94" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a92cfbc8-cc87-4db7-ab43-be081a1e4a93" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Do an 2/javascript copy source/TNTDA.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Do an 2/javascript copy source/TNTDA.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Do an 2/javascript copy source/TNTDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Do an 2/javascript copy source/TNTDB.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Do an 2/javascript copy source/TNTDC.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Do an 2/javascript copy source/TNTDC.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Do an 2/javascript copy source/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Do an 2/javascript copy source/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="a92cfbc8-cc87-4db7-ab43-be081a1e4a93" name="Default Changelist" comment="init chat app">
+      <change afterPath="$PROJECT_DIR$/test.axs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lap trinh mang/Bai tap/BaiTapChuong4_3" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lap trinh mang/Bai tap/BaiTapChuong4_3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/client/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/client/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/client/controllers/Chat.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/client/controllers/Chat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/client/controllers/SignIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/client/controllers/SignIn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/client/controllers/SignUp.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/client/controllers/SignUp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/client/listview/ListConservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/client/listview/ListConservation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/client/object/Conversation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/client/object/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/client/object/Timeline.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/client/stages/Authenticate.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/client/stages/Authenticate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/Config.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/server/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/share/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/share/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/MainTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/MainTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/client/views/SignIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/client/views/SignIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/client/views/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/client/views/SignUp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/layout.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/controllers/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/controllers/Chat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/controllers/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/controllers/SignIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/controllers/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/controllers/SignUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/listview/ListConservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/listview/ListConservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/object/Conversation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/object/Message.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/object/Timeline.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/stages/Authenticate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/stages/Authenticate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/share/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/share/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/client/views/SignIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/client/views/SignIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/client/views/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/client/views/SignUp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/layout.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/style.css" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -146,10 +96,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/test.axs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+            <state>
+              <caret column="25" selection-start-column="25" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -185,7 +135,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/client/listview/ListConservation.java" />
         <option value="$PROJECT_DIR$/src/main/resources/client/views/ConversationItem.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/client/styles/Chat.css" />
         <option value="$PROJECT_DIR$/src/main/resources/client/views/Chat.fxml" />
@@ -236,6 +185,7 @@
         <option value="$PROJECT_DIR$/src/main/java/server/socket/ThreadConnection.java" />
         <option value="$PROJECT_DIR$/src/main/java/client/socket/SingletonConnect.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/test.axs" />
       </list>
     </option>
   </component>
@@ -505,8 +455,23 @@
       <workItem from="1555897054043" duration="8354000" />
       <workItem from="1555906479261" duration="42000" />
       <workItem from="1555906534663" duration="601000" />
-      <workItem from="1555907151778" duration="234000" />
+      <workItem from="1555907151778" duration="824000" />
     </task>
+    <task id="LOCAL-00001" summary="init chat app">
+      <created>1555907524792</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1555907524792</updated>
+    </task>
+    <task id="LOCAL-00002" summary="init chat app">
+      <created>1555907547612</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1555907547612</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -521,7 +486,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113403000" />
+    <option name="totallyTimeSpent" value="113993000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="3" width="1527" height="1047" extended-state="0" />
@@ -545,9 +510,9 @@
       <window_info anchor="bottom" id="Build" order="7" weight="0.32951945" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.37559646" side_tool="true" weight="0.2759009" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.42944786" side_tool="true" weight="0.28884026" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" visible="true" weight="0.28884026" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.5705522" visible="true" weight="0.28884026" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32995495" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -598,6 +563,12 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="init chat app" />
+    <option name="LAST_COMMIT_MESSAGE" value="init chat app" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -699,7 +670,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/Controller.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/client/views/ConversationItem.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -1107,6 +1077,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="505">
           <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.axs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
         </state>
       </provider>
     </entry>
