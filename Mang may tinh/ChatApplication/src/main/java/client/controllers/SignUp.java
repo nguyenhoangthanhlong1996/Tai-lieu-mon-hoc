@@ -1,5 +1,6 @@
 package client.controllers;
 
+import client.socket.SingletonConnect;
 import client.stages.Authenticate;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -13,6 +14,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import share.data.SignUpData;
+import share.protocol.Request;
+import share.protocol.RequestType;
 
 
 import java.io.File;
@@ -131,7 +134,7 @@ public class SignUp {
                 errs += s + "\n";
             authenticate.showAlert("Dữ liệu nhập vào không hợp lệ", errs);
         } else {
-            authenticate.showAlert("Đăng ký thành công","thành công" );
+            SingletonConnect.getInstance().sendRequest(new Request(RequestType.LOGIN, signUpData));
         }
     }
 

@@ -3,30 +3,25 @@ package client.socket;
 import client.stages.Authenticate;
 import client.stages.Chat;
 import javafx.application.Application;
-import server.controllers.LogLevel;
 import share.Config;
+import share.protocol.Request;
+import share.protocol.Response;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 
 public class SingletonConnect {
     private static SingletonConnect instance;
 
     Socket socket;
-    BufferedReader bufferedReader;
-    PrintWriter printWriter;
-    Authenticate authenticateStage;
-    Chat chatStage;
+    ObjectInputStream objectInputStream;
+    ObjectOutputStream objectOutputStream;
     boolean logged;
     Thread threadReceiverResponse;
 
     //Constructor khởi tạo kết nối socket và chỉ gọi được bên trong nội bộ
     private SingletonConnect() {
         initConnect();
-        showStage();
     }
 
     //Hàm trả về instance hiện tại
@@ -42,8 +37,8 @@ public class SingletonConnect {
         //Tạo socket
         try {
             socket = new Socket(Config.HOST_SEVER, Config.PORT_LISTEN_SERVER);
-            bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            printWriter = new PrintWriter(socket.getOutputStream());
+            objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+            objectInputStream = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -53,13 +48,19 @@ public class SingletonConnect {
             public void run() {
                 while (true) {
                     try {
-                        String result = "";
-                        if ((result = bufferedReader.readLine()) != null) {
-
+                        Response response = null;
+                        try {
+                            if ((response = (Response) objectInputStream.readObject()) != null) {
+                                getAuthenticateStage().showAlert("đăng nhập thành công", "");
+                            } else { //Mất kết nối tới server
+                                closeConnection();
+                            }
+                        } catch (ClassNotFoundException e) {
+                            e.printStackTrace();
                         }
-                    } catch (IOException e) {
+                    } catch (IOException e) { //Mất kết nối tới server
                         e.printStackTrace();
-                        System.out.println("Mất kết nối tới Server");
+                        closeConnection();
                     }
                 }
             }
@@ -68,12 +69,12 @@ public class SingletonConnect {
         threadReceiverResponse.start();
     }
 
-    public void setAuthenticateStage(Authenticate authenticateStage) {
-        this.authenticateStage = authenticateStage;
+    public Authenticate getAuthenticateStage() {
+        return Authenticate.getInstance();
     }
 
-    public void setChatStage(Chat chatStage) {
-        this.chatStage = chatStage;
+    public Chat getChatStage() {
+        return null;
     }
 
     public boolean isLogged() {
@@ -84,10 +85,41 @@ public class SingletonConnect {
         this.logged = logged;
     }
 
-    private void showStage() {
+    public void start() {
         //Nếu chưa đăng nhập thì hiện giao diện đăng nhập
         if (isLogged() == false) {
-            Application.launch(Authenticate.class);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Application.launch(Authenticate.class);
+                }
+            }).start();
+        } else { //Hiện giao diện đăng ký
+
+        }
+    }
+
+    //Hàm này sẽ được gọi khi bị mất kết nối tới Server
+    private void closeConnection() {
+        try {
+            //Đòng kết nối socket
+            socket.close();
+            if (isLogged() == false && getAuthenticateStage() != null) {
+                getAuthenticateStage().disconnect();
+            }
+            //Dừng thread lắng nghe phản hồi từ Server
+            threadReceiverResponse.stop();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sendRequest(Request request) {
+        try {
+            objectOutputStream.writeObject(request);
+            objectOutputStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

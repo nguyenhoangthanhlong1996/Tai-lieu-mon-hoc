@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
         //Khởi tạo kết nối tới server
         SingletonConnect singletonConnect = SingletonConnect.getInstance();
-//
+        //Start
+        singletonConnect.start();
     }
 }
