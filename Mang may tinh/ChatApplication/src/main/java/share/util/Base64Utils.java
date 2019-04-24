@@ -1,5 +1,10 @@
 package share.util;
 
+import javafx.scene.image.Image;
+import sun.misc.BASE64Decoder;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Base64;
 
@@ -20,6 +25,13 @@ public class Base64Utils {
             System.out.println("Exception while reading the Image " + ioe);
         }
         return base64Image;
+    }
+
+    public static Image getImageFromBase64String(String base64String) throws IOException {
+        BASE64Decoder base64Decoder = new BASE64Decoder();
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(base64Decoder.decodeBuffer(base64String));
+        Image img = new Image(inputStream);
+        return img;
     }
 
     public static void decoder(String base64Image, String pathFile) {

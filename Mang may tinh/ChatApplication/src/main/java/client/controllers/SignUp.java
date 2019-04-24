@@ -1,33 +1,39 @@
 package client.controllers;
 
 import client.socket.SingletonConnect;
-import client.stages.Authenticate;
+import client.stages.ClientApp;
+import client.stages.ScenceOption;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import share.data.SignUpData;
 import share.protocol.Request;
 import share.protocol.RequestType;
-
-
+import share.util.Base64Utils;
 import java.io.File;
 
 public class SignUp {
-
-    Authenticate authenticate;
+    //region Biến
+    ClientApp app;
+    SingletonConnect connect;
     Stage stage;
     double x = 0, y = 0;
     File fileAvatar;
     SignUpData signUpData;
+    //endregion
 
+    //region FXML Đối tượng UI
     @FXML
     private JFXTextField txtUsername;
     @FXML
@@ -42,13 +48,17 @@ public class SignUp {
     private JFXPasswordField txtPassword;
     @FXML
     private JFXPasswordField txtRetypePassword;
+    //endregion
 
-    public void setAuthenticate(Authenticate authenticate) {
-        this.authenticate = authenticate;
-        this.stage = authenticate.stage;
+    //region Phương thức khởi tạo
+    public SignUp(ClientApp app, Stage stage) {
+        this.app = app;
+        this.stage = stage;
+        connect = SingletonConnect.getInstance();
     }
+    //endregion
 
-    //region Xử lý khi controller được khởi chạy
+    //region @FXML init
     @FXML
     void initialize() {
         //Gán group cho giới tính
@@ -57,12 +67,10 @@ public class SignUp {
         rdbtnFemale.setToggleGroup(toggleGroup);
         //Lụa chọn mặc định
         rdbtnMale.setSelected(true);
-        //Tạo đối tượng lưu dữ liệu và kiểm tra tính hợp lệ
-        signUpData = new SignUpData();
     }
     //endregion
 
-    //region Xử lý các sự kiện tương tác trên giao diện
+    //region @FXML Xử lý sự kiện thao tác với cửa sổ ứng dụng
     //Kéo thanh tiêu đề
     @FXML
     void titleBarDragged(MouseEvent event) {
@@ -77,18 +85,28 @@ public class SignUp {
         y = event.getSceneY();
     }
 
-    //Đóng ứng dụng
-    @FXML
-    void close(MouseEvent event) {
-        System.exit(0);
-    }
-
     //Minimize ứng dụng
     @FXML
     void minimize(MouseEvent event) {
         stage.setIconified(true);
     }
 
+    //Đóng ứng dụng
+    @FXML
+    void close(MouseEvent event) {
+        Platform.exit();
+    }
+
+    @FXML
+    void onKeyPressed(KeyEvent event) {
+        //Nhấn phím enter
+        if (event.getCode() == KeyCode.ENTER) {
+            btnSignUpClick(null);
+        }
+    }
+    //endregion
+
+    //region @FXML Xử lý sự kiện thao tác chính
     //Chọn file ảnh đại diện
     @FXML
     void chooseAvatar(ActionEvent event) {
@@ -101,7 +119,7 @@ public class SignUp {
         fileAvatar = fileChooser.showOpenDialog(stage);
         if (fileAvatar != null) {
             if (fileAvatar.length() > 512000) {
-                authenticate.showAlert("Kích thước ảnh lớn hơn 500 KB", "Vui lòng chọn ảnh khác, ảnh đại diện của bạn sẽ không được lưu khi kích thước lớn hơn 500 KB");
+                app.showAlert("Kích thước ảnh lớn hơn 500 KB", "Vui lòng chọn ảnh khác, ảnh đại diện của bạn sẽ không được lưu khi kích thước lớn hơn 500 KB");
                 fileAvatar = null;
                 ivAvatar.setImage(null);
             } else {
@@ -120,7 +138,8 @@ public class SignUp {
         boolean gender = rdbtnMale.isSelected() ? true : false;
         String password = txtPassword.getText();
         String retypePassword = txtRetypePassword.getText();
-        String avatar = (fileAvatar != null) ? fileAvatar.getAbsolutePath() : "";
+        String avatar = (fileAvatar != null) ? Base64Utils.encoder(fileAvatar.getAbsolutePath()) : "";
+        signUpData = new SignUpData();
         signUpData.setUsername(username);
         signUpData.setName(name);
         signUpData.setGender(gender);
@@ -132,16 +151,30 @@ public class SignUp {
             String errs = "";
             for (String s : signUpData.getErrors())
                 errs += s + "\n";
-            authenticate.showAlert("Dữ liệu nhập vào không hợp lệ", errs);
+            app.showAlert("Dữ liệu nhập vào không hợp lệ", errs);
         } else {
-            SingletonConnect.getInstance().sendRequest(new Request(RequestType.LOGIN, signUpData));
+            //Gửi resquest register lên Server
+            connect.sendRequest(new Request(RequestType.REGISTER, signUpData));
         }
     }
 
     //Chuyển về giao diện đăng nhập
     @FXML
     void linkToSignIn(ActionEvent event) {
-        authenticate.goToSignIn();
+        app.setDisplayScence(ScenceOption.SIGN_IN);
+    }
+    //endregion
+
+    //region Các hàm xử lý
+    //Hàm làm mới form
+    public void clearForm() {
+        txtUsername.setText("");
+        txtFullName.setText("");
+        txtPassword.setText("");
+        txtRetypePassword.setText("");
+        rdbtnMale.setSelected(true);
+        fileAvatar = null;
+        ivAvatar.setImage(null);
     }
     //endregion
 }

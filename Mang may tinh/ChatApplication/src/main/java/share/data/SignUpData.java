@@ -84,7 +84,8 @@ public class SignUpData implements Serializable {
                 ", gender=" + gender +
                 ", password='" + password + '\'' +
                 ", retypePassword='" + retypePassword + '\'' +
-                ", avatar='" + avatar + '\'' +
+                //", avatar='" + avatar + '\'' +
+                ", avatar='" + "base64_encode" + '\'' +
                 '}';
     }
 

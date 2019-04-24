@@ -1,12 +1,11 @@
 package server;
 
 import javafx.application.Application;
-import server.stages.Server;
-import share.dao.UserDAO;
-import share.entity.User;
+import server.stages.ServerApp;
+
 
 public class Main {
     public static void main(String[] args) {
-        Application.launch(Server.class, args);
+        Application.launch(ServerApp.class, args);
     }
 }

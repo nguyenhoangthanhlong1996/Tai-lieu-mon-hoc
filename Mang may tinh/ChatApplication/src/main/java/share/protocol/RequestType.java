@@ -1,5 +1,5 @@
 package share.protocol;
 
 public enum RequestType {
-    LOGIN, LOGOUT;
+    LOGIN, LOGOUT, REGISTER;
 }

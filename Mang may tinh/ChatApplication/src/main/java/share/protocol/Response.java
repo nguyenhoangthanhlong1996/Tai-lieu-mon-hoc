@@ -4,20 +4,31 @@ import java.io.Serializable;
 
 public class Response implements Serializable {
 
-    private RequestType requestType;
+    private ResponseType responseType;
+    private boolean success;
     private Object data;
 
-    public Response(RequestType requestType, Object data) {
-        this.requestType = requestType;
+    public Response(ResponseType responseType, boolean success, Object data) {
+        this.responseType = responseType;
+        //cờ hiệu response
+        this.success = success;
         this.data = data;
     }
 
-    public RequestType getRequestType() {
-        return requestType;
+    public ResponseType getResponseType() {
+        return responseType;
     }
 
-    public void setRequestType(RequestType requestType) {
-        this.requestType = requestType;
+    public void setResponseType(ResponseType responseType) {
+        this.responseType = responseType;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
     public Object getData() {
@@ -30,8 +41,9 @@ public class Response implements Serializable {
 
     @Override
     public String toString() {
-        return "Request{" +
-                "requestType=" + requestType +
+        return "Response{" +
+                "responseType=" + responseType +
+                ", success=" + success +
                 ", data=" + data +
                 '}';
     }

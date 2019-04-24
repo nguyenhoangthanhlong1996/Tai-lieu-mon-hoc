@@ -4,27 +4,32 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
-public class User {
+public class User implements Serializable {
     private String username;
+    private String password;
     private String name;
     private boolean gender;
     private String avatar;
+    private boolean online;
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
     public User() {
     }
 
-    public User(String username, String name, boolean gender, String avatar) {
+    public User(String username, String password, String name, boolean gender, String avatar) {
         this.username = username;
+        this.password = password;
         this.name = name;
         this.gender = gender;
         this.avatar = avatar;
+        this.online = false;
         this.createdAt = new Timestamp(new Date().getTime());
         this.updatedAt = new Timestamp(new Date().getTime());
     }
@@ -37,6 +42,16 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Basic
+    @Column(name = "password")
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Basic
@@ -70,6 +85,14 @@ public class User {
     }
 
     @Basic
+    @Column(name = "online")
+    public boolean isOnline() { return online; }
+
+    public void setOnline(boolean online) {
+        this.online = online;
+    }
+
+    @Basic
     @Column(name = "created_at")
     public Timestamp getCreatedAt() {
         return createdAt;
@@ -90,30 +113,15 @@ public class User {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(username, user.username) &&
-                Objects.equals(name, user.name) &&
-                Objects.equals(gender, user.gender) &&
-                Objects.equals(avatar, user.avatar) &&
-                Objects.equals(createdAt, user.createdAt) &&
-                Objects.equals(updatedAt, user.updatedAt);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(username, name, gender, avatar, createdAt, updatedAt);
-    }
-
-    @Override
     public String toString() {
         return "User{" +
                 "username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", gender=" + gender +
-                ", avatar='" + avatar + '\'' +
+                //", avatar='" + avatar + '\'' +
+                ", avatar='" + "base64_encode" + '\'' +
+                ", online=" + online +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';

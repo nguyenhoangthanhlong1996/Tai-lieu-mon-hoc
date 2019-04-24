@@ -1,14 +1,16 @@
 package server.controllers;
 
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import server.objectUI.InfoConnect;
 import server.socket.HandleConnect;
 import share.Config;
 
@@ -19,21 +21,38 @@ import java.util.Calendar;
 
 public class ServerController {
 
+    private static ServerController instance;
+    public static ServerController getInstance() {
+        return instance;
+    }
     private SimpleDateFormat dateFormat;
     public ServerSocket serverSocket;
     private HandleConnect handleConnect;
-
     @FXML
     private VBox vboxViewSysLog;
     @FXML
     private ScrollPane scrollPaneViewSysLog;
     @FXML
     private ToggleButton toggleOnOffServer;
+    @FXML
+    private TableView<InfoConnect> tableConnect;
+    @FXML
+    private TableColumn<InfoConnect, Integer> colPortID;
+    @FXML
+    private TableColumn<InfoConnect, String> colByUser;
+
+    //Danh sách chứa tất cả các kết nối hiện có
+    public ObservableList<InfoConnect> listConnect;
 
     @FXML
     public void initialize() {
+        instance = this;
         dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         scrollPaneViewSysLog.vvalueProperty().bind(vboxViewSysLog.heightProperty());
+        listConnect = FXCollections.observableArrayList();
+        colPortID.setCellValueFactory(new PropertyValueFactory<>("port"));
+        colByUser.setCellValueFactory(new PropertyValueFactory<>("username"));
+        tableConnect.setItems(listConnect);
     }
 
     @FXML
@@ -47,7 +66,7 @@ public class ServerController {
                 serverSocket = new ServerSocket(Config.PORT_LISTEN_SERVER);
                 appendSysLog("Server đã được bật", LogLevel.INFO);
                 appendSysLog("Đang lắng nghe kết nối từ Client...", LogLevel.INFO);
-                handleConnect = new HandleConnect(this);
+                handleConnect = new HandleConnect();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -69,6 +88,7 @@ public class ServerController {
         Label lblLog = new Label();
         lblLog.setFont(new Font(14));
         lblLog.setText(content);
+        lblLog.setWrapText(true);
         switch (logLevel) {
             case INFO:
                 lblLog.setTextFill(Color.DARKBLUE);
@@ -82,4 +102,18 @@ public class ServerController {
         }
         vboxViewSysLog.getChildren().add(lblLog);
     }
+
+    public void addInfoConnect(int port, String username) {
+        listConnect.add(new InfoConnect(port,username));
+    }
+
+    public void removeInfoConnect(int port) {
+        listConnect.removeIf(ic -> ic.getPort() == port);
+    }
+
+    public void updateInfoConnect(int port, String username) {
+        listConnect.filtered(ic -> ic.getPort() == port).get(0).setUsername(username);
+        tableConnect.refresh();
+    }
+
 }

@@ -3,6 +3,7 @@ package server.socket;
 import javafx.application.Platform;
 import server.controllers.LogLevel;
 import server.controllers.ServerController;
+import server.objectUI.InfoConnect;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -13,15 +14,15 @@ import java.util.Set;
 
 public class HandleConnect {
 
-    private ServerController serverController;
+    public ServerController serverController;
     private ServerSocket serverSocket;
     private Thread threadListenConnect;
-    private Map<Integer,ThreadConnection> connectionList; //Danh sách chứa tất cả các kết nối tời client;
+    public Map<Integer,ThreadConnection> connectionList; //Danh sách chứa tất cả các kết nối tời client;
 
-    public HandleConnect(ServerController serverController) {
-        this.serverController = serverController;
+    public HandleConnect() {
+        this.serverController = ServerController.getInstance();
         this.serverSocket = serverController.serverSocket;
-        connectionList = new HashMap<Integer, ThreadConnection>();
+        connectionList = new HashMap<>();
         threadListenConnect = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -32,6 +33,7 @@ public class HandleConnect {
                         appendSysLog("Có kết nối với client qua port "+socket.getPort(), LogLevel.INFO);
                         ThreadConnection connection = new ThreadConnection(HandleConnect.this, socket);
                         connectionList.put(port, connection);
+                        serverController.listConnect.add(new InfoConnect(port, null));
                         connection.start();
                     } catch (IOException e) {
                         closeAllConnection();
@@ -47,7 +49,9 @@ public class HandleConnect {
 
     public void appendSysLog(String content, LogLevel logLevel) {
         Platform.runLater(() -> {
-            serverController.appendSysLog(content, logLevel);
+            synchronized (serverController) {
+                serverController.appendSysLog(content, logLevel);
+            }
         });
     }
 
@@ -56,7 +60,7 @@ public class HandleConnect {
         Set<Integer> keys = connectionList.keySet();
         for (Integer key: keys) {
             ThreadConnection connection = connectionList.get(key);
-            connection.closeConnection();
+            connection.disconnect();
         }
     }
 }
