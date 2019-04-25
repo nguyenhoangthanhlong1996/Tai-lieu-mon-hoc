@@ -9,6 +9,7 @@ import share.protocol.Response;
 import share.protocol.ResponseType;
 import java.io.*;
 import java.net.Socket;
+import java.util.List;
 
 public class SingletonConnect {
     //Instance SingletonConnect tĩnh
@@ -16,6 +17,8 @@ public class SingletonConnect {
     ClientApp app;
     //socket ở client
     Socket socket;
+    //User hiện tại đang đăng nhập
+    public User user;
     //Đối tượng nhận dữ liệu
     ObjectInputStream objectInputStream;
     //Đối tượng gửi dữ liệu
@@ -29,6 +32,7 @@ public class SingletonConnect {
     private SingletonConnect() {
         //Lấy ra được instance ClientApp
         app = ClientApp.getInstance();
+        user = null;
         initConnect();
     }
 
@@ -128,9 +132,9 @@ public class SingletonConnect {
                 //region LOGIN
                 if (response.isSuccess()) {//Đăng nhập thành công
                     //Sẽ lấy ra được thông tin User
-                    User user = (User) response.getData();
+                    user = (User) response.getData();
                     app.setDisplayScence(ScenceOption.CHAT);
-                    app.ctrChat.showMyInfo(user);
+                    app.ctrChat.showMyInfo();
                 } else {//Đăng nhập thất bại
                     //Sẽ lấy ra được lỗi
                     app.showAlert("Đăng nhập thất bại", (String) response.getData());
@@ -138,7 +142,15 @@ public class SingletonConnect {
                 break;
             //endregion
             case LOGOUT:
+                //region LOGOUT
+                if (response.isSuccess()) {
+                    app.logout();
+                } else {
+                    //Sẽ lấy ra được lỗi
+                    app.showAlert("Đăng xuất thất bại", (String) response.getData());
+                }
                 break;
+                //end
             case REGISTER:
                 //region REGISTER
                 if (response.isSuccess()) {//Đăng ký thành công
@@ -148,6 +160,19 @@ public class SingletonConnect {
                     //Sẽ lấy ra được lỗi
                     app.showAlert("Đăng ký thất bại", (String) response.getData());
                 }
+                break;
+            //endregion
+            case GET_LIST_USER:
+                //region GET_LIST_USER
+                if (response.isSuccess()) {
+                    List<User> list = (List<User>) response.getData();
+                    app.ctrChat.refreshUI_ListUser(list);
+                }
+                break;
+                //endregion
+            case BROADCAST_LIST_USER:
+                //region BROADCAST_LIST_USER
+                app.ctrChat.requestListUser();
                 break;
             //endregion
         }

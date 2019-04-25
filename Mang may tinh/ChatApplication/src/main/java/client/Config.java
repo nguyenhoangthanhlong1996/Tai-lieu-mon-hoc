@@ -59,6 +59,18 @@ public class Config {
         }
     }
 
+    //Trả về URL giao diện 1 item liên hệ
+    public static URL getPathViewContactItem() {
+        try {
+            //Tên file fxml cho item hội thoại
+            String nameFile = "ContactItem.fxml";
+            return new URL(PATH_RESOURCES_VIEWS.toString() + "/" + nameFile);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     //Trả về URL giao diện 1 item cuộc hội thoại
     public static URL getPathViewConversationItem() {
         try {

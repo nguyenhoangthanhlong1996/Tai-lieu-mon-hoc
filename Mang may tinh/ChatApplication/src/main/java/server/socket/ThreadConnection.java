@@ -14,6 +14,7 @@ import share.util.HibernateUtils;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.List;
 
 public class ThreadConnection extends Thread {
     ServerController serverController;
@@ -98,6 +99,8 @@ public class ThreadConnection extends Thread {
                             response = new Response(ResponseType.LOGIN, true, user);
                             handleConnect.appendSysLog("Client port " + socket.getPort() + " đăng nhập thành công với tên tài khoản " + user.getUsername() + " | " + response.toString(), LogLevel.INFO);
                             sendResponse(response);
+                            //thông báo có sự thay đổi trong list user
+                            handleConnect.broadcastListUser();
                         } else { //không cập nhật được trạng thái
                             response = new Response(ResponseType.LOGIN, false, "Có lỗi xác thực trạng thái đăng nhập, hãy thử lại sau");
                             handleConnect.appendSysLog("Client port " + socket.getPort() + " đăng nhập thất bại | " + response.toString(), LogLevel.INFO);
@@ -112,7 +115,25 @@ public class ThreadConnection extends Thread {
                 break;
                 //endregion
             case LOGOUT:
+                //region LOGOUT
+                //Cập nhật lại trạng thái trực tuyến của user này
+                if (userDAO.updateStatusOnline(user.getUsername(), false)) { //cập nhật thành công
+                    response = new Response(ResponseType.LOGOUT, true, null);
+                    handleConnect.appendSysLog("Client port " + socket.getPort() + " đăng xuất thành công | " + response.toString(), LogLevel.INFO);
+                    sendResponse(response);
+                    //User lúc này sẽ không tồn tại
+                    user = null;
+                    //Cập nhật lại danh sách các kết nối
+                    serverController.updateInfoConnect(socket.getPort(), null);
+                    //Thông báo về tất cả các user đang đăng nhập
+                    handleConnect.broadcastListUser();
+                } else { //Lỗi đăng xuất
+                    response = new Response(ResponseType.LOGOUT, false, "Có lỗi trong quá trình đăng xuất");
+                    handleConnect.appendSysLog("Client port " + socket.getPort() + " đăng xuất thất bại | " + response.toString(), LogLevel.INFO);
+                    sendResponse(response);
+                }
                 break;
+                //endregion
             case REGISTER:
                 //region REGISTER
                 //Lấy ra dữ liệu đăng ký từ request của client
@@ -136,6 +157,8 @@ public class ThreadConnection extends Thread {
                         response = new Response(ResponseType.REGISTER, true, null);
                         handleConnect.appendSysLog("Client port " + socket.getPort() + " đăng ký thành công | " + response.toString(), LogLevel.INFO);
                         sendResponse(response);
+                        //thông báo có sự thay đổi trong list user
+                        handleConnect.broadcastListUser();
                     } else { //Tạo tài khoản thất bại
                         response = new Response(ResponseType.REGISTER, false, "Đã có lỗi xảy ra, vui lòng thử lại sau");
                         handleConnect.appendSysLog("Client port " + socket.getPort() + " đăng ký thất bại | " + response.toString(), LogLevel.WARNING);
@@ -144,11 +167,31 @@ public class ThreadConnection extends Thread {
                 }
                 break;
                 //endregion
+            case GET_LIST_USER:
+                //region GET_LIST_USER
+                //Lấy ra danh sách tất cả user ngoại trừ user gửi request này lên
+                if (user != null) {
+                    List<User> list = null;
+                    try {
+                        list = userDAO.getAllUserExceptUsername(user.getUsername());
+                        response = new Response(ResponseType.GET_LIST_USER, true, list);
+                        sendResponse(response);
+                    } catch (Exception e) {
+                        response = new Response(ResponseType.GET_LIST_USER, false, "Không thể lấy dữ liệu của bạn");
+                        sendResponse(response);
+                        e.printStackTrace();
+                    }
+                } else {
+                    response = new Response(ResponseType.GET_LIST_USER, false, "Không thể lấy dữ liệu của bạn");
+                    sendResponse(response);
+                }
+                break;
+                //endregion
         }
     }
 
     //Hàm gửi response về client
-    private void sendResponse(Response response) {
+    public void sendResponse(Response response) {
         try {
             objectOutputStream.writeObject(response);
             objectOutputStream.flush();
@@ -170,6 +213,8 @@ public class ThreadConnection extends Thread {
             //Cập nhật lại trạng thái trực tuyến
             userDAO.updateStatusOnline(user.getUsername(), false);
         }
+        //Thông báo user này đã đăng xuất đến tất cả các user
+        handleConnect.broadcastListUser();
         //Đóng kết socket và dừng luồng nhận request
         try {
             socket.close();

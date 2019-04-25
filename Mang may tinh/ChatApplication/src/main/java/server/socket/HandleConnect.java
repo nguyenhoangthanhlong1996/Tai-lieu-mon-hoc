@@ -4,6 +4,8 @@ import javafx.application.Platform;
 import server.controllers.LogLevel;
 import server.controllers.ServerController;
 import server.objectUI.InfoConnect;
+import share.protocol.Response;
+import share.protocol.ResponseType;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -61,6 +63,19 @@ public class HandleConnect {
         for (Integer key: keys) {
             ThreadConnection connection = connectionList.get(key);
             connection.disconnect();
+        }
+    }
+
+    //Khi hàm này được gọi sẽ thông báo cho tất cả user đang đăng nhập biết có sự thay đổi list user
+    public void broadcastListUser() {
+        appendSysLog("Broadcast danh sách người dùng", LogLevel.INFO);
+        Set<Integer> keys = connectionList.keySet();
+        Response response = new Response(ResponseType.BROADCAST_LIST_USER, true, null);
+        for (Integer key: keys) {
+            ThreadConnection connection = connectionList.get(key);
+            if (connection.user != null) {//Có đăng nhập
+                connection.sendResponse(response);
+            }
         }
     }
 }

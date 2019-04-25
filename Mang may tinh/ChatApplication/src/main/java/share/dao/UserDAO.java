@@ -36,6 +36,17 @@ public class UserDAO {
         return list;
     }
 
+    //Lấy danh sách tất cả user ngoại trừ user có username
+    public List<User> getAllUserExceptUsername(String username) throws Exception {
+        open();
+        List<User> list = session
+                .createQuery("from User u where u.username != :username")
+                .setParameter("username", username)
+                .list();
+        close();
+        return list;
+    }
+
     //Kiểm tra 1 username đã tồn tại
     public boolean existUsername(String username) {
         open();

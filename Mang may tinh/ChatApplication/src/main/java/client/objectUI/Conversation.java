@@ -40,12 +40,6 @@ public class Conversation extends HBox {
     private Label lblNumberUnreadMessage;
 
     public Conversation(String avatar, String username, String name, String shortenContent, String lastMessageTime, int numberUnreadMessage) {
-//        this.avatar = avatar;
-//        this.username = username;
-//        this.name = name;
-//        this.shortenContent = shortenContent;
-//        this.lastMessageTime = lastMessageTime;
-//        this.numberUnreadMessage = numberUnreadMessage;
         FXMLLoader loader = new FXMLLoader(Config.getPathViewConversationItem());
         loader.setRoot(this);
         loader.setController(this);

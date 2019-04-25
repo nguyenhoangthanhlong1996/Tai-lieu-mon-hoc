@@ -7,6 +7,7 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -19,213 +20,225 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" stylesheets="@../styles/Chat.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
-   <left>
-      <VBox prefHeight="650.0" prefWidth="80.0" styleClass="menu-bar" BorderPane.alignment="CENTER">
-         <children>
-            <VBox alignment="TOP_CENTER" prefHeight="116.0" prefWidth="80.0">
-               <children>
-                  <ImageView fx:id="ivMyAvatar" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/girl2.png" />
-                     </image>
-                  </ImageView>
-                  <Circle fx:id="circleMyStatus" fill="#00da8e" radius="6.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.5">
-                     <VBox.margin>
-                        <Insets top="7.0" />
-                     </VBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="circle-status-online" />
-                        <String fx:value="active-menu-item" />
-                     </styleClass>
-                  </Circle>
-               </children>
-            </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="232.0" prefWidth="80.0">
-               <children>
-                  <VBox alignment="CENTER" prefHeight="60.0" prefWidth="80.0">
-                     <children>
-                        <FontAwesomeIconView fill="WHITE" glyphName="BELL_ALT" size="30" />
-                     </children>
-                     <styleClass>
-                        <String fx:value="item-menu" />
-                        <String fx:value="active-menu-item" />
-                     </styleClass>
-                     <VBox.margin>
-                        <Insets bottom="14.0" />
-                     </VBox.margin>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="60.0" prefWidth="80.0" styleClass="item-menu">
-                     <children>
-                        <MaterialDesignIconView fill="WHITE" glyphName="COMMENT_TEXT_OUTLINE" size="30" />
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="14.0" />
-                     </VBox.margin>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="60.0" prefWidth="80.0" styleClass="item-menu">
-                     <children>
-                        <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_BOX_OUTLINE" size="30" />
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="14.0" />
-                     </VBox.margin>
-                  </VBox>
-               </children></VBox>
-            <VBox alignment="BOTTOM_CENTER" prefHeight="199.0" prefWidth="80.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <MaterialDesignIconView fill="WHITE" glyphName="SETTINGS" size="30" styleClass="item-menu" />
-               </children></VBox>
-         </children>
-         <padding>
-            <Insets bottom="20.0" top="20.0" />
-         </padding>
-      </VBox>
-   </left>
-   <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <VBox prefHeight="700.0" prefWidth="350.0">
-               <children>
-                  <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseDragged="#titleBarDragged" onMousePressed="#titleBarPresssed" prefHeight="90.0" prefWidth="0.0">
-                     <children>
-                        <Label fx:id="lblMyName" styleClass="label-name" text="Nguyễn Hoàng Thanh Long" textFill="#222222">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="289.0" styleClass="search-box">
-                           <children>
-                              <FontAwesomeIconView glyphName="SEARCH" size="15" styleClass="icon-search" />
-                              <JFXTextField fx:id="txtSearch" focusColor="#ffffff00" promptText="Tìm bạn bè, nhóm và tin nhắn" styleClass="input-text-search" unFocusColor="#ffffff00" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </JFXTextField>
-                           </children>
-                        </HBox>
-                     </children>
-                     <styleClass>
-                        <String fx:value="padding-left-right-30" />
-                        <String fx:value="cell1" />
-                     </styleClass>
-                  </VBox>
-                  <VBox prefHeight="648.0" prefWidth="350.0" styleClass="cell3" VBox.vgrow="ALWAYS">
-                     <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="309.0" styleClass="option-message-box">
-                           <children>
-                              <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="106.0" spacing="5.0" styleClass="option-message">
+    <left>
+        <VBox prefHeight="650.0" prefWidth="80.0" styleClass="menu-bar" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="TOP_CENTER" prefHeight="116.0" prefWidth="80.0">
+                    <children>
+                        <ImageView fx:id="ivMyAvatar" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/girl2.png" />
+                            </image>
+                        </ImageView>
+                        <Circle fx:id="circleMyStatus" fill="#00da8e" radius="6.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.5">
+                            <VBox.margin>
+                                <Insets top="7.0" />
+                            </VBox.margin>
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT" />
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="circle-status-online" />
+                                <String fx:value="active-menu-item" />
+                            </styleClass>
+                        </Circle>
+                    </children>
+                </VBox>
+                <VBox alignment="TOP_CENTER" prefHeight="232.0" prefWidth="80.0">
+                    <children>
+                        <VBox fx:id="vboxContactMenu" alignment="CENTER" onMousePressed="#contactsMenuSelected" prefHeight="60.0" prefWidth="80.0">
+                            <children>
+                                <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_BOX_OUTLINE" size="30" />
+                            </children>
+                            <styleClass>
+                                <String fx:value="item-menu" />
+                                <String fx:value="active-menu-item" />
+                            </styleClass>
+                        </VBox>
+                        <VBox fx:id="vboxConversatonMenu" alignment="CENTER" onMousePressed="#conversationsMenuSelected" prefHeight="60.0" prefWidth="80.0" styleClass="item-menu">
+                            <children>
+                                <MaterialDesignIconView fill="WHITE" glyphName="COMMENT_TEXT_OUTLINE" size="30" />
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="14.0" />
+                            </VBox.margin>
+                        </VBox>
+                    </children>
+                </VBox>
+                <VBox alignment="BOTTOM_CENTER" prefHeight="199.0" prefWidth="80.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <MaterialDesignIconView fx:id="ivSettingMenu" fill="WHITE" glyphName="SETTINGS" onMousePressed="#settingMenuSelected" size="30" styleClass="item-menu" />
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets bottom="20.0" top="20.0" />
+            </padding>
+        </VBox>
+    </left>
+    <center>
+        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox prefHeight="700.0" prefWidth="350.0">
+                    <children>
+                        <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseDragged="#titleBarDragged" onMousePressed="#titleBarPresssed" prefHeight="90.0" prefWidth="0.0">
+                            <children>
+                                <Label fx:id="lblMyName" styleClass="label-name" text="Nguyễn Hoàng Thanh Long" textFill="#222222">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="289.0" styleClass="search-box">
+                                    <children>
+                                        <FontAwesomeIconView glyphName="SEARCH" size="15" styleClass="icon-search" />
+                                        <JFXTextField fx:id="txtSearch" focusColor="#ffffff00" promptText="Tìm bạn bè, nhóm và tin nhắn" styleClass="input-text-search" unFocusColor="#ffffff00" HBox.hgrow="ALWAYS">
+                                            <HBox.margin>
+                                                <Insets />
+                                            </HBox.margin>
+                                        </JFXTextField>
+                                    </children>
+                                </HBox>
+                            </children>
+                            <styleClass>
+                                <String fx:value="padding-left-right-30" />
+                                <String fx:value="cell1" />
+                            </styleClass>
+                        </VBox>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <VBox fx:id="vboxContacts" prefHeight="648.0" prefWidth="350.0" styleClass="cell3" visible="false" VBox.vgrow="ALWAYS">
+                                    <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="309.0" styleClass="option-message-box">
                                  <children>
-                                    <Label text="Tin nhắn" />
-                                    <FontAwesomeIconView glyphName="CARET_DOWN" size="22" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="106.0" spacing="5.0" styleClass="option-message">
+                                       <children>
+                                          <Label text="Tất cả các liên hệ" />
+                                       </children>
+                                    </HBox>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="142.0" spacing="5.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Label styleClass="mark-read" text="Đánh dấu đã đọc" />
-                                 </children>
-                              </HBox>
-                           </children>
-                        </HBox>
-                        <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" styleClass="scroll-bar" VBox.vgrow="ALWAYS">
-                           <content>
-                              <VBox fx:id="vboxListConversation" prefWidth="345.0">
-                                 <children>
+                                        <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" styleClass="scroll-bar" VBox.vgrow="ALWAYS">
+                                            <content>
+                                                <VBox fx:id="vboxListContact" prefWidth="345.0">
+                                                    <children>
 
-                                 </children>
-                              </VBox>
-                           </content>
-                        </ScrollPane>
-                     </children></VBox>
-               </children>
-            </VBox>
-            <StackPane HBox.hgrow="ALWAYS">
-               <children>
-                  <VBox fx:id="vboxConversation" prefHeight="700.0" prefWidth="350.0">
-                     <children>
-                        <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="90.0" spacing="20.0" styleClass="cell2">
-                           <children>
-                              <BorderPane prefHeight="90.0" prefWidth="102.0">
-                                 <center>
-                                    <ImageView fx:id="ivAvatar" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                                       <image>
-                                          <Image url="@../images/boy3.png" />
-                                       </image>
-                                    </ImageView>
-                                 </center>
-                                 <right>
-                                    <Circle fx:id="circleStatus" fill="#00da8e" radius="7.0" stroke="BLACK" strokeType="INSIDE" translateX="-8.0" translateY="29.0" BorderPane.alignment="CENTER" />
-                                 </right>
-                              </BorderPane>
-                              <VBox alignment="CENTER_LEFT" prefHeight="90.0" prefWidth="310.0" spacing="10.0" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Label fx:id="lblName" style="-fx-font-size: 20; -fx-font-weight: bold;" text="Nguyễn Thanh Sơn" />
-                                    <Label fx:id="lblLastVisit" text="Truy cập 1 phút trước" />
-                                 </children>
-                              </VBox>
-                           </children>
+                                                    </children>
+                                                </VBox>
+                                            </content>
+                                        </ScrollPane>
+                                    </children>
+                                </VBox>
+                                <VBox fx:id="vboxConversations" prefHeight="648.0" prefWidth="350.0" styleClass="cell3" visible="false" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="309.0" styleClass="option-message-box">
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="214.0" spacing="5.0" styleClass="option-message" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                          <ComboBox fx:id="cbbFilterConversation" promptText="Tất cả" styleClass="cbb-filter-conversation" HBox.hgrow="ALWAYS" />
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </HBox>
+                                        <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" styleClass="scroll-bar" VBox.vgrow="ALWAYS">
+                                            <content>
+                                                <VBox fx:id="vboxListConversation" prefWidth="345.0">
+                                                    <children>
+
+                                                    </children>
+                                                </VBox>
+                                            </content>
+                                        </ScrollPane>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </StackPane>
+                    </children>
+                </VBox>
+                <StackPane HBox.hgrow="ALWAYS">
+                    <children>
+                        <VBox fx:id="vboxConversation" prefHeight="700.0" prefWidth="350.0">
+                            <children>
+                                <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="90.0" spacing="20.0" styleClass="cell2">
+                                    <children>
+                                        <BorderPane prefHeight="90.0" prefWidth="102.0">
+                                            <center>
+                                                <ImageView fx:id="ivAvatar" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                                    <image>
+                                                        <Image url="@../images/boy3.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </center>
+                                            <right>
+                                                <Circle fx:id="circleStatus" fill="#00da8e" radius="7.0" stroke="BLACK" strokeType="INSIDE" translateX="-8.0" translateY="29.0" BorderPane.alignment="CENTER" />
+                                            </right>
+                                        </BorderPane>
+                                        <VBox alignment="CENTER_LEFT" prefHeight="90.0" prefWidth="310.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Label fx:id="lblName" style="-fx-font-size: 20; -fx-font-weight: bold;" text="Nguyễn Thanh Sơn" />
+                                                <Label fx:id="lblLastVisit" text="Truy cập 1 phút trước" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <ScrollPane fx:id="scrollViewChat" hbarPolicy="NEVER" styleClass="view-chat" VBox.vgrow="ALWAYS">
+                                    <content>
+                                        <VBox fx:id="vboxViewChat" alignment="TOP_CENTER" prefWidth="560.0">
+                                            <padding>
+                                                <Insets right="15.0" />
+                                            </padding>
+                                        </VBox>
+                                    </content>
+                                </ScrollPane>
+                                <HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="570.0" spacing="15.0">
+                                    <children>
+                                        <JFXTextArea fx:id="txtInputMessage" focusColor="#ffffff00" onKeyPressed="#onKeyPressed" promptText="Nhập nội dung tin nhắn" styleClass="input-text-content-chat" unFocusColor="#ffffff00" HBox.hgrow="ALWAYS">
+                                            <padding>
+                                                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                            </padding>
+                                        </JFXTextArea>
+                                        <MaterialDesignIconView glyphName="SEND" size="25" wrappingWidth="34.0">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </MaterialDesignIconView>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </HBox>
+                            </children>
+                        </VBox>
+                        <HBox fx:id="titleBar" alignment="TOP_RIGHT" fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" onMouseDragged="#titleBarDragged" onMousePressed="#titleBarPresssed" prefHeight="89.0" StackPane.alignment="TOP_CENTER">
+                            <children>
+                                <MaterialDesignIconView glyphName="WINDOW_MINIMIZE" onMousePressed="#minimize" size="25">
+                                    <HBox.margin>
+                                        <Insets right="15.0" />
+                                    </HBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </MaterialDesignIconView>
+                                <MaterialDesignIconView glyphName="WINDOW_MAXIMIZE" onMousePressed="#maximize" size="25">
+                                    <HBox.margin>
+                                        <Insets right="15.0" />
+                                    </HBox.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </MaterialDesignIconView>
+                                <MaterialDesignIconView glyphName="WINDOW_CLOSE" onMousePressed="#close" size="25">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </MaterialDesignIconView>
+                            </children>
+                            <padding>
+                                <Insets right="10.0" top="7.0" />
+                            </padding>
                         </HBox>
-                        <ScrollPane fx:id="scrollViewChat" hbarPolicy="NEVER" styleClass="view-chat" VBox.vgrow="ALWAYS">
-                           <content>
-                              <VBox fx:id="vboxViewChat" alignment="TOP_CENTER" prefWidth="560.0">
-                                 <padding>
-                                    <Insets right="15.0" />
-                                 </padding>
-                              </VBox>
-                           </content>
-                        </ScrollPane>
-                        <HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="570.0" spacing="15.0">
-                           <children>
-                              <JFXTextArea fx:id="txtInputMessage" focusColor="#ffffff00" onKeyPressed="#onKeyPressed" promptText="Nhập nội dung tin nhắn" styleClass="input-text-content-chat" unFocusColor="#ffffff00" HBox.hgrow="ALWAYS">
-                                 <padding>
-                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-                                 </padding>
-                              </JFXTextArea>
-                              <MaterialDesignIconView glyphName="SEND" size="25" wrappingWidth="34.0">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </MaterialDesignIconView>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </HBox>
-                     </children>
-                  </VBox>
-                  <HBox fx:id="titleBar" alignment="TOP_RIGHT" fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" onMouseDragged="#titleBarDragged" onMousePressed="#titleBarPresssed" prefHeight="89.0" StackPane.alignment="TOP_CENTER">
-                     <children>
-                        <MaterialDesignIconView glyphName="WINDOW_MINIMIZE" onMousePressed="#minimize" size="25">
-                           <HBox.margin>
-                              <Insets right="15.0" />
-                           </HBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </MaterialDesignIconView>
-                        <MaterialDesignIconView glyphName="WINDOW_MAXIMIZE" onMousePressed="#maximize" size="25">
-                           <HBox.margin>
-                              <Insets right="15.0" />
-                           </HBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </MaterialDesignIconView>
-                        <MaterialDesignIconView glyphName="WINDOW_CLOSE" onMousePressed="#close" size="25">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </MaterialDesignIconView>
-                     </children>
-                     <padding>
-                        <Insets right="10.0" top="7.0" />
-                     </padding>
-                  </HBox>
-               </children>
-            </StackPane>
-         </children>
-      </HBox>
-   </center>
+                    </children>
+                </StackPane>
+            </children>
+        </HBox>
+    </center>
 </BorderPane>

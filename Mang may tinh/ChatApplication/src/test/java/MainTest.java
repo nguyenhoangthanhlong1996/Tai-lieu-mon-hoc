@@ -10,6 +10,9 @@ public class MainTest {
 
         UserDAO userDAO = new UserDAO();
 
-        System.out.println(userDAO.updateStatusOnline("thanhlong", false));
+        List<User> list = userDAO.getAllUserExceptUsername("asASas");
+        for (User u : list)
+            System.out.println(u);
+
     }
 }

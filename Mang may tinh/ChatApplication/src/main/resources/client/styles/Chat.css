@@ -75,6 +75,10 @@
     -fx-text-fill: blue;
     -fx-fill: blue;
 }
+.cbb-filter-conversation {
+    -fx-background-color: #ffffff00;
+}
+
 .mark-read {
     -fx-text-fill: blue;
     -fx-cursor: HAND;
@@ -83,7 +87,7 @@
     -fx-font-style: italic;
 }
 .item-conversation {
-    -fx-padding: 10 15 10 0;
+    -fx-padding: 5 15 5 0;
     -fx-spacing: 3;
     -fx-cursor: HAND;
 }

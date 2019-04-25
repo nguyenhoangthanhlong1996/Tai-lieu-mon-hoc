@@ -111,9 +111,17 @@ public class ClientApp extends Application {
             case CHAT:
                 Platform.runLater(() -> {
                     stage.setScene(sceneChat);
+                    ctrChat.clearInfo();
+                    ctrChat.showMyInfo();
+                    ctrChat.initDataChat();
                 });
                 break;
         }
+    }
+
+    //Hàm xử lý khi đăng xuất thành công
+    public void logout() {
+        setDisplayScence(ScenceOption.SIGN_IN);
     }
 
     //Hàm xuất hiện alert dialog
