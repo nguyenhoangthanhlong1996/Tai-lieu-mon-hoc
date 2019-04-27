@@ -2,9 +2,14 @@ package server.socket;
 
 import server.controllers.LogLevel;
 import server.controllers.ServerController;
+import share.dao.ConversationDAO;
+import share.dao.MessageDAO;
 import share.dao.UserDAO;
+import share.data.ConversationData;
 import share.data.SignInData;
 import share.data.SignUpData;
+import share.entity.Conversation;
+import share.entity.Message;
 import share.entity.User;
 import share.protocol.Request;
 import share.protocol.RequestType;
@@ -14,6 +19,7 @@ import share.util.HibernateUtils;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ThreadConnection extends Thread {
@@ -24,6 +30,8 @@ public class ThreadConnection extends Thread {
     User user;
     //Đối tượng giao tiếp với CSDL
     UserDAO userDAO;
+    ConversationDAO conversationDAO;
+    MessageDAO messageDAO;
     //    PrintWriter printWriter;
 //    BufferedReader bufferedReader;
     ObjectOutputStream objectOutputStream;
@@ -34,6 +42,8 @@ public class ThreadConnection extends Thread {
         this.handleConnect = handleConnect;
         this.serverController = handleConnect.serverController;
         userDAO = new UserDAO();
+        conversationDAO = new ConversationDAO();
+        messageDAO = new MessageDAO();
         user = null;
         this.socket = socket;
         try {
@@ -64,7 +74,9 @@ public class ThreadConnection extends Thread {
                         }
                     } catch (IOException e) {
                         //e.printStackTrace();
-                       disconnect();
+                        if (handleConnect.connectionList.get(socket.getPort())!= null) {
+                            disconnect();
+                        }
                     }
                 }
             }
@@ -113,7 +125,7 @@ public class ThreadConnection extends Thread {
                     sendResponse(response);
                 }
                 break;
-                //endregion
+            //endregion
             case LOGOUT:
                 //region LOGOUT
                 //Cập nhật lại trạng thái trực tuyến của user này
@@ -133,7 +145,7 @@ public class ThreadConnection extends Thread {
                     sendResponse(response);
                 }
                 break;
-                //endregion
+            //endregion
             case REGISTER:
                 //region REGISTER
                 //Lấy ra dữ liệu đăng ký từ request của client
@@ -151,7 +163,7 @@ public class ThreadConnection extends Thread {
                     response = new Response(ResponseType.REGISTER, false, "Tên tài khoản này đã tồn tại, vui lòng dùng tên khác");
                     handleConnect.appendSysLog("Client port " + socket.getPort() + " đăng ký thất bại | " + response.toString(), LogLevel.INFO);
                     sendResponse(response);
-                } else  { //Tiến hành tạo tài khoản
+                } else { //Tiến hành tạo tài khoản
                     user = new User(signUpData.getUsername(), signUpData.getPassword(), signUpData.getName(), signUpData.isGender(), signUpData.getAvatar());
                     if (userDAO.createUser(user)) {//Tạo tài khoản thành công
                         response = new Response(ResponseType.REGISTER, true, null);
@@ -166,7 +178,7 @@ public class ThreadConnection extends Thread {
                     }
                 }
                 break;
-                //endregion
+            //endregion
             case GET_LIST_USER:
                 //region GET_LIST_USER
                 //Lấy ra danh sách tất cả user ngoại trừ user gửi request này lên
@@ -185,6 +197,21 @@ public class ThreadConnection extends Thread {
                     response = new Response(ResponseType.GET_LIST_USER, false, "Không thể lấy dữ liệu của bạn");
                     sendResponse(response);
                 }
+                break;
+            //endregion
+            case CREATE_CONVERSATION:
+                //region CREATE_CONVERSATION
+
+                break;
+            //endregion
+            case GET_LIST_CONVERSATION:
+                //region GET_LIST_CONVERSATION
+
+                break;
+                //endregion
+            case GET_LIST_MESSAGE:
+                //region GET_LIST_MESSAGE
+
                 break;
                 //endregion
         }

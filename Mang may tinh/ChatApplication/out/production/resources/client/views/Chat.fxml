@@ -8,6 +8,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -106,17 +107,17 @@
                         </VBox>
                         <StackPane prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                             <children>
-                                <VBox fx:id="vboxContacts" prefHeight="648.0" prefWidth="350.0" styleClass="cell3" visible="false" VBox.vgrow="ALWAYS">
+                                <VBox fx:id="vboxContacts" prefHeight="648.0" prefWidth="350.0" styleClass="cell3" VBox.vgrow="ALWAYS">
                                     <children>
-                              <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="309.0" styleClass="option-message-box">
-                                 <children>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="106.0" spacing="5.0" styleClass="option-message">
-                                       <children>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="309.0" styleClass="option-message-box">
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="214.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                                                    <children>
                                           <Label text="Tất cả các liên hệ" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </HBox>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </HBox>
                                         <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" styleClass="scroll-bar" VBox.vgrow="ALWAYS">
                                             <content>
                                                 <VBox fx:id="vboxListContact" prefWidth="345.0">
@@ -132,11 +133,19 @@
                                     <children>
                                         <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="309.0" styleClass="option-message-box">
                                             <children>
-                                                <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="214.0" spacing="5.0" styleClass="option-message" HBox.hgrow="ALWAYS">
+                                                <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="305.0" spacing="5.0" HBox.hgrow="ALWAYS">
                                                     <children>
-                                          <ComboBox fx:id="cbbFilterConversation" promptText="Tất cả" styleClass="cbb-filter-conversation" HBox.hgrow="ALWAYS" />
+                                          <ComboBox fx:id="cbbFilterConversation" maxWidth="1.7976931348623157E308" promptText="Tất cả" styleClass="cbb-filter-conversation" HBox.hgrow="ALWAYS">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ComboBox>
                                                     </children>
                                                 </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Hyperlink onAction="#createGroup" text="Tạo nhóm" />
+                                       </children>
+                                    </HBox>
                                             </children>
                                         </HBox>
                                         <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" styleClass="scroll-bar" VBox.vgrow="ALWAYS">

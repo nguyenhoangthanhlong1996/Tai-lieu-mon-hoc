@@ -3,10 +3,14 @@ package client.socket;
 import client.stages.ClientApp;
 import client.stages.ScenceOption;
 import share.Config;
+import share.data.ConversationData;
+import share.entity.Conversation;
+import share.entity.Message;
 import share.entity.User;
 import share.protocol.Request;
 import share.protocol.Response;
 import share.protocol.ResponseType;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.List;
@@ -100,7 +104,7 @@ public class SingletonConnect {
     }
 
     //Hàm này sẽ được gọi khi bị mất kết nối tới Server
-    private void disconnected () {
+    private void disconnected() {
         try {
             //Đòng kết nối socket
             socket.close();
@@ -150,7 +154,7 @@ public class SingletonConnect {
                     app.showAlert("Đăng xuất thất bại", (String) response.getData());
                 }
                 break;
-                //end
+            //end
             case REGISTER:
                 //region REGISTER
                 if (response.isSuccess()) {//Đăng ký thành công
@@ -169,12 +173,52 @@ public class SingletonConnect {
                     app.ctrChat.refreshUI_ListUser(list);
                 }
                 break;
-                //endregion
+            //endregion
             case BROADCAST_LIST_USER:
                 //region BROADCAST_LIST_USER
                 app.ctrChat.requestListUser();
                 break;
             //endregion
+            case CREATE_CONVERSATION:
+                //region CREATE_CONVERSATION
+                if (response.isSuccess()) {
+                    app.showAlert("Cuộc hội thoại đã được tạo, hãy qua mục tin nhắn để bắt đầu nhắn tin", "");
+                    //Gửi yêu cầu lấy danh sách tất cả cuộc hội thoại
+                    app.ctrChat.requestListConversation();
+                } else {
+                    app.showAlert("Lỗi", (String) response.getData());
+                }
+                break;
+            //endregion
+            case GET_LIST_CONVERSATION:
+                //region GET_LIST_CONVERSATION
+                if (response.isSuccess()) {
+                    List<ConversationData> list = (List<ConversationData>) response.getData();
+                    app.ctrChat.refreshUI_ListConversation(list);
+                }
+                break;
+            //endregion
+            case NOTIFY_LIST_CONVERSATION:
+                //region NOTIFY_LIST_CONVERSATION
+                //Gửi yêu cầu lấy danh sách các cuộc hội thoại
+                app.ctrChat.requestListConversation();
+                break;
+                //endregion
+            case GET_LIST_MESSAGE:
+                //region GET_LIST_MESSAGE
+                if (response.isSuccess()) {
+                    List<Object> list = (List<Object>) response.getData();
+                    int idConversation = (int) list.get(0);
+                    List<Message> listMessage = (List<Message>) list.get(1);
+                    User user1 = (User) list.get(2);
+                    User user2 = (User) list.get(3);
+                    app.ctrChat.refreshUI_ListMessage(idConversation, listMessage, user1, user2);
+                } else {
+                    app.showAlert("Lỗi", (String) response.getData());
+                }
+                break;
+                //endregion
         }
     }
 }
+
