@@ -19,8 +19,11 @@ import java.util.concurrent.TimeUnit;
 
 public class MainTest {
     public static void main(String[] args) throws ParseException {
-
         ConversationDAO conversationDAO = new ConversationDAO();
-        System.out.println(conversationDAO.existConversationPrivate("long","hue"));
+        conversationDAO.getAllConversation("hue");
+//        List<String> list = conversationDAO.getAllUsernameByConversation(14);
+//        System.out.println(list.size());
+//        MessageDAO messageDAO = new MessageDAO();
+//        System.out.println(messageDAO.createMessage(12,"long","day là tin nhan vua tao"));
     }
 }

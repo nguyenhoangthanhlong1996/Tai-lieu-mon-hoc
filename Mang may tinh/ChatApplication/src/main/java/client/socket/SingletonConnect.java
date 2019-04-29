@@ -4,6 +4,7 @@ import client.stages.ClientApp;
 import client.stages.ScenceOption;
 import share.Config;
 import share.data.ConversationData;
+import share.data.ListMessageData;
 import share.entity.Conversation;
 import share.entity.Message;
 import share.entity.User;
@@ -179,7 +180,7 @@ public class SingletonConnect {
                 app.ctrChat.requestListUser();
                 break;
             //endregion
-            case CREATE_CONVERSATION:
+            case CREATE_CONVERSATION_PRIVATE:
                 //region CREATE_CONVERSATION
                 if (response.isSuccess()) {
                     app.showAlert("Cuộc hội thoại đã được tạo, hãy qua mục tin nhắn để bắt đầu nhắn tin", "");
@@ -195,6 +196,8 @@ public class SingletonConnect {
                 if (response.isSuccess()) {
                     List<ConversationData> list = (List<ConversationData>) response.getData();
                     app.ctrChat.refreshUI_ListConversation(list);
+                } else {
+                    app.showAlert("Lỗi", (String) response.getData());
                 }
                 break;
             //endregion
@@ -207,12 +210,32 @@ public class SingletonConnect {
             case GET_LIST_MESSAGE:
                 //region GET_LIST_MESSAGE
                 if (response.isSuccess()) {
-                    List<Object> list = (List<Object>) response.getData();
-                    int idConversation = (int) list.get(0);
-                    List<Message> listMessage = (List<Message>) list.get(1);
-                    User user1 = (User) list.get(2);
-                    User user2 = (User) list.get(3);
-                    app.ctrChat.refreshUI_ListMessage(idConversation, listMessage, user1, user2);
+                    ListMessageData listMessageData = (ListMessageData) response.getData();
+                    app.ctrChat.refreshUI_ListMessage(listMessageData);
+                } else {
+                    app.showAlert("Lỗi", (String) response.getData());
+                }
+                break;
+                //endregion
+            case SEND_MESSAGE:
+                //region SEND_MESSAGE
+                if (!response.isSuccess()) {
+                    app.showAlert("Lỗi", (String) response.getData());
+                }
+                break;
+                //endregion
+            case NOTIFY_LIST_MESSAGE:
+                //region NOTIFY_LIST_MESSAGE
+                if (response.isSuccess()) {
+                    int conversationId = (int) response.getData();
+                    app.ctrChat.notifyListMessage(conversationId);
+                }
+                break;
+                //endregion
+            case CREATE_CONVERSATION_GROUP:
+                //region CREATE_CONVERSATION_GROUP
+                if (response.isSuccess()) {
+                    app.showAlert("Tạo nhóm thành công","");
                 } else {
                     app.showAlert("Lỗi", (String) response.getData());
                 }

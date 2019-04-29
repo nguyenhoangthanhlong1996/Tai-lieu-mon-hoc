@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 public class ConversationData implements Serializable {
     //id cuộc hội thoại
     private int idConversation;
+    private boolean group;
     //Đường dẫn ảnh
     private String avatar;
     //Tên tài khoản
@@ -24,8 +25,10 @@ public class ConversationData implements Serializable {
     @Override
     public String toString() {
         return "ConversationData{" +
-                //"avatar='" + avatar + '\'' +
-                "avatar='" + "base64_encode" + '\'' +
+                "idConversation=" + idConversation +
+                ", group=" + group +
+                //", avatar='" + avatar + '\'' +
+                ", avatar='" + "base64_encode" + '\'' +
                 ", username='" + username + '\'' +
                 ", name='" + name + '\'' +
                 ", shortenContent='" + shortenContent + '\'' +
@@ -40,6 +43,14 @@ public class ConversationData implements Serializable {
 
     public void setIdConversation(int idConversation) {
         this.idConversation = idConversation;
+    }
+
+    public boolean isGroup() {
+        return group;
+    }
+
+    public void setGroup(boolean group) {
+        this.group = group;
     }
 
     public String getAvatar() {
@@ -90,8 +101,9 @@ public class ConversationData implements Serializable {
         this.numberUnreadMessage = numberUnreadMessage;
     }
 
-    public ConversationData(int idConversation, String avatar, String username, String name, String shortenContent, Timestamp lastMessageTime, int numberUnreadMessage) {
+    public ConversationData(int idConversation, boolean group, String avatar, String username, String name, String shortenContent, Timestamp lastMessageTime, int numberUnreadMessage) {
         this.idConversation = idConversation;
+        this.group = group;
         this.avatar = avatar;
         this.username = username;
         this.name = name;

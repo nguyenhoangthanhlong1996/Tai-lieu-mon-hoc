@@ -1,29 +1,62 @@
 package share.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.hibernate.annotations.ValueGenerationType;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
 public class Conversation implements Serializable {
     private Integer id;
+    private String creator;
+    private String nameGroup;
     private String avatar;
     private boolean group;
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
+    public Conversation(){}
+
+    public Conversation(String creator, String avatar, boolean group) {
+        this.creator = creator;
+        this.avatar = avatar;
+        this.group = group;
+        this.createdAt = new Timestamp(new Date().getTime());;
+        this.updatedAt = new Timestamp(new Date().getTime());;
+    }
+
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    @Basic
+    @Column(name = "creator")
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    @Basic
+    @Column(name = "name_group")
+    public String getNameGroup() {
+        return nameGroup;
+    }
+
+    public void setNameGroup(String nameGroup) {
+        this.nameGroup = nameGroup;
     }
 
     @Basic

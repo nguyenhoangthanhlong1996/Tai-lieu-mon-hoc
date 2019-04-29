@@ -20,6 +20,15 @@ public class MessageItem extends HBox {
     String status;
     boolean isMyMessage;
 
+    public static FXMLLoader fxmlLoader;
+
+    public static FXMLLoader getFxmlLoader() {
+        if (fxmlLoader == null) {
+            fxmlLoader = new FXMLLoader(Config.getPathViewMessageItem());
+        }
+        return fxmlLoader;
+    }
+
     @FXML
     private ImageView ivAvatar;
 
@@ -33,11 +42,10 @@ public class MessageItem extends HBox {
     private Label lblStatus;
 
     public MessageItem(String avatar, String content, String time, String status, boolean isMyMessage) {
-        FXMLLoader loader = new FXMLLoader(Config.getPathViewMessageItem());
-        loader.setRoot(this);
-        loader.setController(this);
+        getFxmlLoader().setRoot(this);
+        getFxmlLoader().setController(this);
         try {
-            loader.load();
+            getFxmlLoader().load();
             setAvatar(avatar);
             setContent(content);
             setTime(time);

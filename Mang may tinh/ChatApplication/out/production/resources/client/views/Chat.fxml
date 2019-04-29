@@ -92,7 +92,7 @@
                                 <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="289.0" styleClass="search-box">
                                     <children>
                                         <FontAwesomeIconView glyphName="SEARCH" size="15" styleClass="icon-search" />
-                                        <JFXTextField fx:id="txtSearch" focusColor="#ffffff00" promptText="Tìm bạn bè, nhóm và tin nhắn" styleClass="input-text-search" unFocusColor="#ffffff00" HBox.hgrow="ALWAYS">
+                                        <JFXTextField fx:id="txtSearch" focusColor="#ffffff00" onKeyReleased="#searchKeyReleased" promptText="Tìm bạn bè, nhóm và tin nhắn" styleClass="input-text-search" unFocusColor="#ffffff00" HBox.hgrow="ALWAYS">
                                             <HBox.margin>
                                                 <Insets />
                                             </HBox.margin>
@@ -205,7 +205,7 @@
                                                 <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                             </padding>
                                         </JFXTextArea>
-                                        <MaterialDesignIconView glyphName="SEND" size="25" wrappingWidth="34.0">
+                                        <MaterialDesignIconView glyphName="SEND" onMousePressed="#sendMessage" size="25" wrappingWidth="34.0">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>

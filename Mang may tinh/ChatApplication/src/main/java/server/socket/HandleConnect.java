@@ -87,8 +87,40 @@ public class HandleConnect {
         InfoConnect infoConnect = listFilter.size() > 0 ? listFilter.get(0) : null;
         if (infoConnect != null) {
             int port = infoConnect.getPort();
-            if (connectionList.get(port) != null) {
-                connectionList.get(port).sendResponse(new Response(ResponseType.NOTIFY_LIST_CONVERSATION, true, null));
+            ThreadConnection connection = connectionList.get(port);
+            if (connection != null) {
+                connection.sendResponse(new Response(ResponseType.NOTIFY_LIST_CONVERSATION, true, null));
+            }
+        }
+    }
+    //Khi hàm này được gọi sẽ thông báo cho các user trong list biết có sự thay đổi danh sách các cuộc hội thoại của họ
+    public void notifyListConversation(List<String> listUsername) {
+        ObservableList<InfoConnect> list = serverController.listConnect;
+        for (String username: listUsername) {
+            ObservableList<InfoConnect> listFilter = list.filtered(ic -> ic.getUsername().equals(username));
+            InfoConnect infoConnect = listFilter.size() > 0 ? listFilter.get(0) : null;
+            if (infoConnect != null) {
+                int port = infoConnect.getPort();
+                ThreadConnection connection = connectionList.get(port);
+                if (connection != null) {
+                    connection.sendResponse(new Response(ResponseType.NOTIFY_LIST_CONVERSATION, true, null));
+                }
+            }
+        }
+    }
+
+    //Khi hàm này được gọi sẽ thông báo tất cả user có trong danh sách này biết có sự thay đổi tin nhắn trong cuộc hội thoại của họ
+    public void notifyListMessage(int conversationId, List<String> listUsername) {
+        ObservableList<InfoConnect> list = serverController.listConnect;
+        for (String username: listUsername) {
+            ObservableList<InfoConnect> listFilter = list.filtered(ic -> ic.getUsername().equals(username));
+            InfoConnect infoConnect = listFilter.size() > 0 ? listFilter.get(0) : null;
+            if (infoConnect != null) {
+                int port = infoConnect.getPort();
+                ThreadConnection connection = connectionList.get(port);
+                if (connection != null) {
+                    connection.sendResponse(new Response(ResponseType.NOTIFY_LIST_MESSAGE, true, conversationId));
+                }
             }
         }
     }

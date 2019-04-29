@@ -3,6 +3,7 @@ package share.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -12,6 +13,15 @@ public class ConversationUser implements Serializable {
     private String username;
     private Timestamp createdAt;
     private Timestamp updatedAt;
+
+    public ConversationUser(){}
+
+    public ConversationUser(Integer conversationId, String username) {
+        this.conversationId = conversationId;
+        this.username = username;
+        this.createdAt = new Timestamp(new Date().getTime());;
+        this.updatedAt = new Timestamp(new Date().getTime());;
+    }
 
     @Id
     @Column(name = "conversation_id")

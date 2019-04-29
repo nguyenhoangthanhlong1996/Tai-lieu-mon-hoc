@@ -1,11 +1,9 @@
 package share.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -17,8 +15,20 @@ public class Message implements Serializable {
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
+    public Message() {}
+
+    public Message(String sender, Integer conversationId, String content) {
+        this.id = id;
+        this.sender = sender;
+        this.conversationId = conversationId;
+        this.content = content;
+        this.createdAt =  new Timestamp(new Date().getTime());
+        this.updatedAt =  new Timestamp(new Date().getTime());
+    }
+
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }

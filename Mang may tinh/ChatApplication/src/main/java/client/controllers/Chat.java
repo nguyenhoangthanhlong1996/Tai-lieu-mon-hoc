@@ -5,14 +5,22 @@ import client.objectUI.ConversationItem;
 import client.objectUI.MessageItem;
 import client.socket.SingletonConnect;
 import client.stages.ClientApp;
+import client.stages.DialogCreateGroup;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -23,6 +31,9 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import share.dao.ConversationDAO;
 import share.data.ConversationData;
+import share.data.ListMessageData;
+import share.data.MessageData;
+import share.data.SendMessageData;
 import share.entity.Message;
 import share.entity.User;
 import share.protocol.Request;
@@ -31,8 +42,11 @@ import share.util.Base64Utils;
 import share.util.DateTimeUtils;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Chat {
     //region Biến
@@ -40,6 +54,7 @@ public class Chat {
     SingletonConnect connect;
     Stage stage;
     Request request;
+    DialogCreateGroup dialogCreateGroup;
     //Lưu id cuộc thoại hiện tại
     int currentIdConversation = 0;
     double x = 0, y = 0;
@@ -119,7 +134,7 @@ public class Chat {
         eventHandlerListContact = event -> {
             ContactItem contact = (ContactItem) event.getSource();
             //Gửi yêu cầu tạo 1 cuộc hội thoại với người được click chọn
-            request = new Request(RequestType.CREATE_CONVERSATION, contact.getUsername());
+            request = new Request(RequestType.CREATE_CONVERSATION_PRIVATE, contact.getUsername());
             connect.sendRequest(request);
         };
         //Xử lý sự kiện 1 user được click chọn ở danh sách tất cả các cuộc hội thoại
@@ -128,8 +143,20 @@ public class Chat {
             //Gửi yêu cầu lấy danh tin nhắn của cuộc hội thoại này
             int idConversation = conversation.getIdConversation();
             if (currentIdConversation != idConversation) {
-                request = new Request(RequestType.GET_LIST_MESSAGE, idConversation);
-                connect.sendRequest(request);
+                //Gán hình
+                if (conversation.getAvatar() != null) {
+                    try {
+                        ivAvatar.setImage(Base64Utils.getImageFromBase64String(conversation.getAvatar()));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                //Gán tên
+                lblName.setText(conversation.getName());
+                circleStatus.setVisible(false);
+                lblLastVisit.setText(null);
+
+                requestListMessage(idConversation);
             }
         };
     }
@@ -158,6 +185,7 @@ public class Chat {
             connect.sendRequest(request);
         });
         settingMenu.getItems().addAll(item1, item2);
+        searchKeyReleased(null);
         //Khởi tạo các xử lý sự kiện
         initEventHandler();
 //        vboxListConversation.getChildren().add(new Conversation("","thanhlong", "Nguyễn Hoàng Thanh Long","xin chào bạn","2 ngày", 50));
@@ -237,7 +265,13 @@ public class Chat {
 
     @FXML
     void createGroup(ActionEvent event) {
-
+        try {
+            if (dialogCreateGroup == null)
+                dialogCreateGroup = new DialogCreateGroup(app, connect);
+            dialogCreateGroup.display(listUser);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -246,9 +280,29 @@ public class Chat {
     }
 
     @FXML
+    void searchKeyReleased(KeyEvent event) {
+        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+
+        });
+    }
+
+    @FXML
     void onKeyPressed(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
-            System.out.println("Bạn vừa nhấn enter");
+            sendMessage(null);
+        }
+    }
+
+    @FXML
+    void sendMessage(MouseEvent event) {
+        if (currentIdConversation != 0) {
+            String content = txtInputMessage.getText().trim();
+            if (!content.equals("")) {
+                request = new Request(RequestType.SEND_MESSAGE, new SendMessageData(currentIdConversation, content));
+                connect.sendRequest(request);
+                //Làm mới khung nhập tin nhắn
+                txtInputMessage.clear();
+            }
         }
     }
     //endregion
@@ -279,10 +333,28 @@ public class Chat {
         connect.sendRequest(request);
     }
 
+    //gửi request lấy list conversation
     public void requestListConversation() {
         //Lấy danh sách tất cả các user
         request = new Request(RequestType.GET_LIST_CONVERSATION, null);
         connect.sendRequest(request);
+    }
+
+    //gửi request lấy list message
+    public void requestListMessage(int conversationId) {
+        //Lấy danh sách tất cả các user
+        request = new Request(RequestType.GET_LIST_MESSAGE, conversationId);
+        connect.sendRequest(request);
+    }
+
+    public void notifyListMessage(int conversationId) {
+        //Nếu đang mở cuộc hội thoại này thì mới gửi yêu cầu lấy danh sách tin nhắn
+        if (conversationId == currentIdConversation) {
+            requestListConversation();
+            requestListMessage(conversationId);
+        } else { //Chỉ gửi yêu cầu lấy danh sách các cuộc hội thoại
+            requestListConversation();
+        }
     }
     //endregion
 
@@ -304,47 +376,66 @@ public class Chat {
             vboxListConversation.getChildren().clear();
             listConversation = list;
             for (ConversationData cd : listConversation) {
-                ConversationItem conversationItem = new ConversationItem(cd.getIdConversation(), cd.getAvatar(), cd.getUsername(), cd.getName(), cd.getShortenContent(), cd.getLastMessageTime() != null ? DateTimeUtils.getDiffDate(cd.getLastMessageTime()) : null, 0);
+                ConversationItem conversationItem = new ConversationItem(
+                        cd.getIdConversation(),
+                        cd.getAvatar(),
+                        cd.getUsername(),
+                        cd.getName(),
+                        cd.getShortenContent(),
+                        //cd.getLastMessageTime() != null ? DateTimeUtils.getDiffDate(cd.getLastMessageTime()) : null,
+                        null,
+                        0);
                 conversationItem.setOnMousePressed(eventHandlerListConversation);
                 vboxListConversation.getChildren().add(conversationItem);
             }
         });
     }
 
-    public void refreshUI_ListMessage(int idConversation, List<Message> list, User user1, User user2) {
+    public void refreshUI_ListMessage(ListMessageData listMessageData) {
         Platform.runLater(() -> {
-            currentIdConversation = idConversation;
-            String currentUsername = "";
             vboxViewChat.getChildren().clear();
-            for (Message message : list) {
-                if (!currentUsername.equals(message.getSender())) {
-                    currentUsername = message.getSender();
-                    vboxViewChat.getChildren().add(new MessageItem(
-                            message.getSender().equals(user1.getUsername()) ? user1.getAvatar() : user2.getAvatar(),
-                            message.getContent(),
-                            message.getCreatedAt().toString(),
+            currentIdConversation = listMessageData.getConversationId();
+            List<MessageData> list = listMessageData.getListMessageData();
+            User user = connect.user;
+            String currentUsername = "";
+            MessageItem item = null;
+            for (MessageData data : list) {
+                if (!data.getSender().equals(currentUsername)) {
+                    item = new MessageItem(
+                            data.getAvatar(),
+                            data.getContent(),
+                            data.getTime().toLocalDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")),
                             null,
-                            message.getSender().equals(connect.user.getUsername())
-                    ));
+                            data.getSender().equals(user.getUsername())
+                    );
                 } else {
-                    vboxViewChat.getChildren().add(new MessageItem(
+                    item = new MessageItem(
                             null,
-                            message.getContent(),
-                            message.getCreatedAt().toString(),
+                            data.getContent(),
+                            data.getTime().toLocalDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")),
                             null,
-                            message.getSender().equals(connect.user.getUsername())
-                    ));
+                            data.getSender().equals(user.getUsername())
+                    );
                 }
-
-                //String avatar, String content, String time, String status, boolean isMyMessage)
+                currentUsername = data.getSender();
+                vboxViewChat.getChildren().add(item);
             }
+            scrollViewChat.setVvalue(scrollViewChat.getVmax());
             vboxConversation.setVisible(true);
         });
     }
 
     //Làm mới giao diện lại như ban đầu
     public void clearInfo() {
-
+        listUser.clear();
+        listConversation.clear();
+        listMessage.clear();
+        ivAvatar.setImage(null);
+        ivMyAvatar.setImage(null);
+        lblMyName.setText(null);
+        lblName.setText(null);
+        contactsMenuSelected(null);
+        vboxConversation.setVisible(false);
     }
     //endregion
 }
