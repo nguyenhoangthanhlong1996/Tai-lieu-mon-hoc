@@ -188,24 +188,6 @@ public class Chat {
         searchKeyReleased(null);
         //Khởi tạo các xử lý sự kiện
         initEventHandler();
-//        vboxListConversation.getChildren().add(new Conversation("","thanhlong", "Nguyễn Hoàng Thanh Long","xin chào bạn","2 ngày", 50));
-//        vboxListConversation.getChildren().add(new Conversation("","thihoa", "Nguyễn Thị hoa","Alo alo à á ằ","15 phút", 3));
-//        vboxListConversation.getChildren().add(new Conversation("","group", "abc def","123 5465 465awea2","1 tuần", 2));
-//
-//        vboxViewChat.getChildren().add(new Timeline("10:30 08/04/2019"));
-//
-//        vboxViewChat.getChildren().add(new Message("", "sdj fmsdfhe4rer43  545 45","20:15","", true));
-//        vboxViewChat.getChildren().add(new Message("", "ewefwefwef wefwef","12:12","Đã xem", false));
-//        vboxViewChat.getChildren().add(new Message("", "ewefwefwef wefwef","12:12","Đã xem", false));
-//        vboxViewChat.getChildren().add(new Timeline("10:30 08/04/2019"));
-//        vboxViewChat.getChildren().add(new Message("", "ewefwefwef wefwef","12:12","Đã xem", false));
-//        vboxViewChat.getChildren().add(new Message("", "ewefwefwef wefwef","12:12","Đã xem", false));
-//        vboxViewChat.getChildren().add(new Timeline("10:30 08/04/2019"));
-//        vboxViewChat.getChildren().add(new Message("", "ewefwefwef wefwef","12:12","Đã xem", true));
-//        vboxViewChat.getChildren().add(new Message(Config.getAvatarWoman().toString(), "ewefwefwef wefwef","12:12","Đã xem", false));
-//        vboxViewChat.getChildren().add(new Message(Config.getAvatarGroup().toString(), "ewefwefwef wefwef","12:12","Đã xem", true));
-//
-//        scrollViewChat.setVvalue(scrollViewChat.getVmax());
     }
     //endregion
 
@@ -393,12 +375,12 @@ public class Chat {
 
     public void refreshUI_ListMessage(ListMessageData listMessageData) {
         Platform.runLater(() -> {
-            vboxViewChat.getChildren().clear();
             currentIdConversation = listMessageData.getConversationId();
             List<MessageData> list = listMessageData.getListMessageData();
             User user = connect.user;
             String currentUsername = "";
             MessageItem item = null;
+            vboxViewChat.getChildren().clear();
             for (MessageData data : list) {
                 if (!data.getSender().equals(currentUsername)) {
                     item = new MessageItem(
@@ -420,7 +402,7 @@ public class Chat {
                 currentUsername = data.getSender();
                 vboxViewChat.getChildren().add(item);
             }
-            scrollViewChat.setVvalue(scrollViewChat.getVmax());
+            Platform.runLater(() -> scrollViewChat.setVvalue(1.0));
             vboxConversation.setVisible(true);
         });
     }

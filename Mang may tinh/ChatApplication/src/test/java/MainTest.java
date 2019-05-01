@@ -1,5 +1,10 @@
 
+import client.controllers.Chat;
 import client.objectUI.ConversationItem;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import share.dao.ConversationDAO;
 import share.dao.MessageDAO;
 import share.dao.UserDAO;
@@ -17,13 +22,15 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
-public class MainTest {
-    public static void main(String[] args) throws ParseException {
-        ConversationDAO conversationDAO = new ConversationDAO();
-        conversationDAO.getAllConversation("hue");
-//        List<String> list = conversationDAO.getAllUsernameByConversation(14);
-//        System.out.println(list.size());
-//        MessageDAO messageDAO = new MessageDAO();
-//        System.out.println(messageDAO.createMessage(12,"long","day là tin nhan vua tao"));
+public class MainTest extends Application {
+    public static void main(String[] args)  {
+        launch();
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+        primaryStage.setScene(new Scene(loader.load()));
+        primaryStage.show();
     }
 }

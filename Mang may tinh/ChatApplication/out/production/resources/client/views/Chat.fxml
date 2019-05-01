@@ -167,7 +167,7 @@
                     <children>
                         <VBox fx:id="vboxConversation" prefHeight="700.0" prefWidth="350.0">
                             <children>
-                                <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="90.0" spacing="20.0" styleClass="cell2">
+                                <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="90.0" spacing="20.0" styleClass="cell2" VBox.vgrow="ALWAYS">
                                     <children>
                                         <BorderPane prefHeight="90.0" prefWidth="102.0">
                                             <center>
@@ -191,14 +191,14 @@
                                 </HBox>
                                 <ScrollPane fx:id="scrollViewChat" hbarPolicy="NEVER" styleClass="view-chat" VBox.vgrow="ALWAYS">
                                     <content>
-                                        <VBox fx:id="vboxViewChat" alignment="TOP_CENTER" prefWidth="560.0">
+                                        <VBox fx:id="vboxViewChat" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefWidth="560.0">
                                             <padding>
                                                 <Insets right="15.0" />
                                             </padding>
                                         </VBox>
                                     </content>
                                 </ScrollPane>
-                                <HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="570.0" spacing="15.0">
+                                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" spacing="15.0">
                                     <children>
                                         <JFXTextArea fx:id="txtInputMessage" focusColor="#ffffff00" onKeyPressed="#onKeyPressed" promptText="Nhập nội dung tin nhắn" styleClass="input-text-content-chat" unFocusColor="#ffffff00" HBox.hgrow="ALWAYS">
                                             <padding>
