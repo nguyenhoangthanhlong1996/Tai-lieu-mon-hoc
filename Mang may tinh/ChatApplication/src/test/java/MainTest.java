@@ -10,7 +10,12 @@ public class MainTest {
 
         UserDAO userDAO = new UserDAO();
 
-        List<User> list = userDAO.getAllUserExceptUsername("asASas");
+        List<User> list = null;
+        try {
+            list = userDAO.getAllUserExceptUsername("asASas");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         for (User u : list)
             System.out.println(u);
 
