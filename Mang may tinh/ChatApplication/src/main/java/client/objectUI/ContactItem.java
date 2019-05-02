@@ -13,7 +13,7 @@ import share.util.Base64Utils;
 
 import java.io.IOException;
 
-public class Contact extends HBox {
+public class ContactItem extends HBox {
 
     //base64
     private String avatar;
@@ -36,7 +36,7 @@ public class Contact extends HBox {
     @FXML
     private Label lblLastVisitTime;
 
-    public Contact(String avatar, String username, String name, boolean gender, String lastVisitTime, boolean online) {
+    public ContactItem(String avatar, String username, String name, boolean gender, String lastVisitTime, boolean online) {
         FXMLLoader loader = new FXMLLoader(Config.getPathViewContactItem());
         loader.setRoot(this);
         loader.setController(this);

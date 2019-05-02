@@ -7,10 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import share.util.Base64Utils;
 
 import java.io.IOException;
 
-public class Conversation extends HBox {
+public class ConversationItem extends HBox {
+
+    private int idConversation;
     //Đường dẫn ảnh
     private String avatar;
     //Tên tài khoản
@@ -39,12 +42,13 @@ public class Conversation extends HBox {
     @FXML
     private Label lblNumberUnreadMessage;
 
-    public Conversation(String avatar, String username, String name, String shortenContent, String lastMessageTime, int numberUnreadMessage) {
+    public ConversationItem(int idConversation, String avatar, String username, String name, String shortenContent, String lastMessageTime, int numberUnreadMessage) {
         FXMLLoader loader = new FXMLLoader(Config.getPathViewConversationItem());
         loader.setRoot(this);
         loader.setController(this);
         try {
             loader.load();
+            setIdConversation(idConversation);
             setAvatar(avatar);
             setUsername(username);
             setName(name);
@@ -63,10 +67,23 @@ public class Conversation extends HBox {
     public void setAvatar(String avatar) {
         this.avatar = avatar;
         if (avatar == "") {
-            ivAvatar.setImage(new Image(Config.getAvatarMan().toString()));
+            ivAvatar.setImage(null);
         } else {
-            ivAvatar.setImage(new Image(avatar));
+            try {
+                ivAvatar.setImage(Base64Utils.getImageFromBase64String(avatar));
+            } catch (IOException e) {
+                ivAvatar.setImage(null);
+                e.printStackTrace();
+            }
         }
+    }
+
+    public int getIdConversation() {
+        return idConversation;
+    }
+
+    public void setIdConversation(int idConversation) {
+        this.idConversation = idConversation;
     }
 
     public String getUsername() {
@@ -117,5 +134,17 @@ public class Conversation extends HBox {
             lblNumberUnreadMessage.setText(numberUnreadMessage+"");
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return "ConversationItem{" +
+                "avatar='" + avatar + '\'' +
+                ", username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", shortenContent='" + shortenContent + '\'' +
+                ", lastMessageTime='" + lastMessageTime + '\'' +
+                ", numberUnreadMessage=" + numberUnreadMessage +
+                '}';
     }
 }

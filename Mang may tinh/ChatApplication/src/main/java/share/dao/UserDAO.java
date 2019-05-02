@@ -85,7 +85,13 @@ public class UserDAO {
         } finally {
             close();
         }
+    }
 
+    public User getUserByUsername(String username) {
+        open();
+        User user = session.get(User.class, username);
+        close();
+        return user;
     }
 
     //Cập nhật trạng thái online của 1 User

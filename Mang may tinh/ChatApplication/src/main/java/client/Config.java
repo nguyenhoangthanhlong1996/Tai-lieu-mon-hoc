@@ -59,6 +59,18 @@ public class Config {
         }
     }
 
+    //Trả về URL giao diện chính của dialog tạo nhóm
+    public static URL getPathViewCreateGroup() {
+        try {
+            //Tên file fxml cho giao diện chat chính
+            String nameFile = "CreateGroup.fxml";
+            return new URL(PATH_RESOURCES_VIEWS.toString() + "/" + nameFile);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     //Trả về URL giao diện 1 item liên hệ
     public static URL getPathViewContactItem() {
         try {

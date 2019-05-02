@@ -8,6 +8,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -91,7 +92,7 @@
                                 <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="289.0" styleClass="search-box">
                                     <children>
                                         <FontAwesomeIconView glyphName="SEARCH" size="15" styleClass="icon-search" />
-                                        <JFXTextField fx:id="txtSearch" focusColor="#ffffff00" promptText="Tìm bạn bè, nhóm và tin nhắn" styleClass="input-text-search" unFocusColor="#ffffff00" HBox.hgrow="ALWAYS">
+                                        <JFXTextField fx:id="txtSearch" focusColor="#ffffff00" onKeyReleased="#searchKeyReleased" promptText="Tìm bạn bè, nhóm và tin nhắn" styleClass="input-text-search" unFocusColor="#ffffff00" HBox.hgrow="ALWAYS">
                                             <HBox.margin>
                                                 <Insets />
                                             </HBox.margin>
@@ -106,17 +107,17 @@
                         </VBox>
                         <StackPane prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                             <children>
-                                <VBox fx:id="vboxContacts" prefHeight="648.0" prefWidth="350.0" styleClass="cell3" visible="false" VBox.vgrow="ALWAYS">
+                                <VBox fx:id="vboxContacts" prefHeight="648.0" prefWidth="350.0" styleClass="cell3" VBox.vgrow="ALWAYS">
                                     <children>
-                              <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="309.0" styleClass="option-message-box">
-                                 <children>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="106.0" spacing="5.0" styleClass="option-message">
-                                       <children>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="309.0" styleClass="option-message-box">
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="214.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                                                    <children>
                                           <Label text="Tất cả các liên hệ" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </HBox>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </HBox>
                                         <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" styleClass="scroll-bar" VBox.vgrow="ALWAYS">
                                             <content>
                                                 <VBox fx:id="vboxListContact" prefWidth="345.0">
@@ -132,11 +133,19 @@
                                     <children>
                                         <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="309.0" styleClass="option-message-box">
                                             <children>
-                                                <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="214.0" spacing="5.0" styleClass="option-message" HBox.hgrow="ALWAYS">
+                                                <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="305.0" spacing="5.0" HBox.hgrow="ALWAYS">
                                                     <children>
-                                          <ComboBox fx:id="cbbFilterConversation" promptText="Tất cả" styleClass="cbb-filter-conversation" HBox.hgrow="ALWAYS" />
+                                          <ComboBox fx:id="cbbFilterConversation" maxWidth="1.7976931348623157E308" promptText="Tất cả" styleClass="cbb-filter-conversation" HBox.hgrow="ALWAYS">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ComboBox>
                                                     </children>
                                                 </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Hyperlink onAction="#createGroup" text="Tạo nhóm" />
+                                       </children>
+                                    </HBox>
                                             </children>
                                         </HBox>
                                         <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" styleClass="scroll-bar" VBox.vgrow="ALWAYS">
@@ -158,7 +167,7 @@
                     <children>
                         <VBox fx:id="vboxConversation" prefHeight="700.0" prefWidth="350.0">
                             <children>
-                                <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="90.0" spacing="20.0" styleClass="cell2">
+                                <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="90.0" spacing="20.0" styleClass="cell2" VBox.vgrow="ALWAYS">
                                     <children>
                                         <BorderPane prefHeight="90.0" prefWidth="102.0">
                                             <center>
@@ -182,21 +191,21 @@
                                 </HBox>
                                 <ScrollPane fx:id="scrollViewChat" hbarPolicy="NEVER" styleClass="view-chat" VBox.vgrow="ALWAYS">
                                     <content>
-                                        <VBox fx:id="vboxViewChat" alignment="TOP_CENTER" prefWidth="560.0">
+                                        <VBox fx:id="vboxViewChat" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefWidth="560.0">
                                             <padding>
                                                 <Insets right="15.0" />
                                             </padding>
                                         </VBox>
                                     </content>
                                 </ScrollPane>
-                                <HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="570.0" spacing="15.0">
+                                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" spacing="15.0">
                                     <children>
                                         <JFXTextArea fx:id="txtInputMessage" focusColor="#ffffff00" onKeyPressed="#onKeyPressed" promptText="Nhập nội dung tin nhắn" styleClass="input-text-content-chat" unFocusColor="#ffffff00" HBox.hgrow="ALWAYS">
                                             <padding>
                                                 <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                             </padding>
                                         </JFXTextArea>
-                                        <MaterialDesignIconView glyphName="SEND" size="25" wrappingWidth="34.0">
+                                        <MaterialDesignIconView glyphName="SEND" onMousePressed="#sendMessage" size="25" wrappingWidth="34.0">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>

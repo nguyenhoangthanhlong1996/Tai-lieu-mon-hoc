@@ -1,14 +1,16 @@
 package client.listview;
 
-import client.objectUI.Conversation;
+
+
+import client.objectUI.ConversationItem;
 
 import java.util.ArrayList;
 
 public class ListConservation {
 
-    ArrayList<Conversation> list;
+    ArrayList<ConversationItem> list;
 
-    public ListConservation(ArrayList<Conversation> list) {
+    public ListConservation(ArrayList<ConversationItem> list) {
         this.list = list;
     }
 

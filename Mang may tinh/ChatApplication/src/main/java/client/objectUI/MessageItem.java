@@ -8,16 +8,26 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import share.util.Base64Utils;
 
 import java.io.IOException;
 
-public class Message extends HBox {
+public class MessageItem extends HBox {
 
     String avatar;
     String content;
     String time;
     String status;
     boolean isMyMessage;
+
+    public static FXMLLoader fxmlLoader;
+
+    public static FXMLLoader getFxmlLoader() {
+        if (fxmlLoader == null) {
+            fxmlLoader = new FXMLLoader(Config.getPathViewMessageItem());
+        }
+        return fxmlLoader;
+    }
 
     @FXML
     private ImageView ivAvatar;
@@ -31,12 +41,11 @@ public class Message extends HBox {
     @FXML
     private Label lblStatus;
 
-    public Message(String avatar, String content, String time, String status, boolean isMyMessage) {
-        FXMLLoader loader = new FXMLLoader(Config.getPathViewMessageItem());
-        loader.setRoot(this);
-        loader.setController(this);
+    public MessageItem(String avatar, String content, String time, String status, boolean isMyMessage) {
+        getFxmlLoader().setRoot(this);
+        getFxmlLoader().setController(this);
         try {
-            loader.load();
+            getFxmlLoader().load();
             setAvatar(avatar);
             setContent(content);
             setTime(time);
@@ -53,10 +62,14 @@ public class Message extends HBox {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
-        if (avatar == "") {
-            ivAvatar.setImage(new Image(Config.getAvatarMan().toString()));
+        if (avatar == null || avatar.equals("")) {
+            ivAvatar.setImage(null);
         } else {
-            ivAvatar.setImage(new Image(avatar));
+            try {
+                ivAvatar.setImage(Base64Utils.getImageFromBase64String(avatar));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

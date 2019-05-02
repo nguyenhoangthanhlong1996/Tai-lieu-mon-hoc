@@ -44,17 +44,17 @@ public class SignInData implements Serializable {
     public boolean isValid() {
         errors.clear();
         //Kiểm tra username
-        String patternUsername = "^[a-zA-Z][a-zA-Z0-9]{5,39}";
+        String patternUsername = "^[a-zA-Z][a-zA-Z0-9]{0,39}";
         if (username.equals(""))
             errors.add("Tên tài khoản không được bỏ trống");
         else if (!username.matches(patternUsername))
-            errors.add("Tên tài khoản phải từ 6-40 kí tự, chỉ chứa chữ cái và số, phải bắt đầu bởi chữ cái");
+            errors.add("Tên tài khoản phải từ 1-40 kí tự, chỉ chứa chữ cái và số, phải bắt đầu bởi chữ cái");
         //Kiểm tra password
-        String patternPassword = "[a-zA-Z0-9]{6,40}";
+        String patternPassword = "[a-zA-Z0-9]{1,40}";
         if (password.equals(""))
             errors.add("Mật khẩu không được bỏ trống");
         else if (!password.matches(patternPassword))
-            errors.add("Mật khẩu phải từ 6-40 kí tự, chỉ chứa chữ cái và số");
+            errors.add("Mật khẩu phải từ 1-40 kí tự, chỉ chứa chữ cái và số");
         //Trả về kết quả kiểm tra
         if (errors.size() > 0)
             return false;

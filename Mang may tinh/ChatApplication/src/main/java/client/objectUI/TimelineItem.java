@@ -8,12 +8,12 @@ import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 
-public class Timeline extends StackPane {
+public class TimelineItem extends StackPane {
 
     String time;
     @FXML Label lblTime;
 
-    public Timeline(String time) {
+    public TimelineItem(String time) {
         FXMLLoader loader = new FXMLLoader(Config.getPathViewTimelineItem());
         loader.setRoot(this);
         loader.setController(this);
