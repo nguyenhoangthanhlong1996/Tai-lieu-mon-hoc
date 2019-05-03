@@ -16,7 +16,7 @@
             <top>
                 <ImageView fx:id="ivAvatar" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                     <image>
-                        <Image url="@../images/boy3.png" />
+                        <Image url="@../../main/resources/client/images/boy2.png" />
                     </image>
                 </ImageView>
             </top>

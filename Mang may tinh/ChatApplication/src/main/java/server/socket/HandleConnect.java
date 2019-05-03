@@ -4,7 +4,7 @@ import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import server.controllers.LogLevel;
 import server.controllers.ServerController;
-import server.objectUI.InfoConnect;
+import server.controllers.objectUI.InfoConnect;
 import share.protocol.Response;
 import share.protocol.ResponseType;
 

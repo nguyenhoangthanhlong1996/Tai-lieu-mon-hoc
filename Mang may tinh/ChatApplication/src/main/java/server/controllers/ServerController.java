@@ -1,6 +1,5 @@
 package server.controllers;
 
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,7 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import server.objectUI.InfoConnect;
+import server.controllers.objectUI.InfoConnect;
 import server.socket.HandleConnect;
 import share.Config;
 

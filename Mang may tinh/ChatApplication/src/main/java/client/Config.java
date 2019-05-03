@@ -143,6 +143,18 @@ public class Config {
         }
     }
 
+    //Trả về URL của avatar woman
+    public static URL getAvatarUnknow() {
+        try {
+            //Tên file fxml cho giao diện chat chính
+            String nameFile = "unknow.png";
+            return new URL(PATH_RESOURCES_IMAGES.toString() + "/" + nameFile);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     //Trả về URL của avatar group
     public static URL getAvatarGroup() {
         try {

@@ -1,4 +1,4 @@
-package server.objectUI;
+package server.controllers.objectUI;
 
 
 import javafx.beans.property.SimpleIntegerProperty;
