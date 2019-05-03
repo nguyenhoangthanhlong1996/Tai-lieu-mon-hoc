@@ -26,6 +26,7 @@
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
+    <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +82,7 @@
     <favorites_list name="ChatApplication" />
   </component>
   <component name="FileEditorManager">
+    <leaf />
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/MainTest.java">
@@ -190,6 +192,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+
+        <option value="$PROJECT_DIR$/src/main/java/share/data/SignInData.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/log4j.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/share/protocol/Response.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/stages/Server.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/client/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/client/stages/ScenceOption.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/client/views/SignIn.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/client/stages/Authenticate.java" />
         <option value="$PROJECT_DIR$/src/main/java/client/stages/Chat.java" />
         <option value="$PROJECT_DIR$/src/main/resources/client/views/SignUp.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/share/entity/User.java" />
@@ -198,6 +210,9 @@
         <option value="$PROJECT_DIR$/src/main/java/server/controllers/ServerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/client/controllers/SignUp.java" />
         <option value="$PROJECT_DIR$/src/main/java/share/util/Base64Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/share/protocol/RequestType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/share/dao/UserDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/client/objectUI/Conversation.java" />
         <option value="$PROJECT_DIR$/src/main/java/client/objectUI/Contact.java" />
         <option value="$PROJECT_DIR$/src/main/resources/client/styles/Chat.css" />
         <option value="$PROJECT_DIR$/src/main/resources/client/views/Chat.fxml" />
@@ -245,6 +260,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="3" />
+    <option name="width" value="1099" />
+    <option name="height" value="1050" />
     <option name="x" value="-6" />
     <option name="y" value="4" />
     <option name="width" value="1450" />
@@ -256,7 +274,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -343,7 +363,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -740,6 +760,24 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/share/data/SignUpData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="109" column="56" lean-forward="true" selection-start-line="109" selection-start-column="56" selection-end-line="109" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/share/protocol/Response.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/share/data/SignInData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="56" column="78" lean-forward="true" selection-start-line="56" selection-start-column="78" selection-end-line="56" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/share/util/DateTimeUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">

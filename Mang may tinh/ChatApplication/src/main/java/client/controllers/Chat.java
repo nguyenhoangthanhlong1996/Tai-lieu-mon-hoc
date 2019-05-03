@@ -3,6 +3,7 @@ package client.controllers;
 import client.objectUI.ContactItem;
 import client.objectUI.ConversationItem;
 import client.objectUI.MessageItem;
+import client.objectUI.TimelineItem;
 import client.socket.SingletonConnect;
 import client.stages.ClientApp;
 import client.stages.DialogCreateGroup;
@@ -32,6 +33,8 @@ import share.protocol.RequestType;
 import share.util.Base64Utils;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,7 +96,7 @@ public class Chat {
     @FXML
     private VBox vboxViewChat;
     @FXML
-    private JFXTextArea txtInputMessage;
+    private JFXTextField txtInputMessage;
     @FXML
     private HBox titleBar;
     @FXML
@@ -367,14 +370,22 @@ public class Chat {
             List<MessageData> list = listMessageData.getListMessageData();
             User user = connect.user;
             String currentUsername = "";
+            String currentTimeline = "";
             MessageItem item = null;
             vboxViewChat.getChildren().clear();
             for (MessageData data : list) {
+                LocalDateTime localDateTime = data.getTime().toLocalDateTime();
+                String dateFormat = localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd "));
+                String timeFormat = localDateTime.format(DateTimeFormatter.ofPattern("hh:mm:ss"));
+                if (!dateFormat.equals(currentTimeline)) {
+                    vboxViewChat.getChildren().add(new TimelineItem(dateFormat));
+                    currentTimeline = dateFormat;
+                }
                 if (!data.getSender().equals(currentUsername)) {
                     item = new MessageItem(
                             data.getAvatar(),
                             data.getContent(),
-                            data.getTime().toLocalDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")),
+                            timeFormat,
                             null,
                             data.getSender().equals(user.getUsername())
                     );
@@ -382,7 +393,7 @@ public class Chat {
                     item = new MessageItem(
                             null,
                             data.getContent(),
-                            data.getTime().toLocalDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")),
+                            timeFormat,
                             null,
                             data.getSender().equals(user.getUsername())
                     );

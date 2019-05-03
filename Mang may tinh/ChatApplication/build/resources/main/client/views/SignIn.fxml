@@ -54,7 +54,7 @@
       </HBox>
    </top>
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="wrapper">
+      <VBox alignment="CENTER" onKeyPressed="#onKeyPressed" prefHeight="200.0" prefWidth="100.0" styleClass="wrapper">
          <children>
             <FontAwesomeIconView fill="#002de1" glyphName="WECHAT" size="90">
                <VBox.margin>
