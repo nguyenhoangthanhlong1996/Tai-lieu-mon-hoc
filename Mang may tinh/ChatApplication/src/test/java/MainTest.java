@@ -22,20 +22,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
-public class MainTest {
-    public static void main(String[] args) {
-
-        UserDAO userDAO = new UserDAO();
-
-        List<User> list = null;
-        try {
-            list = userDAO.getAllUserExceptUsername("asASas");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        for (User u : list)
-            System.out.println(u);
-
 public class MainTest extends Application {
     public static void main(String[] args)  {
         launch();

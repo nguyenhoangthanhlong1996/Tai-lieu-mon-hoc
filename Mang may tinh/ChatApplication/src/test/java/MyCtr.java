@@ -3,13 +3,16 @@ import client.objectUI.MessageItem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
+import java.awt.*;
 import java.io.IOException;
 
 
@@ -23,32 +26,24 @@ public class MyCtr {
 
     @FXML
     void initialize() {
-//        HBox hBoxWrap = new HBox();
-//        ImageView imageView = new ImageView();
-//        imageView.setImage(new Image(Config.getAvatarMan().toString()));
-//        imageView.setFitWidth(50);
-//        imageView.setFitHeight(50);
-//        VBox vBox = new VBox();
-//        vBox.getChildren().add(new Label("abc"));
-//        vBox.getChildren().add(new Label("123456"));
-//        hBoxWrap.getChildren().addAll(imageView,vBox);
-//
-//        vbox.getChildren().add(hBoxWrap);
+
     }
 
     @FXML
     void Add(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(Config.getPathViewMessageItem());
-        try {
-            HBox hBox = new HBox();
-            loader.setRoot(hBox);
-            hBox = loader.load();
-            for (int i=0;i<100;i++) {
-                vbox.getChildren().add(new HBox(hBox));
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        HBox wrap = new HBox();
+        ImageView ivAvatar= new ImageView();
+        ivAvatar.setImage(new Image(Config.getAvatarMan().toString()));
+        ivAvatar.setFitHeight(70);
+        ivAvatar.setFitWidth(70);
+        VBox vboxMessage = new VBox();
+        vboxMessage.setAlignment(Pos.CENTER_LEFT);
+        vboxMessage.setPadding(new Insets(0,0,0,10));
+        vboxMessage.setBackground(new Background(new BackgroundFill(Color.web("#fff"), CornerRadii.EMPTY,Insets.EMPTY)));
+        Label lblContent = new Label("abc def");
+        Label lblTime = new Label("12:34");
+        vboxMessage.getChildren().addAll(lblContent, lblTime);
+        wrap.getChildren().addAll(ivAvatar,vboxMessage);
+        vbox.getChildren().addAll(wrap);
     }
 }
