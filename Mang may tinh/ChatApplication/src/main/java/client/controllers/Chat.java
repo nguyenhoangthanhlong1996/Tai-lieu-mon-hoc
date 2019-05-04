@@ -1,9 +1,6 @@
 package client.controllers;
 
-import client.objectUI.ContactItem;
-import client.objectUI.ConversationItem;
-import client.objectUI.MessageItem;
-import client.objectUI.TimelineItem;
+import client.objectUI.*;
 import client.socket.SingletonConnect;
 import client.stages.ClientApp;
 import client.stages.DialogCreateGroup;
@@ -11,6 +8,12 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.application.Platform;
+import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -38,6 +41,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Chat {
     //region Biến
@@ -50,61 +54,86 @@ public class Chat {
     int currentIdConversation = 0;
     double x = 0, y = 0;
     boolean isMaximize = false;
+    boolean filterContact = true;
     //Danh sách các user
     List<User> listUser;
     //Danh sách các cuộc hội thoại
-    List<ConversationData> listConversation;
+    ObservableList<ConversationData> listConversation;
+    //Filter danh sách các cuộc hội thoại
+    FilteredList filterConversation;
+    //Bắt sự kiện chọn 1 cuộc hội thoại
+    ChangeListener<ConversationData> listenerConversation;
     //Danh sách tin nhắn của cuộc hội thoại hiện tại
     List<MessageItem> listMessage;
     //Xử lý sự kiện khi người dùng click chọn 1 user trong danh sách liên hệ
     EventHandler<MouseEvent> eventHandlerListContact;
-    //Xử lý sự kiện khi người dùng click chọn 1 cuộc hội thoại
-    EventHandler<MouseEvent> eventHandlerListConversation;
+//    //Xử lý sự kiện khi người dùng click chọn 1 cuộc hội thoại
+//    EventHandler<MouseEvent> eventHandlerListConversation;
     //endregion
 
     //region FXML Đối tượng UI
     @FXML
     private ImageView ivMyAvatar;
+
     @FXML
     private Circle circleMyStatus;
-    @FXML
-    private Label lblMyName;
-    @FXML
-    private JFXTextField txtSearch;
-    @FXML
-    private ComboBox<String> cbbFilterConversation;
-    @FXML
-    private VBox vboxContacts;
-    @FXML
-    private VBox vboxListContact;
-    @FXML
-    private VBox vboxConversations;
-    @FXML
-    private VBox vboxListConversation;
-    @FXML
-    private VBox vboxConversation;
-    @FXML
-    private ImageView ivAvatar;
-    @FXML
-    private Circle circleStatus;
-    @FXML
-    private Label lblName;
-    @FXML
-    private Label lblLastVisit;
-    @FXML
-    private ScrollPane scrollViewChat;
-    @FXML
-    private VBox vboxViewChat;
-    @FXML
-    private JFXTextField txtInputMessage;
-    @FXML
-    private HBox titleBar;
+
     @FXML
     private VBox vboxContactMenu;
+
     @FXML
     private VBox vboxConversatonMenu;
+
     @FXML
     private MaterialDesignIconView ivSettingMenu;
+
+    @FXML
+    private Label lblMyName;
+
+    @FXML
+    private JFXTextField txtSearch;
+
+    @FXML
+    private VBox vboxContacts;
+
+    @FXML
+    private VBox vboxListContact;
+
+    @FXML
+    private VBox vboxConversations;
+
+    @FXML
+    private ComboBox<String> cbbFilterConversation;
+
+    @FXML
+    private ListView<ConversationData> listViewConversation;
+
+    @FXML
+    private VBox vboxConversation;
+
+    @FXML
+    private ImageView ivAvatar;
+
+    @FXML
+    private Circle circleStatus;
+
+    @FXML
+    private Label lblName;
+
+    @FXML
+    private Label lblLastVisit;
+
+    @FXML
+    private ScrollPane scrollViewChat;
+
+    @FXML
+    private VBox vboxViewChat;
+
+    @FXML
+    private JFXTextField txtInputMessage;
+
+    @FXML
+    private HBox titleBar;
     ContextMenu settingMenu;
     //endregion
 
@@ -113,7 +142,8 @@ public class Chat {
         this.app = app;
         this.stage = stage;
         listUser = new ArrayList<>();
-        listConversation = new ArrayList<>();
+        listConversation = FXCollections.observableArrayList();
+        filterConversation = new FilteredList<>(listConversation, c -> true);
         listMessage = new ArrayList<>();
         connect = SingletonConnect.getInstance();
     }
@@ -128,22 +158,21 @@ public class Chat {
             request = new Request(RequestType.CREATE_CONVERSATION_PRIVATE, contact.getUsername());
             connect.sendRequest(request);
         };
-        //Xử lý sự kiện 1 user được click chọn ở danh sách tất cả các cuộc hội thoại
-        eventHandlerListConversation = event -> {
-            ConversationItem conversation = (ConversationItem) event.getSource();
+        //Xử lý sự kiện chọn 1 cuộc hội thoại
+        listenerConversation = (observable, oldValue, newValue) -> {
             //Gửi yêu cầu lấy danh tin nhắn của cuộc hội thoại này
-            int idConversation = conversation.getIdConversation();
+            int idConversation = newValue.getIdConversation();
             if (currentIdConversation != idConversation) {
                 //Gán hình
-                if (conversation.getAvatar() != null) {
+                if (newValue.getAvatar() != null) {
                     try {
-                        ivAvatar.setImage(Base64Utils.getImageFromBase64String(conversation.getAvatar()));
+                        ivAvatar.setImage(Base64Utils.getImageFromBase64String(newValue.getAvatar()));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
                 //Gán tên
-                lblName.setText(conversation.getName());
+                lblName.setText(newValue.getName());
                 circleStatus.setVisible(false);
                 lblLastVisit.setText(null);
 
@@ -176,6 +205,9 @@ public class Chat {
             connect.sendRequest(request);
         });
         settingMenu.getItems().addAll(item1, item2);
+        //Gán dữ liệu cho listViewConversation
+        listViewConversation.setItems(listConversation);
+        listViewConversation.setCellFactory(param -> new ConversationItem());
         searchKeyReleased(null);
         //Khởi tạo các xử lý sự kiện
         initEventHandler();
@@ -222,6 +254,8 @@ public class Chat {
         //Hiển thị nội dung tương ứng
         vboxContacts.setVisible(true);
         vboxConversations.setVisible(false);
+        //Gán cờ hiệu
+        filterContact = true;
     }
 
     @FXML
@@ -234,6 +268,8 @@ public class Chat {
         //Hiển thị nội dung tương ứng
         vboxContacts.setVisible(false);
         vboxConversations.setVisible(true);
+        //Gán cờ hiệu
+        filterContact = false;
     }
 
     @FXML
@@ -254,9 +290,24 @@ public class Chat {
 
     @FXML
     void searchKeyReleased(KeyEvent event) {
-        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
-
-        });
+        if (!filterContact) { //Lọc cuộc hội thoại
+            txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+                filterConversation.setPredicate((Predicate<? super ConversationData>) c -> {
+                    if (newValue == null || newValue.isEmpty())
+                        return true;
+                    String valueFilter = newValue.trim().toLowerCase();
+                    if (c.getUsername() != null && c.getUsername().toLowerCase().contains(valueFilter))
+                        return true;
+                    if (c.getName() != null && c.getName().toLowerCase().contains(valueFilter))
+                        return true;
+                    if (c.getShortenContent() != null && c.getShortenContent().toLowerCase().contains(valueFilter))
+                        return true;
+                    return false;
+                });
+            });
+            SortedList<ConversationData> sortedList = new SortedList<>(filterConversation);
+            listViewConversation.setItems(sortedList);
+        }
     }
 
     @FXML
@@ -346,21 +397,11 @@ public class Chat {
 
     public void refreshUI_ListConversation(List<ConversationData> list) {
         Platform.runLater(() -> {
-            vboxListConversation.getChildren().clear();
-            listConversation = list;
-            for (ConversationData cd : listConversation) {
-                ConversationItem conversationItem = new ConversationItem(
-                        cd.getIdConversation(),
-                        cd.getAvatar(),
-                        cd.getUsername(),
-                        cd.getName(),
-                        cd.getShortenContent(),
-                        //cd.getLastMessageTime() != null ? DateTimeUtils.getDiffDate(cd.getLastMessageTime()) : null,
-                        null,
-                        0);
-                conversationItem.setOnMousePressed(eventHandlerListConversation);
-                vboxListConversation.getChildren().add(conversationItem);
-            }
+            ReadOnlyObjectProperty<ConversationData> property = listViewConversation.getSelectionModel().selectedItemProperty();
+            property.removeListener(listenerConversation);
+            listConversation.clear();
+            listConversation.addAll(list);
+            property.addListener(listenerConversation);
         });
     }
 
@@ -376,7 +417,7 @@ public class Chat {
             for (MessageData data : list) {
                 LocalDateTime localDateTime = data.getTime().toLocalDateTime();
                 String dateFormat = localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd "));
-                String timeFormat = localDateTime.format(DateTimeFormatter.ofPattern("hh:mm:ss"));
+                String timeFormat = localDateTime.format(DateTimeFormatter.ofPattern("hh:mm"));
                 if (!dateFormat.equals(currentTimeline)) {
                     vboxViewChat.getChildren().add(new TimelineItem(dateFormat));
                     currentTimeline = dateFormat;

@@ -4,14 +4,17 @@ import client.Config;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import share.data.ConversationData;
 import share.util.Base64Utils;
 
 import java.io.IOException;
 
-public class ConversationItem extends HBox {
+public class ConversationItem extends ListCell<ConversationData> {
 
     private int idConversation;
     //Đường dẫn ảnh
@@ -26,37 +29,66 @@ public class ConversationItem extends HBox {
     private String lastMessageTime;
     //Số tin nhắn chưa đọc
     private int numberUnreadMessage;
+    FXMLLoader mLLoader;
 
+    @FXML
+    private HBox mainNode;
     @FXML
     private ImageView ivAvatar;
-
     @FXML
     private Label lblName;
-
     @FXML
     private Label lblShortentContent;
-
     @FXML
     private Label lblLastMessageTime;
-
     @FXML
     private Label lblNumberUnreadMessage;
 
-    public ConversationItem(int idConversation, String avatar, String username, String name, String shortenContent, String lastMessageTime, int numberUnreadMessage) {
-        FXMLLoader loader = new FXMLLoader(Config.getPathViewConversationItem());
-        loader.setRoot(this);
-        loader.setController(this);
-        try {
-            loader.load();
-            setIdConversation(idConversation);
-            setAvatar(avatar);
-            setUsername(username);
-            setName(name);
-            setShortenContent(shortenContent);
-            setLastMessageTime(lastMessageTime);
-            setNumberUnreadMessage(numberUnreadMessage);
-        } catch (IOException e) {
-            e.printStackTrace();
+//    public ConversationItem(int idConversation, String avatar, String username, String name, String shortenContent, String lastMessageTime, int numberUnreadMessage) {
+//        FXMLLoader loader = new FXMLLoader(Config.getPathViewConversationItem());
+//        loader.setRoot(this);
+//        loader.setController(this);
+//        try {
+//            loader.load();
+//            setIdConversation(idConversation);
+//            setAvatar(avatar);
+//            setUsername(username);
+//            setName(name);
+//            setShortenContent(shortenContent);
+//            setLastMessageTime(lastMessageTime);
+//            setNumberUnreadMessage(numberUnreadMessage);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    @Override
+    protected void updateItem(ConversationData item, boolean empty) {
+        super.updateItem(item, empty);
+        if(empty || item == null) {
+            setText(null);
+            setGraphic(null);
+        } else {
+            if (mLLoader == null) {
+                mLLoader = new FXMLLoader(Config.getPathViewConversationItem());
+                mLLoader.setController(this);
+                try {
+                    mLLoader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            setIdConversation(item.getIdConversation());
+            setAvatar(item.getAvatar());
+            setUsername(item.getUsername());
+            setName(item.getName());
+            setShortenContent(item.getShortenContent());
+            if (item.getLastMessageTime()!=null) {
+                setLastMessageTime(item.getLastMessageTime().toString());
+            }
+            setNumberUnreadMessage(item.getNumberUnreadMessage());
+            setText(null);
+            setGraphic(mainNode);
         }
     }
 

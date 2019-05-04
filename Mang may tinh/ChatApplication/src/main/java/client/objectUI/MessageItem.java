@@ -25,7 +25,8 @@ public class MessageItem extends HBox {
     Label lblContent;
     Label lblTime;
     Label lblStatus;
-    Font font;
+    Font font1;
+    Font font2;
 
     public MessageItem(String avatar, String content, String time, String status, boolean isMyMessage) {
         init();
@@ -62,7 +63,8 @@ public class MessageItem extends HBox {
         lblContent = new Label();
         lblTime = new Label();
         lblStatus = new Label();
-        font = new Font("Courier New",15);
+        font1 = new Font("Courier New",14);
+        font2 = new Font("Courier New",17);
         //Thêm vào phần tử chính
         getChildren().addAll(borderPane,vBox);
         //Thêm vào phần tử BorderPane
@@ -104,7 +106,7 @@ public class MessageItem extends HBox {
         vBox.setPadding(new Insets(10,10,10,10));
         //Thiết lập lblContent
         lblContent.setWrapText(true);
-        lblContent.setFont(font);
+        lblContent.setFont(font2);
         //Thiết lập Hbox
         hBox.setAlignment(Pos.CENTER_LEFT);
         hBox.setPrefHeight(5);
@@ -114,7 +116,7 @@ public class MessageItem extends HBox {
         lblTime.setTextFill(Color.web("#1c07ff"));
         lblTime.setWrapText(true);
         StackPane.setAlignment(lblTime,Pos.CENTER_LEFT);
-        lblTime.setFont(font);
+        lblTime.setFont(font1);
         //Thiết lập StackPane2
         stackPane2.setAlignment(Pos.CENTER_RIGHT);
         stackPane2.setMinWidth(70);
@@ -124,6 +126,6 @@ public class MessageItem extends HBox {
         lblStatus.setAlignment(Pos.CENTER_RIGHT);
         lblStatus.setTextFill(Color.web("#1c07ff"));
         lblStatus.setWrapText(true);
-        lblStatus.setFont(font);
+        lblStatus.setFont(font1);
     }
 }

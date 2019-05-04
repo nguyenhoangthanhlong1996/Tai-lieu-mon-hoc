@@ -137,7 +137,6 @@ public class ConversationDAO {
                 .setParameter("username", username)
                 .list();
         close();
-        System.out.println("dsfsdfsdfsdfsdfsdf");
         //Thêm vào tất cả cuộc hội thoại riêng tư
         for (Object[] o : listConversationPrivate) {
             ConversationData data = new ConversationData(
