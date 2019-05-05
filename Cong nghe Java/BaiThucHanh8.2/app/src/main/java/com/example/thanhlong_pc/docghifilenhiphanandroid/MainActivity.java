@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //xác ịnh pathname của file cần ghi/ọ
         String pathSDCard = Environment.getExternalStorageDirectory().getPath();
-        file = new File(pathSDCard,"data.bin" );
+        file = new File(pathSDCard, "data.bin");
         try {
             file.createNewFile();
         } catch (IOException e) {

@@ -1,4 +1,3 @@
-
 //Chèn dữ liệu cho các select ngày tháng năm sinh
 var day = document.getElementById("day");
 var month = document.getElementById("month");
@@ -53,7 +52,7 @@ function submitForm() {
         errors += 'Password phải từ 2 - 30 kí tự\n';
 
     //Kiểm tra birthday
-    if (!isValidDate(year.value+'-'+month.value+'-'+day.value))
+    if (!isValidDate(year.value + '-' + month.value + '-' + day.value))
         errors += 'Birthday không hợp lệ\n';
 
     //Kiểm tra about

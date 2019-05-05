@@ -1,94 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical">
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="35dip"
-        android:orientation="horizontal"
-        android:weightSum="4">
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:orientation="horizontal"
+            android:weightSum="4">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/strA" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strA"/>
 
         <EditText
-            android:id="@+id/txtA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:textSize="14sp">
+                android:id="@+id/txtA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textSize="14sp">
 
-            <requestFocus />
+            <requestFocus/>
         </EditText>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="35dip"
-        android:orientation="horizontal"
-        android:weightSum="4">
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:orientation="horizontal"
+            android:weightSum="4">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/strB" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strB"/>
 
         <EditText
-            android:id="@+id/txtB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:textSize="14sp" />
+                android:id="@+id/txtB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textSize="14sp"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="35dip"
-        android:orientation="horizontal"
-        android:weightSum="4">
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:orientation="horizontal"
+            android:weightSum="4">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/strC" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/strC"/>
 
         <EditText
-            android:id="@+id/txtC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:textSize="14sp" />
+                android:id="@+id/txtC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textSize="14sp"/>
     </LinearLayout>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="35dip"
-        android:layout_gravity="center_horizontal"
-        android:onClick="btnStart_Click"
-        android:text="@string/strBatdau" />
+            android:layout_width="wrap_content"
+            android:layout_height="35dip"
+            android:layout_gravity="center_horizontal"
+            android:onClick="btnStart_Click"
+            android:text="@string/strBatdau"/>
 
     <TextView
-        android:id="@+id/lblKetqua"
-        android:layout_width="wrap_content"
-        android:layout_height="25dip"
-        android:text="" />
+            android:id="@+id/lblKetqua"
+            android:layout_width="wrap_content"
+            android:layout_height="25dip"
+            android:text=""/>
 
     <TextView
-        android:id="@+id/lblX1"
-        android:layout_width="wrap_content"
-        android:layout_height="25dip"
-        android:text="" />
+            android:id="@+id/lblX1"
+            android:layout_width="wrap_content"
+            android:layout_height="25dip"
+            android:text=""/>
 
     <TextView
-        android:id="@+id/lblX2"
-        android:layout_width="wrap_content"
-        android:layout_height="25dip"
-        android:text="" />
+            android:id="@+id/lblX2"
+            android:layout_width="wrap_content"
+            android:layout_height="25dip"
+            android:text=""/>
 </LinearLayout>

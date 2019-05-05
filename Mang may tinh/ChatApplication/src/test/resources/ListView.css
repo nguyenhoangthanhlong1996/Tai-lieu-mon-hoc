@@ -5,13 +5,16 @@
 .list-view .list-cell:even {
     -fx-background-color: #ffffff00;
 }
+
 .list-view .list-cell {
     -fx-cursor: HAND;
 }
+
 .list-view .list-cell:empty {
     -fx-background-color: transparent;
     -fx-cursor: DEFAULT;
 }
+
 .list-view .list-cell:empty:hover {
     -fx-background-color: transparent;
 }

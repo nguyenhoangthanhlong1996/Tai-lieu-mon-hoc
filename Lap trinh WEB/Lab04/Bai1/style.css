@@ -41,7 +41,7 @@ ul li {
 
 }
 
-ul li a{
+ul li a {
     text-decoration: none;
 }
 
@@ -49,53 +49,65 @@ ul li a{
     background-image: url('images/bg-menu.png');
     background-size: cover;
 }
+
 .menu ul {
     overflow: hidden;
     padding: 15px;
 }
+
 .menu ul li {
     float: left;
     margin-left: 20px;
 }
-.menu ul li a{
+
+.menu ul li a {
     color: white;
 }
 
 .content {
     padding: 0 5px;
 }
-.content .column1,.column2 {
+
+.content .column1, .column2 {
     float: left;
 }
+
 .content .column1 {
     width: 75%;
 }
+
 .content .column2 {
     width: 25%;
 }
+
 .content > .column1 > img {
     width: 90%;
     height: 100px;
 }
+
 .content > .column1 > h2 {
-    color:green;
+    color: green;
     margin-top: 10px;
 }
+
 .content > .column1 > h5 {
-    color:gray;
+    color: gray;
     font-size: 13px;
     font-weight: lighter;
 }
+
 .content > .column1 > p {
-    margin-top:20px;
+    margin-top: 20px;
     line-height: 1.5rem;
 }
+
 .content > .column1 > .comment {
     margin-top: 20px;
     color: rgb(62, 179, 140);
     display: flex;
     align-items: center;
 }
+
 .content > .column1 > .comment > span {
     margin-left: 10px;
 }
@@ -105,23 +117,28 @@ ul li a{
     background-color: rgb(247, 245, 245);
     border-radius: 0px 0px 15px 15px;
 }
-.content > .column2 > ul > li{
+
+.content > .column2 > ul > li {
     border-bottom: 1px solid gray;
     padding: 5px;
 }
+
 .content > .column2 > ul > li:last-child {
     border: none;
 }
+
 .content > .column2 > ul > li:first-child {
     border: none;
     padding: 0;
     display: flex;
     justify-content: center;
 }
-.content > .column2 > ul > li > a{
+
+.content > .column2 > ul > li > a {
     color: black;
 }
-.content > .column2 > ul > li > span{
+
+.content > .column2 > ul > li > span {
     width: 70%;
     height: 25px;
     background-image: url('images/bg-feed.gif');
@@ -131,6 +148,7 @@ ul li a{
     display: flex;
     justify-content: center;
 }
+
 .content > .column2 > ul > li > span > button {
     width: 70%;
     height: 100%;
@@ -139,6 +157,7 @@ ul li a{
     border: none;
     background-repeat: no-repeat;
 }
+
 .content > .column2 > ul > li > span > button:hover {
     background-position-y: -24px;
 }
@@ -148,6 +167,7 @@ ul li a{
     background-image: url('images/bg-footer.jpg');
     position: relative;
 }
+
 .footer > h5 {
     color: white;
     position: absolute;

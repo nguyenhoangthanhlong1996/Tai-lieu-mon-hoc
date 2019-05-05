@@ -206,7 +206,7 @@ public class SingletonConnect {
                 //Gửi yêu cầu lấy danh sách các cuộc hội thoại
                 app.ctrChat.requestListConversation();
                 break;
-                //endregion
+            //endregion
             case GET_LIST_MESSAGE:
                 //region GET_LIST_MESSAGE
                 if (response.isSuccess()) {
@@ -216,14 +216,14 @@ public class SingletonConnect {
                     app.showAlert("Lỗi", (String) response.getData());
                 }
                 break;
-                //endregion
+            //endregion
             case SEND_MESSAGE:
                 //region SEND_MESSAGE
                 if (!response.isSuccess()) {
                     app.showAlert("Lỗi", (String) response.getData());
                 }
                 break;
-                //endregion
+            //endregion
             case NOTIFY_LIST_MESSAGE:
                 //region NOTIFY_LIST_MESSAGE
                 if (response.isSuccess()) {
@@ -231,16 +231,16 @@ public class SingletonConnect {
                     app.ctrChat.notifyListMessage(conversationId);
                 }
                 break;
-                //endregion
+            //endregion
             case CREATE_CONVERSATION_GROUP:
                 //region CREATE_CONVERSATION_GROUP
                 if (response.isSuccess()) {
-                    app.showAlert("Tạo nhóm thành công","");
+                    app.showAlert("Tạo nhóm thành công", "");
                 } else {
                     app.showAlert("Lỗi", (String) response.getData());
                 }
                 break;
-                //endregion
+            //endregion
         }
     }
 }

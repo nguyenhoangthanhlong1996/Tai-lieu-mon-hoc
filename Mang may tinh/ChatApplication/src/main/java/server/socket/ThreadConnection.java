@@ -255,15 +255,15 @@ public class ThreadConnection extends Thread {
                     int conversationId = sendMessageData.getConversationId();
                     String content = sendMessageData.getContent();
                     //Thêm tin nhắn vào csdl
-                    if (messageDAO.createMessage(conversationId,user.getUsername(),content)) {
-                        response = new Response(ResponseType.SEND_MESSAGE,true,null);
+                    if (messageDAO.createMessage(conversationId, user.getUsername(), content)) {
+                        response = new Response(ResponseType.SEND_MESSAGE, true, null);
                         sendResponse(response);
                         //Thông báo cho tất cả các user trong cuộc hội thoại này biết có tin nhắn mới
                         List<String> listUsername = conversationDAO.getAllUsernameByConversation(conversationId);
                         handleConnect.notifyListMessage(conversationId, listUsername);
                     }
                 } else {
-                    response = new Response(ResponseType.SEND_MESSAGE,false,"Có lỗi trong quá trình gửi tin nhắn");
+                    response = new Response(ResponseType.SEND_MESSAGE, false, "Có lỗi trong quá trình gửi tin nhắn");
                     sendResponse(response);
                 }
                 break;
@@ -272,23 +272,23 @@ public class ThreadConnection extends Thread {
                 //region CREATE_CONVERSATION_GROUP
                 if (user != null) {
                     CreateGroupData createGroupData = (CreateGroupData) request.getData();
-                    if (conversationDAO.createConversationGroup(user.getUsername(),createGroupData.getNameGroup(),createGroupData.getAvatarGroup(),createGroupData.getUsers())) { //Tạo nhóm thành công
-                        response = new Response(ResponseType.CREATE_CONVERSATION_GROUP,true,null);
+                    if (conversationDAO.createConversationGroup(user.getUsername(), createGroupData.getNameGroup(), createGroupData.getAvatarGroup(), createGroupData.getUsers())) { //Tạo nhóm thành công
+                        response = new Response(ResponseType.CREATE_CONVERSATION_GROUP, true, null);
                         sendResponse(response);
                         //Thông báo cho tất cả các user trong nhóm này biết có sự thay đổi danh sách các cuộc hội thoại
                         List<String> listUsername = createGroupData.getUsers();
                         listUsername.add(user.getUsername());
                         handleConnect.notifyListConversation(listUsername);
                     } else {
-                        response = new Response(ResponseType.CREATE_CONVERSATION_GROUP,false,"Có lỗi trong quá trình tạo nhóm");
+                        response = new Response(ResponseType.CREATE_CONVERSATION_GROUP, false, "Có lỗi trong quá trình tạo nhóm");
                         sendResponse(response);
                     }
                 } else {
-                    response = new Response(ResponseType.CREATE_CONVERSATION_GROUP,false,"Có lỗi trong quá trình tạo nhóm");
+                    response = new Response(ResponseType.CREATE_CONVERSATION_GROUP, false, "Có lỗi trong quá trình tạo nhóm");
                     sendResponse(response);
                 }
                 break;
-                //endregion
+            //endregion
         }
     }
 

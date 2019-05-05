@@ -95,7 +95,9 @@ public class ContactItem extends HBox {
         lblName.setText(name);
     }
 
-    public boolean getGender() {return gender;}
+    public boolean getGender() {
+        return gender;
+    }
 
     public void setGender(boolean gender) {
         this.gender = gender;

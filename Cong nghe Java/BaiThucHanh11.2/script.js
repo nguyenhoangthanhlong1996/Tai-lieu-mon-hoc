@@ -3,11 +3,13 @@ var odado = 0;
 var dangchoi = 0;
 var data_tbl;
 var stat_tbl;
+
 //hàm khởi tạo mãng ₫ộng
 function MakeArray(size) {
     this.length = size;
     return this;
 }
+
 //hàm khởi tạo trò chơi dò mìn
 function wm_init() {
     var i, j;
@@ -16,7 +18,7 @@ function wm_init() {
     //hiển thị bàn mìn trống
     for (i = 0; i < 64; i++) {
         document.images[i].src = "img/wm_nul.gif";
-        document.images[i].setAttribute("data-index", i+9);
+        document.images[i].setAttribute("data-index", i + 9);
     }
     //hiển thị chuỗi cảnh báo và ẩn button “Chơi tiếp”
     document.all.Mesg.innerText = "Hãy dò từng ô mìn";
@@ -35,6 +37,7 @@ function wm_init() {
         }
     }
 }
+
 //hàm tính số mìn xung quanh vị trí (h,c)
 function winecnt(h, c) {
     var cnt = 0;
@@ -48,6 +51,7 @@ function winecnt(h, c) {
     if (h + 1 < 8 && c + 1 < 8 && data_tbl[(h + 1) * 8 + (c + 1)]) cnt++;
     return cnt;
 }
+
 //hàm click dùm tự ₫ộng các ô bao quanh vị trí (h,c)
 function doquanh(h, c) {
     if (h - 1 >= 0 && c - 1 >= 0 && stat_tbl[(h - 1) * 8 + (c - 1)] == 0) domin(h - 1, c - 1);
@@ -59,6 +63,7 @@ function doquanh(h, c) {
     if (h + 1 < 8 && stat_tbl[(h + 1) * 8 + c] == 0) domin(h + 1, c);
     if (h + 1 < 8 && c + 1 < 8 && stat_tbl[(h + 1) * 8 + (c + 1)] == 0) domin(h + 1, c + 1);
 }
+
 //hàm xử lý việc click vào ô (h,c)
 function domin(h, c) {
     var i, cnt;
@@ -96,6 +101,7 @@ function domin(h, c) {
         dangchoi = 0;
     }
 }
+
 //hàm xử lý ấn chuột trên trang Web
 function document_onmousedown() {
     var i, h;
@@ -111,6 +117,7 @@ function document_onmousedown() {
     if (h >= 8 || c == 8) return 0;
     domin(h, c); //xử lý việc ấn cell h,c
 }
+
 //hàm xử lý click chuột trên button Start
 function btnStart_onclick() {
     wm_init();

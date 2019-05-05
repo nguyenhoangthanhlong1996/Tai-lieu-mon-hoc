@@ -55,7 +55,7 @@ public class MessageDAO {
     //Thêm một tin nhắn vào cuộc hội thoại
     public boolean createMessage(int conversationId, String sender, String content) {
         open();
-        Message message = new Message(sender,conversationId,content);
+        Message message = new Message(sender, conversationId, content);
         try {
             session.save(message);
             transaction.commit();

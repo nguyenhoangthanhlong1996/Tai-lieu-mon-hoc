@@ -20,9 +20,11 @@ import java.io.IOException;
 public class ClientApp extends Application {
     //Instance của đối tượng ClientApp
     private static ClientApp instance;
+
     public static ClientApp getInstance() {
         return instance;
     }
+
     //Đối tượng giữ kết nối với Server
     private SingletonConnect connect;
     //Stage chính của ứng dụng

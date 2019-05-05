@@ -10,16 +10,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="mainNode" prefHeight="68.0" prefWidth="309.0" style="-fx-background-color: red;" styleClass=".item-conversation" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="mainNode" prefHeight="68.0" prefWidth="309.0" style="-fx-background-color: red;"
+      styleClass=".item-conversation" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <BorderPane prefHeight="72.0" prefWidth="72.0">
             <center>
-                <ImageView fx:id="ivAvatar" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                <ImageView fx:id="ivAvatar" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true"
+                           BorderPane.alignment="CENTER">
                     <image>
-                        <Image url="@../images/boy4.png" />
+                        <Image url="@../images/boy4.png"/>
                     </image>
                     <viewport>
-                        <Rectangle2D />
+                        <Rectangle2D/>
                     </viewport>
                 </ImageView>
             </center>
@@ -27,22 +29,26 @@
         <VBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="236.0" spacing="5.0" HBox.hgrow="ALWAYS">
             <children>
                 <Label fx:id="lblName" prefHeight="24.0" prefWidth="252.0" styleClass="header" text="Nguyễn Thanh">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font></Label>
-                <Label fx:id="lblShortentContent" prefHeight="18.0" prefWidth="252.0" text="Xin chào bạn" textFill="#686666" />
+                    <font>
+                        <Font name="System Bold" size="13.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="lblShortentContent" prefHeight="18.0" prefWidth="252.0" text="Xin chào bạn"
+                       textFill="#686666"/>
                 <HBox alignment="CENTER" prefHeight="30.0" prefWidth="229.0">
                     <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="157.0">
                             <children>
-                                <Label fx:id="lblLastMessageTime" prefHeight="18.0" prefWidth="104.0" text="1 ngày" />
+                                <Label fx:id="lblLastMessageTime" prefHeight="18.0" prefWidth="104.0" text="1 ngày"/>
                             </children>
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="189.0" HBox.hgrow="ALWAYS">
                             <children>
-                                <Label fx:id="lblNumberUnreadMessage" alignment="CENTER" prefWidth="40.0" style="-fx-background-color: #58A1DC; -fx-background-radius: 10;" text="100" textFill="WHITE">
+                                <Label fx:id="lblNumberUnreadMessage" alignment="CENTER" prefWidth="40.0"
+                                       style="-fx-background-color: #58A1DC; -fx-background-radius: 10;" text="100"
+                                       textFill="WHITE">
                                     <padding>
-                                        <Insets bottom="2.0" left="2.0" right="2.0" />
+                                        <Insets bottom="2.0" left="2.0" right="2.0"/>
                                     </padding>
                                 </Label>
                             </children>
@@ -52,7 +58,7 @@
             </children>
         </VBox>
     </children>
-   <padding>
-      <Insets bottom="20.0" top="20.0" />
-   </padding>
+    <padding>
+        <Insets bottom="20.0" top="20.0"/>
+    </padding>
 </HBox>

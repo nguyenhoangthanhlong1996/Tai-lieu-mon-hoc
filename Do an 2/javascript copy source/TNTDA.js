@@ -1809,15 +1809,15 @@ const regexMCQValid = /^[0-9]{1,3}\.\s.*\na\.\s.*\nb\.\s.*\nc\.\s.*\nd\.\s.*\n>\
 //Lấy tất cả câu hỏi
 const regexQuestions = /(?<=^[0-9]{1,3}\.\s).*/gm;
 let arrQuestions = content.match(regexQuestions);
-document.write('Tổng số câu hỏi: '+arrQuestions.length+'<br>');
+document.write('Tổng số câu hỏi: ' + arrQuestions.length + '<br>');
 //Lấy tất cả câu trả lời đúng
 const regexCorrectAnswers = /(?<=^>\s).*/gm;
 let arrCorrectAnswers = content.match(regexCorrectAnswers);
-document.write('Tổng số đáp án đúng: ' + arrCorrectAnswers.length+'<br>');
+document.write('Tổng số đáp án đúng: ' + arrCorrectAnswers.length + '<br>');
 //Lấy tất cả câu trả lời
 const regexAnswers = /(?<=^[a-d]\.\s).*/gm;
 var arrAnswers = content.match(regexAnswers);
-document.write('Tổng số đáp án: '+arrAnswers.length+'<br>');
+document.write('Tổng số đáp án: ' + arrAnswers.length + '<br>');
 
 
 //Duyệt mảng câu hỏi
@@ -1837,23 +1837,24 @@ document.write('Tổng số đáp án: '+arrAnswers.length+'<br>');
 let idQuestionStartWith = 1;
 let idQuestion = 0;
 let indexQuestion = 0;
-arrAnswers.forEach((value, index) => {
+arrAnswers.forEach((value, index) = > {
     value = removeSpaceString(value);
-    //document.write(value+'<br>');
-    indexQuestion = Math.floor(index/4);
-    indexAnswerInQuestion = index % 4;
-    idQuestion = indexQuestion + idQuestionStartWith;
-    if (
-        (arrCorrectAnswers[indexQuestion].indexOf('a') != -1 && indexAnswerInQuestion == 0) || 
-        (arrCorrectAnswers[indexQuestion].indexOf('b') != -1 && indexAnswerInQuestion == 1) ||
-        (arrCorrectAnswers[indexQuestion].indexOf('c') != -1 && indexAnswerInQuestion == 2) ||
-        (arrCorrectAnswers[indexQuestion].indexOf('d') != -1 && indexAnswerInQuestion == 3)
-    ) {
-        document.write(stringInsertAnswer(value, 1,idQuestion)+'<br>');
-    } else {
-        document.write(stringInsertAnswer(value, 0,idQuestion)+'<br>');
-    }
-});
+//document.write(value+'<br>');
+indexQuestion = Math.floor(index / 4);
+indexAnswerInQuestion = index % 4;
+idQuestion = indexQuestion + idQuestionStartWith;
+if (
+    (arrCorrectAnswers[indexQuestion].indexOf('a') != -1 && indexAnswerInQuestion == 0) ||
+    (arrCorrectAnswers[indexQuestion].indexOf('b') != -1 && indexAnswerInQuestion == 1) ||
+    (arrCorrectAnswers[indexQuestion].indexOf('c') != -1 && indexAnswerInQuestion == 2) ||
+    (arrCorrectAnswers[indexQuestion].indexOf('d') != -1 && indexAnswerInQuestion == 3)
+) {
+    document.write(stringInsertAnswer(value, 1, idQuestion) + '<br>');
+} else {
+    document.write(stringInsertAnswer(value, 0, idQuestion) + '<br>');
+}
+})
+;
 
 
 function stringInsertQuestion(contentQuestion) {

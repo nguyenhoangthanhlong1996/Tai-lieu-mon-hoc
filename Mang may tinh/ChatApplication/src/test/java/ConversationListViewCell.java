@@ -34,7 +34,7 @@ public class ConversationListViewCell extends ListCell<Conversation> {
     @Override
     protected void updateItem(Conversation item, boolean empty) {
         super.updateItem(item, empty);
-        if(empty || item == null) {
+        if (empty || item == null) {
             setText(null);
             setGraphic(null);
         } else {

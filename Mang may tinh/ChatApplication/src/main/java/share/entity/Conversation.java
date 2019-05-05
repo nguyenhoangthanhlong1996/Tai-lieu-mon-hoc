@@ -18,14 +18,17 @@ public class Conversation implements Serializable {
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
-    public Conversation(){}
+    public Conversation() {
+    }
 
     public Conversation(String creator, String avatar, boolean group) {
         this.creator = creator;
         this.avatar = avatar;
         this.group = group;
-        this.createdAt = new Timestamp(new Date().getTime());;
-        this.updatedAt = new Timestamp(new Date().getTime());;
+        this.createdAt = new Timestamp(new Date().getTime());
+        ;
+        this.updatedAt = new Timestamp(new Date().getTime());
+        ;
     }
 
     @Id

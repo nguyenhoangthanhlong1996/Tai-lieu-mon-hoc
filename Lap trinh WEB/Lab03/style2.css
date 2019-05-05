@@ -16,6 +16,7 @@
     background-color: darkgray;
     height: 50px;
 }
+
 .header h1 {
     line-height: 50px;
 }
@@ -24,13 +25,16 @@
     height: 50px;
     background-color: blue;
 }
+
 .menu ul {
     list-style: none;
 }
+
 .menu ul li {
     float: left;
     margin: 0 20px;
 }
+
 .menu ul li a {
     color: white;
     line-height: 50px;
@@ -39,16 +43,20 @@
 .content-left, .content-right {
     float: left;
 }
+
 .content-left {
     width: 250px;
 }
+
 .content-left ul {
     margin: 0 30px;
 }
+
 .content-left .first {
     background-color: yellow;
     height: 150px;
 }
+
 .content-left .second {
     background-color: gray;
     height: 150px;
@@ -57,12 +65,15 @@
 .content-right {
     width: 550px;
 }
+
 .content-right > p {
     margin: 25px 10px;
 }
+
 .content-right .bottom-content {
     height: 128px;
 }
+
 .content-right .bottom-content .column1, .column2 {
     float: left;
     width: 50%;
@@ -71,15 +82,19 @@
     justify-content: center;
     align-items: center;
 }
+
 .content-right .bottom-content .column1 {
     background-color: green;
 }
+
 .content-right .bottom-content .column2 {
     background-color: red;
 }
+
 .content-right .bottom-content .column1 p {
     margin: 0 10px;
 }
+
 .content-right .bottom-content .column2 p {
     margin: 0 10px;
 }

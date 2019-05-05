@@ -43,8 +43,15 @@ public class CreateGroup {
     public void setStage(Stage stage) {
         this.stage = stage;
     }
-    public void setApp(ClientApp app) { this.app = app; }
-    public void setConnect(SingletonConnect connect) {  this.connect = connect; }
+
+    public void setApp(ClientApp app) {
+        this.app = app;
+    }
+
+    public void setConnect(SingletonConnect connect) {
+        this.connect = connect;
+    }
+
     public void setListUser(List<User> listUser) {
         this.listUser = listUser;
         list.clear();
@@ -83,8 +90,8 @@ public class CreateGroup {
     @FXML
     void search(KeyEvent event) {
         txtSearchUsername.textProperty().addListener((observable, oldValue, newValue) -> {
-            filter.setPredicate((Predicate<? super UserSelect>) us ->{
-                String value= newValue.toLowerCase();
+            filter.setPredicate((Predicate<? super UserSelect>) us -> {
+                String value = newValue.toLowerCase();
                 if (newValue.isEmpty() || newValue == null)
                     return true;
                 if (us.getUsername().contains(value))

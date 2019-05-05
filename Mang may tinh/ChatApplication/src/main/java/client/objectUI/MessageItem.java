@@ -63,17 +63,17 @@ public class MessageItem extends HBox {
         lblContent = new Label();
         lblTime = new Label();
         lblStatus = new Label();
-        font1 = new Font("Courier New",14);
-        font2 = new Font("Courier New",17);
+        font1 = new Font("Courier New", 14);
+        font2 = new Font("Courier New", 17);
         //Thêm vào phần tử chính
-        getChildren().addAll(borderPane,vBox);
+        getChildren().addAll(borderPane, vBox);
         //Thêm vào phần tử BorderPane
         BorderPane.setAlignment(ivAvatar, Pos.CENTER);
         borderPane.setTop(ivAvatar);
         //Thêm vào phần tử Vbox
         vBox.getChildren().addAll(lblContent, hBox);
         //Thêm vào phần tử Hbox
-        hBox.getChildren().addAll(stackPane1,stackPane2);
+        hBox.getChildren().addAll(stackPane1, stackPane2);
         //Thêm vào phần tử StackPane1
         stackPane1.getChildren().add(lblTime);
         //Thêm vào phần tử StackPane2
@@ -103,7 +103,7 @@ public class MessageItem extends HBox {
         vBox.setAlignment(Pos.CENTER_LEFT);
         vBox.setSpacing(5);
         vBox.setStyle("-fx-background-color: white; -fx-background-radius: 15;");
-        vBox.setPadding(new Insets(10,10,10,10));
+        vBox.setPadding(new Insets(10, 10, 10, 10));
         //Thiết lập lblContent
         lblContent.setWrapText(true);
         lblContent.setFont(font2);
@@ -115,7 +115,7 @@ public class MessageItem extends HBox {
         //Thiết lập lblTime
         lblTime.setTextFill(Color.web("#1c07ff"));
         lblTime.setWrapText(true);
-        StackPane.setAlignment(lblTime,Pos.CENTER_LEFT);
+        StackPane.setAlignment(lblTime, Pos.CENTER_LEFT);
         lblTime.setFont(font1);
         //Thiết lập StackPane2
         stackPane2.setAlignment(Pos.CENTER_RIGHT);

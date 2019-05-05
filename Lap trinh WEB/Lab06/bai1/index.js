@@ -1,4 +1,3 @@
-
 //Hàm xử lý cộng
 function cong() {
     var a = parseInt(document.getElementById("sothu1").value);
@@ -8,6 +7,7 @@ function cong() {
         document.getElementById("ketqua").innerHTML = 'kết quả: ' + (a + b);
     }
 }
+
 //Hàm xử lý trừ
 function tru() {
     var a = parseInt(document.getElementById("sothu1").value);
@@ -17,6 +17,7 @@ function tru() {
         document.getElementById("ketqua").innerHTML = 'kết quả: ' + (a - b);
     }
 }
+
 //Hàm xử lý nhân
 function nhan() {
     var a = parseInt(document.getElementById("sothu1").value);
@@ -26,6 +27,7 @@ function nhan() {
         document.getElementById("ketqua").innerHTML = 'kết quả: ' + (a * b);
     }
 }
+
 //Hàm xử lý chia
 function chia() {
     var a = parseInt(document.getElementById("sothu1").value);
@@ -35,6 +37,7 @@ function chia() {
         document.getElementById("ketqua").innerHTML = 'kết quả: ' + (a / b);
     }
 }
+
 //Hàm xử lý lũy thừa
 function luythua() {
     var a = parseInt(document.getElementById("sothu1").value);

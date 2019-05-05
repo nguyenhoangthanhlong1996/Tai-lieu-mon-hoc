@@ -12,6 +12,7 @@ import share.entity.User;
 
 public class HibernateUtils {
     private static final SessionFactory sessionFactory = buildSessionFactory();
+
     // Hibernate 5:
     private static SessionFactory buildSessionFactory() {
         try {

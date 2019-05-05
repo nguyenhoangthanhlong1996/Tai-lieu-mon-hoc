@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     //Sự kiện khi form được submit
     $("form").submit(function (e) {
@@ -14,19 +14,19 @@ $(document).ready(function() {
 function ThongTinHopLe() {
     //Lấy giá trị trong thẻ input họ tên và kiểm tra
     var hoten = $('#hoten').val();
-    if (hoten.length<2 || hoten.length>30) {
+    if (hoten.length < 2 || hoten.length > 30) {
         alert('Họ tên phải có độ dài từ 2-30 kí tự');
         return false;
     }
     //Lấy giá trị trong thẻ input tên đăng nhập và kiểm tra
     var tendangnhap = $('#tendangnhap').val();
-    if (tendangnhap.length<2 || tendangnhap.length>20) {
+    if (tendangnhap.length < 2 || tendangnhap.length > 20) {
         alert('Tên đăng nhập phải có độ dài từ 2-20 kí tự');
         return false;
     }
     //Lấy giá trị trong thẻ input mật khẩu và kiểm tra
     var matkhau = $('#matkhau').val();
-    if (matkhau.length<6 || matkhau.length>20) {
+    if (matkhau.length < 6 || matkhau.length > 20) {
         alert('Mật khẩu phải có độ dài từ 6-20 kí tự');
         return false;
     }
@@ -38,13 +38,13 @@ function ThongTinHopLe() {
     }
     //Lấy giá trị trong thẻ input thông tin sơ lược và kiểm tra
     var thongtinsoluoc = $('#thongtinsoluoc').val();
-    if (thongtinsoluoc.length>1000) {
+    if (thongtinsoluoc.length > 1000) {
         alert('Thông tin sơ lược không được quá 1000 kí tự');
         return false;
     }
     //Lấy giá trị trong thẻ input thông tin sơ lược và kiểm tra
     var thongtinsoluoc = $('#thongtinsoluoc').val();
-    if (thongtinsoluoc.length>1000) {
+    if (thongtinsoluoc.length > 1000) {
         alert('Thông tin sơ lược không được quá 1000 kí tự');
         return false;
     }
@@ -65,9 +65,8 @@ function ThongTinHopLe() {
 function EmailHopLe(email) {
     var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if (!filter.test(email)) {
-         return false;
-    }
-    else{
-         return true;
+        return false;
+    } else {
+        return true;
     }
 }

@@ -65,7 +65,7 @@ public class ConversationItem extends ListCell<ConversationData> {
     @Override
     protected void updateItem(ConversationData item, boolean empty) {
         super.updateItem(item, empty);
-        if(empty || item == null) {
+        if (empty || item == null) {
             setText(null);
             setGraphic(null);
         } else {
@@ -83,7 +83,7 @@ public class ConversationItem extends ListCell<ConversationData> {
             setUsername(item.getUsername());
             setName(item.getName());
             setShortenContent(item.getShortenContent());
-            if (item.getLastMessageTime()!=null) {
+            if (item.getLastMessageTime() != null) {
                 setLastMessageTime(item.getLastMessageTime().toString());
             }
             setNumberUnreadMessage(item.getNumberUnreadMessage());
@@ -163,7 +163,7 @@ public class ConversationItem extends ListCell<ConversationData> {
             lblNumberUnreadMessage.setVisible(false);
         } else {
             lblNumberUnreadMessage.setVisible(true);
-            lblNumberUnreadMessage.setText(numberUnreadMessage+"");
+            lblNumberUnreadMessage.setText(numberUnreadMessage + "");
         }
 
     }

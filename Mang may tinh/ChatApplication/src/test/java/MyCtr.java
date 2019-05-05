@@ -48,7 +48,7 @@ public class MyCtr {
 //            );
         listView.setItems(listConversation);
         listView.setCellFactory(param -> new ConversationListViewCell());
-        filterConversation = new FilteredList<>(listConversation, s->true);
+        filterConversation = new FilteredList<>(listConversation, s -> true);
         listView.getStylesheets().add("ListView.css");
         listener = (observable, oldValue, newValue) -> {
             System.out.println(newValue.getIdConversation());
@@ -70,7 +70,7 @@ public class MyCtr {
     @FXML
     void filterTextChange(KeyEvent event) {
         txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
-            filterConversation.setPredicate((Predicate<? super Conversation>)c -> {
+            filterConversation.setPredicate((Predicate<? super Conversation>) c -> {
                 if (newValue == null || newValue.isEmpty())
                     return true;
                 String valueFilter = newValue.trim().toLowerCase();

@@ -1,6 +1,7 @@
 .title-bar {
     -fx-background-color: linear-gradient(to right, #48c6ef, #5f90d3);
 }
+
 .menu-bar {
     -fx-background-color: linear-gradient(to bottom, #48c6ef, #5f90d3);
 }
@@ -65,16 +66,20 @@
     -fx-fill: #ac9bac;
     -fx-cursor: HAND;
 }
+
 .option-message-box {
     -fx-padding: 0 20;
 }
+
 .option-message {
     -fx-cursor: HAND;
 }
+
 .option-message:hover * {
     -fx-text-fill: blue;
     -fx-fill: blue;
 }
+
 .cbb-filter-conversation {
     -fx-background-color: #ffffff00;
 }
@@ -83,33 +88,42 @@
     -fx-text-fill: blue;
     -fx-cursor: HAND;
 }
+
 .mark-read:hover {
     -fx-font-style: italic;
 }
+
 .item-conversation {
     -fx-padding: 5 15 5 0;
     -fx-spacing: 3;
     -fx-cursor: HAND;
 }
+
 .active-.item-conversation {
     -fx-background-color: #c8d3e2;
 }
+
 .item-conversation:hover {
     -fx-background-color: #e6f0ff;
 }
+
 .item-message .header {
     -fx-font-size: 20;
 }
+
 .scroll-pane .scroll-bar {
     -fx-background-color: transparent;
     -fx-pref-width: 12;
 }
+
 .view-chat > .viewport {
     -fx-background-color: linear-gradient(to bottom, #C3B7B6, #CD91A0);
 }
+
 .scroll-pane .scroll-bar:vertical .thumb {
     -fx-background-color: #d2d2d2;
 }
+
 .input-text-content-chat {
     -fx-background-color: #e1e1e1;
     -fx-background-radius: 5;
@@ -125,17 +139,21 @@
 .list-view .list-cell:even {
     -fx-background-color: transparent;
 }
+
 .list-view .list-cell {
     -fx-cursor: HAND;
     /*-fx-padding: 0;*/
 }
+
 .list-view .list-cell:empty {
     -fx-background-color: transparent;
     -fx-cursor: DEFAULT;
 }
+
 .list-view .list-cell:empty:hover {
     -fx-background-color: transparent;
 }
+
 .list-view .list-cell:hover {
     -fx-background-color: #e6f0ff;
 }

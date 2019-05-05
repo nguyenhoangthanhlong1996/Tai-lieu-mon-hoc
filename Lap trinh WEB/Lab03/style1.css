@@ -42,13 +42,16 @@
     width: 520px;
     background-color: aquamarine;
 }
+
 .column1-content {
     margin: 10px;
 }
+
 .column1-content a {
     display: block;
     margin: 20px 0;
 }
+
 .column1-content p {
     margin: 10px 0;
 }
@@ -57,9 +60,11 @@
     width: 230px;
     background-color: cornflowerblue;
 }
+
 .column2 .column2-content {
     margin: 10px;
 }
+
 .column2-content p {
     margin: 10px 0;
 }

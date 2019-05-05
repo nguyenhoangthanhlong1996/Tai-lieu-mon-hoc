@@ -21,9 +21,11 @@ import java.util.Calendar;
 public class ServerController {
 
     private static ServerController instance;
+
     public static ServerController getInstance() {
         return instance;
     }
+
     private SimpleDateFormat dateFormat;
     public ServerSocket serverSocket;
     private HandleConnect handleConnect;
@@ -103,7 +105,7 @@ public class ServerController {
     }
 
     public void addInfoConnect(int port, String username) {
-        listConnect.add(new InfoConnect(port,username));
+        listConnect.add(new InfoConnect(port, username));
     }
 
     public void removeInfoConnect(int port) {

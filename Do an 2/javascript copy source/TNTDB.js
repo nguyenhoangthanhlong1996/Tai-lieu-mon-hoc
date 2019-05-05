@@ -12806,18 +12806,18 @@ let totalQuestion = 500;
 //Lấy tất cả câu hỏi
 const regexQuestions = /(?<=^[0-9][0-9]\.\s).*/gm;
 let arrQuestions = content.match(regexQuestions);
-arrQuestions = arrQuestions.slice(0,totalQuestion);
-document.write('Tổng số câu hỏi: '+arrQuestions.length+'<br>');
+arrQuestions = arrQuestions.slice(0, totalQuestion);
+document.write('Tổng số câu hỏi: ' + arrQuestions.length + '<br>');
 //Lấy tất cả câu trả lời đúng
 const regexCorrectAnswers = /(?<=^\s).*/gm;
 let arrCorrectAnswers = content.match(regexCorrectAnswers);
-arrCorrectAnswers = arrCorrectAnswers.slice(0,totalQuestion);
-document.write('Tổng số đáp án đúng: ' + arrCorrectAnswers.length+'<br>');
+arrCorrectAnswers = arrCorrectAnswers.slice(0, totalQuestion);
+document.write('Tổng số đáp án đúng: ' + arrCorrectAnswers.length + '<br>');
 //Lấy tất cả câu trả lời
 const regexAnswers = /(?<=^[a-d]\.\s).*/gm;
 var arrAnswers = content.match(regexAnswers);
-arrAnswers = arrAnswers.slice(0,totalQuestion*4)
-document.write('Tổng số đáp án: '+arrAnswers.length+'<br>');
+arrAnswers = arrAnswers.slice(0, totalQuestion * 4)
+document.write('Tổng số đáp án: ' + arrAnswers.length + '<br>');
 
 
 //Duyệt mảng câu hỏi
@@ -12837,25 +12837,24 @@ document.write('Tổng số đáp án: '+arrAnswers.length+'<br>');
 let idQuestionStartWith = 301;
 let idQuestion = 0;
 let indexQuestion = 0;
-arrAnswers.forEach((value, index) => {
+arrAnswers.forEach((value, index) = > {
     value = removeSpaceString(value);
-    //document.write(value+'<br>');
-    indexQuestion = Math.floor(index/4);
-    indexAnswerInQuestion = index % 4;
-    idQuestion = indexQuestion + idQuestionStartWith;
-    if (
-        (arrCorrectAnswers[indexQuestion].indexOf('a') != -1 && indexAnswerInQuestion == 0) || 
-        (arrCorrectAnswers[indexQuestion].indexOf('b') != -1 && indexAnswerInQuestion == 1) ||
-        (arrCorrectAnswers[indexQuestion].indexOf('c') != -1 && indexAnswerInQuestion == 2) ||
-        (arrCorrectAnswers[indexQuestion].indexOf('d') != -1 && indexAnswerInQuestion == 3)
-    ) {
-        document.write(stringInsertAnswer(value, 1,idQuestion)+'<br>');
-    } else {
-        document.write(stringInsertAnswer(value, 0,idQuestion)+'<br>');
-    }
-});
-
-
+//document.write(value+'<br>');
+indexQuestion = Math.floor(index / 4);
+indexAnswerInQuestion = index % 4;
+idQuestion = indexQuestion + idQuestionStartWith;
+if (
+    (arrCorrectAnswers[indexQuestion].indexOf('a') != -1 && indexAnswerInQuestion == 0) ||
+    (arrCorrectAnswers[indexQuestion].indexOf('b') != -1 && indexAnswerInQuestion == 1) ||
+    (arrCorrectAnswers[indexQuestion].indexOf('c') != -1 && indexAnswerInQuestion == 2) ||
+    (arrCorrectAnswers[indexQuestion].indexOf('d') != -1 && indexAnswerInQuestion == 3)
+) {
+    document.write(stringInsertAnswer(value, 1, idQuestion) + '<br>');
+} else {
+    document.write(stringInsertAnswer(value, 0, idQuestion) + '<br>');
+}
+})
+;
 
 
 function stringInsertQuestion(contentQuestion) {

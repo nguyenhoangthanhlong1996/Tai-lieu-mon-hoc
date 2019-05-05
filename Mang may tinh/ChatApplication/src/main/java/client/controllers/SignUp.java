@@ -21,6 +21,7 @@ import share.data.SignUpData;
 import share.protocol.Request;
 import share.protocol.RequestType;
 import share.util.Base64Utils;
+
 import java.io.File;
 
 public class SignUp {

@@ -2,9 +2,13 @@
 <?xml-stylesheet type="text/xsl" href="book.xsl"?>
 <book>
     <title>The XML Handbook</title>
-	<author>Charles F. Goldfarb</author>
-	<author>Paul Prescod</author>
+    <author>Charles F. Goldfarb</author>
+    <author>Paul Prescod</author>
     <edition>Fifth Edition</edition>
-    <desciption>The XML Handbook is the definitive entry point to XML for Web professionals—content developers, managers, and programmers—but you needn't be a programmer to read it. Although XML, like HTML, is derived from SGML (which was invented by one of the authors), XML has so many more uses than HTML that an XML book must be much more than a markup tutorial or programming text. </desciption>
+    <desciption>The XML Handbook is the definitive entry point to XML for Web professionals—content developers,
+        managers, and programmers—but you needn't be a programmer to read it. Although XML, like HTML, is derived from
+        SGML (which was invented by one of the authors), XML has so many more uses than HTML that an XML book must be
+        much more than a markup tutorial or programming text.
+    </desciption>
     <year>2003</year>
 </book>

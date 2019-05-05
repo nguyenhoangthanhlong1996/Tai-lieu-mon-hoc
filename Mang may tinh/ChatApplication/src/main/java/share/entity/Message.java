@@ -15,15 +15,16 @@ public class Message implements Serializable {
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
-    public Message() {}
+    public Message() {
+    }
 
     public Message(String sender, Integer conversationId, String content) {
         this.id = id;
         this.sender = sender;
         this.conversationId = conversationId;
         this.content = content;
-        this.createdAt =  new Timestamp(new Date().getTime());
-        this.updatedAt =  new Timestamp(new Date().getTime());
+        this.createdAt = new Timestamp(new Date().getTime());
+        this.updatedAt = new Timestamp(new Date().getTime());
     }
 
     @Id
