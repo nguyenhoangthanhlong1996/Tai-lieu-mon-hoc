@@ -1,0 +1,66 @@
+<!-- jQuery 3 -->
+<script src="/js/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="/js/jquery-ui.min.js"></script>
+<script src="/js/jquery.validate.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>
+<!-- Bootstrap 3.3.7 -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- Slimscroll -->
+<script src="/js/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="/js/fastclick.js"></script>
+<!-- Sweetalert2-->
+<script src="/js/sweetalert2.all.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<!-- <script src="/js/demo.js"></script> -->
+<script>
+  $(document).ready(function () {
+    $('#preloder').hide();
+    $.ajaxSetup({
+      beforeSend: function (xhr) {
+        $('#preloder').show();
+      },
+      complete: function (xhr, stat) {
+        $('#preloder').hide();
+      },
+      success: function (result, status, xhr) {
+        $('#preloder').hide();
+      }
+    });
+    try {
+      $.ajax({
+        type: "get",
+        url: "/api/getInfoUserLogin",
+        data: "",
+        success: function (response) {
+          if (response.code == "200") {
+            var obj = response.data;
+            $('.fullName').html(obj.firstName + ' ' + obj.lastName);
+            $('.fullName1').html(obj.firstName + ' ' + obj.lastName + '<small>' + obj.roles[0].note + '</small>');
+          } else {
+            Swal.fire({
+              type: 'error',
+              title: 'Lỗi tải dữ liệu',
+              text: response.msg
+            });
+          }
+        },
+        error: function () {
+          Swal.fire({
+            type: 'error',
+            title: 'Lỗi tải dữ liệu',
+            text: "Không tải được thông tin người dùng"
+          });
+        }
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  });
+</script>

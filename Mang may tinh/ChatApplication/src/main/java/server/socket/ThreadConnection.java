@@ -126,20 +126,26 @@ public class ThreadConnection extends Thread {
             //endregion
             case LOGOUT:
                 //region LOGOUT
-                //Cập nhật lại trạng thái trực tuyến của user này
-                if (userDAO.updateStatusOnline(user.getUsername(), false)) { //cập nhật thành công
-                    response = new Response(ResponseType.LOGOUT, true, null);
-                    handleConnect.appendSysLog("Client port " + socket.getPort() + " đăng xuất thành công | " + response.toString(), LogLevel.INFO);
-                    sendResponse(response);
-                    //User lúc này sẽ không tồn tại
-                    user = null;
-                    //Cập nhật lại danh sách các kết nối
-                    serverController.updateInfoConnect(socket.getPort(), null);
-                    //Thông báo về tất cả các user đang đăng nhập
-                    handleConnect.broadcastListUser();
-                } else { //Lỗi đăng xuất
+                if (user != null) {
+                    //Cập nhật lại trạng thái trực tuyến của user này
+                    if (userDAO.updateStatusOnline(user.getUsername(), false)) { //cập nhật thành công
+                        response = new Response(ResponseType.LOGOUT, true, null);
+                        handleConnect.appendSysLog("Client port " + socket.getPort() + " đăng xuất thành công, tên tài khoản " + user.getUsername() + " | " + response.toString(), LogLevel.INFO);
+                        sendResponse(response);
+                        //User lúc này sẽ không tồn tại
+                        user = null;
+                        //Cập nhật lại danh sách các kết nối
+                        serverController.updateInfoConnect(socket.getPort(), null);
+                        //Thông báo về tất cả các user đang đăng nhập
+                        handleConnect.broadcastListUser();
+                    } else { //Lỗi đăng xuất
+                        response = new Response(ResponseType.LOGOUT, false, "Có lỗi trong quá trình đăng xuất");
+                        handleConnect.appendSysLog("Client port " + socket.getPort() + " đăng xuất thất bại | " + response.toString(), LogLevel.INFO);
+                        sendResponse(response);
+                    }
+                } else {
                     response = new Response(ResponseType.LOGOUT, false, "Có lỗi trong quá trình đăng xuất");
-                    handleConnect.appendSysLog("Client port " + socket.getPort() + " đăng xuất thất bại | " + response.toString(), LogLevel.INFO);
+                    handleConnect.appendSysLog("Client port " + socket.getPort() + " đăng xuất thất bại | " + response.toString(), LogLevel.WARNING);
                     sendResponse(response);
                 }
                 break;
@@ -179,20 +185,23 @@ public class ThreadConnection extends Thread {
             //endregion
             case GET_LIST_USER:
                 //region GET_LIST_USER
-                //Lấy ra danh sách tất cả user ngoại trừ user gửi request này lên
                 if (user != null) {
+                    //Lấy ra danh sách tất cả user ngoại trừ user gửi request này lên
                     List<User> list = null;
                     try {
                         list = userDAO.getAllUserExceptUsername(user.getUsername());
                         response = new Response(ResponseType.GET_LIST_USER, true, list);
+                        handleConnect.appendSysLog("Gửi danh sách tất cả user cho tài khoản " + user.getUsername() + " thành công | " + response.toString(), LogLevel.INFO);
                         sendResponse(response);
                     } catch (Exception e) {
                         response = new Response(ResponseType.GET_LIST_USER, false, "Không thể lấy dữ liệu của bạn");
+                        handleConnect.appendSysLog("Gửi danh sách tất cả user cho tài khoản " + user.getUsername() + " thất bại | " + response.toString(), LogLevel.INFO);
                         sendResponse(response);
                         e.printStackTrace();
                     }
                 } else {
                     response = new Response(ResponseType.GET_LIST_USER, false, "Không thể lấy dữ liệu của bạn");
+                    handleConnect.appendSysLog("Gửi danh sách tất cả user cho tài khoản " + user.getUsername() + " thất bại | " + response.toString(), LogLevel.INFO);
                     sendResponse(response);
                 }
                 break;
@@ -204,20 +213,24 @@ public class ThreadConnection extends Thread {
                     String user2 = (String) request.getData();
                     if (conversationDAO.existConversationPrivate(user1, user2)) {//Đã tồn tại
                         response = new Response(ResponseType.CREATE_CONVERSATION_PRIVATE, true, null);
+                        handleConnect.appendSysLog("Tài khoản " + user.getUsername() + " tạo cuộc hội thoại cá nhân thành công | " + response.toString(), LogLevel.INFO);
                         sendResponse(response);
                     } else { //Tiến hành tạo cuộc hội thoại
                         if (conversationDAO.createConversationPrivate(user1, user2)) {//Thành công
                             response = new Response(ResponseType.CREATE_CONVERSATION_PRIVATE, true, null);
+                            handleConnect.appendSysLog("Tài khoản " + user.getUsername() + " tạo cuộc hội thoại cá nhân thành công | " + response.toString(), LogLevel.INFO);
                             sendResponse(response);
                             //Thông báo cho user2 biết đã có thay đổi trong sách dách các cuộc hội thoại của user này
                             handleConnect.notifyListConversation(user2);
                         } else {//Thất bại
                             response = new Response(ResponseType.CREATE_CONVERSATION_PRIVATE, false, "Có lỗi trong quá trình tạo cuộc hội thoại");
+                            handleConnect.appendSysLog("Tài khoản " + user.getUsername() + " tạo cuộc hội thoại cá nhân thất bại | " + response.toString(), LogLevel.INFO);
                             sendResponse(response);
                         }
                     }
                 } else {
                     response = new Response(ResponseType.CREATE_CONVERSATION_PRIVATE, false, "Có lỗi trong quá trình tạo cuộc hội thoại");
+                    handleConnect.appendSysLog("Tài khoản " + user.getUsername() + " tạo cuộc hội thoại cá nhân thành công | " + response.toString(), LogLevel.INFO);
                     sendResponse(response);
                 }
                 break;
@@ -228,9 +241,11 @@ public class ThreadConnection extends Thread {
                     String username = user.getUsername();
                     List<ConversationData> list = conversationDAO.getAllConversation(username);
                     response = new Response(ResponseType.GET_LIST_CONVERSATION, true, list);
+                    handleConnect.appendSysLog("Gửi danh sách tất cả cuộc hội thoại cho tài khoản " + user.getUsername() + " thành công | " + response.toString(), LogLevel.INFO);
                     sendResponse(response);
                 } else {
                     response = new Response(ResponseType.GET_LIST_CONVERSATION, false, "Có lỗi trong quá trình lấy danh sách các cuộc hội thoại");
+                    handleConnect.appendSysLog("Gửi danh sách tất cả cuộc hội thoại cho tài khoản " + user.getUsername() + " thất bại | " + response.toString(), LogLevel.INFO);
                     sendResponse(response);
                 }
                 break;
@@ -241,9 +256,11 @@ public class ThreadConnection extends Thread {
                     int conversationId = (int) request.getData();
                     List<MessageData> list = messageDAO.getAllMessageByConversationId(conversationId);
                     response = new Response(ResponseType.GET_LIST_MESSAGE, true, new ListMessageData(conversationId, list));
+                    handleConnect.appendSysLog("Gửi danh sách tin nhắn cho tài khoản " + user.getUsername() + " thành công | " + response.toString(), LogLevel.INFO);
                     sendResponse(response);
                 } else {
                     response = new Response(ResponseType.GET_LIST_MESSAGE, false, "Có lỗi trong quá trình lấy danh sách tin nhắn cho cuộc hội thoại này");
+                    handleConnect.appendSysLog("Gửi danh sách tin nhắn cho tài khoản " + user.getUsername() + " thất bại | " + response.toString(), LogLevel.INFO);
                     sendResponse(response);
                 }
                 break;
@@ -257,6 +274,7 @@ public class ThreadConnection extends Thread {
                     //Thêm tin nhắn vào csdl
                     if (messageDAO.createMessage(conversationId, user.getUsername(), content)) {
                         response = new Response(ResponseType.SEND_MESSAGE, true, null);
+                        handleConnect.appendSysLog(user.getUsername() + " gửi tin nhắn thành công | " + response.toString(), LogLevel.INFO);
                         sendResponse(response);
                         //Thông báo cho tất cả các user trong cuộc hội thoại này biết có tin nhắn mới
                         List<String> listUsername = conversationDAO.getAllUsernameByConversation(conversationId);
@@ -264,6 +282,7 @@ public class ThreadConnection extends Thread {
                     }
                 } else {
                     response = new Response(ResponseType.SEND_MESSAGE, false, "Có lỗi trong quá trình gửi tin nhắn");
+                    handleConnect.appendSysLog(user.getUsername() + " gửi tin nhắn thất bại | " + response.toString(), LogLevel.INFO);
                     sendResponse(response);
                 }
                 break;
@@ -274,6 +293,7 @@ public class ThreadConnection extends Thread {
                     CreateGroupData createGroupData = (CreateGroupData) request.getData();
                     if (conversationDAO.createConversationGroup(user.getUsername(), createGroupData.getNameGroup(), createGroupData.getAvatarGroup(), createGroupData.getUsers())) { //Tạo nhóm thành công
                         response = new Response(ResponseType.CREATE_CONVERSATION_GROUP, true, null);
+                        handleConnect.appendSysLog(user.getUsername() + " tạo nhóm thành công | " + response.toString(), LogLevel.INFO);
                         sendResponse(response);
                         //Thông báo cho tất cả các user trong nhóm này biết có sự thay đổi danh sách các cuộc hội thoại
                         List<String> listUsername = createGroupData.getUsers();
@@ -281,10 +301,12 @@ public class ThreadConnection extends Thread {
                         handleConnect.notifyListConversation(listUsername);
                     } else {
                         response = new Response(ResponseType.CREATE_CONVERSATION_GROUP, false, "Có lỗi trong quá trình tạo nhóm");
+                        handleConnect.appendSysLog(user.getUsername() + " tạo nhóm thất bại | " + response.toString(), LogLevel.INFO);
                         sendResponse(response);
                     }
                 } else {
                     response = new Response(ResponseType.CREATE_CONVERSATION_GROUP, false, "Có lỗi trong quá trình tạo nhóm");
+                    handleConnect.appendSysLog(user.getUsername() + " tạo nhóm thất bại | " + response.toString(), LogLevel.INFO);
                     sendResponse(response);
                 }
                 break;

@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -85,10 +86,16 @@ public class ServerController {
 
     synchronized
     public void appendSysLog(String content, LogLevel logLevel) {
-        content = "[" + dateFormat.format(Calendar.getInstance().getTime()) + "]: " + content;
+        HBox hBox = new HBox();
+        Label lblTime = new Label();
         Label lblLog = new Label();
-        lblLog.setFont(new Font(14));
+        lblTime.setText("[" + dateFormat.format(Calendar.getInstance().getTime()) + "]: ");
+        lblTime.setFont(new Font(14));
+        lblLog.setWrapText(false);
+        lblTime.setTextFill(Color.web("#00f"));
+        lblTime.setMinWidth(150);
         lblLog.setText(content);
+        lblLog.setFont(new Font(14));
         lblLog.setWrapText(true);
         switch (logLevel) {
             case INFO:
@@ -101,7 +108,8 @@ public class ServerController {
                 lblLog.setTextFill(Color.DARKRED);
                 break;
         }
-        vboxViewSysLog.getChildren().add(lblLog);
+        hBox.getChildren().addAll(lblTime,lblLog);
+        vboxViewSysLog.getChildren().add(hBox);
     }
 
     public void addInfoConnect(int port, String username) {

@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:include="/userControls/_head"></th:block>
+    <!-- page CSS -->
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/css/dataTables.bootstrap.min.css">
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div id="preloder" class="loading">Loading&#8230;</div>
+    <div class="wrapper">
+        <th:block th:include="/userControls/_header"></th:block>
+        <th:block th:include="/userControls/_sidebar"></th:block>
+        <div class="content-wrapper">
+            <th:block th:include="/userControls/_breadcrumb"></th:block>
+            <section class="content">
+                <!--Begin content page-->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Thông tin đợt đăng ký</h3>
+                    </div>
+                    <form name="frmEnrollments" id="frmEnrollments" action="/enrollments" th:object="${enrolmentsForm}"
+                        method="POST">
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <label for="enrollmentName">Tên đợt đăng ký</label>
+                                        <input type="text" class="form-control" id="enrollmentName"
+                                            placeholder="Nhập tên đợt đăng ký" th:field="*{enrollmentName}" required>
+                                        <span th:if="${#fields.hasErrors('enrollmentName')}"
+															th:errors="*{enrollmentName}" class="help-block">...</span>
+									</div>
+								</div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                            <label for="enrollmentEnable">	</label>
+                                    <div class="checkbox">
+                                            <label> <input id="enrollmentEnable" type="checkbox"
+                                                th:field="*{enrollmentEnable}"> Mở đăng ký/Hiện thị
+                                            </label>
+                                        </div>
+                                        </div>
+                                </div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+										<div class="form-group">
+												<label for="enrollmentNbr">Mã định danh</label> <input type="text"
+													class="form-control" id="enrollmentNbr"
+													placeholder="Nhập mã định danh" th:field="*{enrollmentNbr}"
+													required> <span
+													th:if="${#fields.hasErrors('enrollmentNbr')}"
+													th:errors="*{enrollmentNbr}" class="help-block">...</span>
+											</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<label for="enrollmentBegin">Thời gian bắt đầu (dd/mm/yyyy hh:mm)</label>
+										<input type="text"
+											class="form-control" id="enrollmentBegin" placeholder="Nhập thời gian bắt đầu"
+											th:field="*{enrollmentBegin}" required> <span th:if="${#fields.hasErrors('enrollmentBegin')}"
+															th:errors="*{enrollmentBegin}" class="help-block">...</span>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<label for="enrollmentEnd">Thời gian kết thúc (dd/mm/yyyy hh:mm)</label> <input type="text"
+											class="form-control" id="enrollmentEnd"
+											placeholder="Nhập thời gian kết thúc" th:field="*{enrollmentEnd}"
+											required> <span
+											th:if="${#fields.hasErrors('enrollmentEnd')}"
+											th:errors="*{enrollmentEnd}" class="help-block">...</span>
+									</div>
+								</div>
+								
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+										<div class="form-group">
+												<label for="enrollmentDesc">Mô tả đợt đăng ký</label>
+												<textarea class="form-control" style="width: 100%;" th:field="*{enrollmentDesc}" id="enrollmentDesc" name="enrollmentDesc" rows="10" cols="80"></textarea>
+										</div>
+								</div>
+							</div>
+						</div>
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">Xác nhận
+								lưu thông tin</button>
+							<button id="bnt_Reset" type="button" class="btn btn-default">Nhập lại thông tin</button>
+							<input type="hidden" id="enrollmentId" th:field="*{enrollmentId}">
+						</div>
+						<span th:if="${errorMessage != null}" th:utext="${errorMessage}" class="help-block">...</span>
+					</form>
+				</div>
+				
+				<div class="box box-success">
+					<div class="box-header">
+						<h3 class="box-title">Danh sách đợt đăng ký</h3>
+					</div>
+					<div class="box-body">
+							<table id="lstEnrollments"
+							class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th style="width: 20px;" class="no-sort"></th>
+									<th style="width: 15px;" class="no-sort">#</th>
+									<th>Mã định danh</th>
+									<th>Tên đợt đăng ký</th>
+									<th>Bắt đầu</th>
+									<th>Kết thúc</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="enrollment : ${Enrollments}" th:data-id="${enrollment.courseEnrollmentId}">
+									<td>
+												<div class="btn-group">
+													<button type="button" class="btn btn-success btn-xs dropdown-toggle"
+														data-toggle="dropdown">
+														<span class="caret"></span> <span class="sr-only">Tùy chọn</span>
+													</button>
+													<ul class="dropdown-menu" role="menu">
+														<li><a th:title="${enrollment.courseEnrollmentId}" id="btn_edit" href="#frmEnrollments">Chỉnh sửa</a></li>
+														<li class="divider"></li>
+														<li><a th:title="${enrollment.courseEnrollmentId}" id="btn_delete" href="#lstEnrollments">Hủy bỏ</a></li>
+													</ul>
+												</div>
+									</td>
+									<td><input type="checkbox" th:checked="${enrollment.courseEnrollmentEnable}" disabled="disabled" /></td>
+									<td th:text="${enrollment.courseEnrollmentNbr}">...</td>
+									<td th:text="${enrollment.courseEnrollmentName}">...</td>
+									<td th:text="${enrollment.courseEnrollmentBegin}">...</td>
+									<td th:text="${enrollment.courseEnrollmentEnd}">...</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<th></th>
+									<th>#</th>
+									<th>Mã định danh</th>
+									<th>Tên đợt đăng ký</th>
+									<th>Bắt đầu</th>
+									<th>Kết thúc</th>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+                
+                <!--End content page-->
+			</section>
+		</div>
+		<th:block th:include="/userControls/_footer"></th:block>
+	</div>
+	<th:block th:include="/userControls/_script"></th:block>
+	<!-- page script -->
+	<script src="/js/jquery.formatDateTime.min.js"></script>
+	<!-- DataTables -->
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.bootstrap.min.js"></script>
+	<script src="/js/bkcourse/enrollments.js"></script>
+</body>
+
+</html>

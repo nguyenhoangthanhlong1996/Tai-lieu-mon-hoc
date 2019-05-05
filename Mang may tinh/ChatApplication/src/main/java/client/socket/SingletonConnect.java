@@ -175,7 +175,7 @@ public class SingletonConnect {
                 }
                 break;
             //endregion
-            case BROADCAST_LIST_USER:
+            case NOTIFY_LIST_USER:
                 //region BROADCAST_LIST_USER
                 app.ctrChat.requestListUser();
                 break;

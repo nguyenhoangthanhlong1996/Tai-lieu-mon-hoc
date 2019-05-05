@@ -1,0 +1,36 @@
+#Login Form
+NotEmpty.loginForm.userName=Nhập tên đăng nhập
+NotEmpty.loginForm.password=Nhập mật khẩu đăng nhập
+#Category
+NotEmpty.categoriesForm.categoryName=Nhập tên danh mục
+NotEmpty.categoriesForm.categoryNbr=Nhập mã định danh
+NotEmpty.categoriesForm.categoryDesc=Nhập mô tả
+#course
+NotEmpty.coursesForm.courseName=Nhập tên khóa học
+NotEmpty.coursesForm.courseCategory=Chọn danh mục khóa học
+NotEmpty.coursesForm.courseNbr=Nhập mã định danh khóa học
+NotEmpty.coursesForm.courseLearningHour=Nhập thời lượng khóa học
+NotEmpty.coursesForm.coursePrice=Nhập giá học phí khóa học
+NotEmpty.coursesForm.courseDesc=Nhập mô tả chi tiết khóa học
+Duplicate.coursesForm.courseNbr=Mã định danh khóa học đã sử dụng
+Format.coursesForm.coursePrice=Giá học phí khóa học phải là kiểu số
+#enrollment
+NotEmpty.enrollmentForm.enrollmentName=Nhập tên đợt đăng ký
+NotEmpty.enrollmentForm.enrollmentNbr=Nhập mã đợt đăng ký
+NotEmpty.enrollmentForm.enrollmentBegin=Nhập thời gian bắt đầu
+NotEmpty.enrollmentForm.enrollmentEnd=Nhập thời gian kết thúc
+Format.enrollmentForm.enrollmentBegin=Thời gian bắt đầu không đúng định dạng
+Format.enrollmentForm.enrollmentEnd=Thời gian kết thúc không đúng định dạng
+#enrollmentDetail
+NotEmpty.enrollmentDetailForm.slMax=Nhập sĩ số tối đa
+NotEmpty.enrollmentDetailForm.enrollmentId=Chọn đợt đăng ký
+NotEmpty.enrollmentDetailForm.courseId=chọn khóa học
+#user
+NotEmpty.usersForm.userName=Nhập tên đăng nhập
+NotEmpty.usersForm.firstName=Nhập họ và tên lót
+NotEmpty.usersForm.lastName=Nhập tên
+NotEmpty.usersForm.email=Nhập địa chỉ email
+NotEmpty.usersForm.role=Chọn nhóm người dùng
+NotEmpty.usersForm.passwordLogin=Nhập mật khẩu đăng nhập
+Format.usersForm.email=Địa chỉ email sai định dạng
+Duplicate.usersForm.userName=Tên đăng nhập này đã được dùng

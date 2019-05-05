@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="mainNode" prefHeight="68.0" prefWidth="309.0" style="-fx-background-color: red;"
-      styleClass=".item-conversation" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="mainNode" prefHeight="68.0" prefWidth="309.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <BorderPane prefHeight="72.0" prefWidth="72.0">
             <center>
@@ -61,4 +60,7 @@
     <padding>
         <Insets bottom="20.0" top="20.0"/>
     </padding>
+   <padding>
+      <Insets bottom="5.0" top="5.0" />
+   </padding>
 </HBox>
