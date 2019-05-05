@@ -69,9 +69,9 @@ public class HandleConnect {
 
     //Khi hàm này được gọi sẽ thông báo cho tất cả user đang đăng nhập biết có sự thay đổi list user
     public void broadcastListUser() {
-        appendSysLog("Broadcast danh sách người dùng", LogLevel.INFO);
+        appendSysLog("Gửi danh sách người dùng đến tất cả client", LogLevel.INFO);
         Set<Integer> keys = connectionList.keySet();
-        Response response = new Response(ResponseType.BROADCAST_LIST_USER, true, null);
+        Response response = new Response(ResponseType.NOTIFY_LIST_USER, true, null);
         for (Integer key : keys) {
             ThreadConnection connection = connectionList.get(key);
             if (connection.user != null) {//Có đăng nhập
@@ -89,6 +89,7 @@ public class HandleConnect {
             int port = infoConnect.getPort();
             ThreadConnection connection = connectionList.get(port);
             if (connection != null) {
+                appendSysLog("Thông báo có sự thay đổi trong sách sách các cuộc hội thoại cho tài khoản "+username, LogLevel.INFO);
                 connection.sendResponse(new Response(ResponseType.NOTIFY_LIST_CONVERSATION, true, null));
             }
         }
@@ -103,6 +104,7 @@ public class HandleConnect {
                 int port = infoConnect.getPort();
                 ThreadConnection connection = connectionList.get(port);
                 if (connection != null) {
+                    appendSysLog("Thông báo có sự thay đổi trong sách sách các cuộc hội thoại cho tài khoản "+username, LogLevel.INFO);
                     connection.sendResponse(new Response(ResponseType.NOTIFY_LIST_CONVERSATION, true, null));
                 }
             }
@@ -119,6 +121,7 @@ public class HandleConnect {
                 int port = infoConnect.getPort();
                 ThreadConnection connection = connectionList.get(port);
                 if (connection != null) {
+                    appendSysLog("Thông báo có sự thay đổi trong sách sách các tin nhắn cho tài khoản "+username, LogLevel.INFO);
                     connection.sendResponse(new Response(ResponseType.NOTIFY_LIST_MESSAGE, true, conversationId));
                 }
             }

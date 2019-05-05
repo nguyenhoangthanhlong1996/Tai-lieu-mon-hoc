@@ -1,0 +1,23 @@
+<nav th:if="${#request.userPrincipal != null}" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown active">
+                <a th:text="'Chào, ' + ${fullName}" class="nav-link dropdown-toggle" style="color: red" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Chào, bạn
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/changePasswd">Đổi mật khẩu</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/logout">Đăng xuất</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/cart">Danh sách đăng ký</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/payments">Thanh toán</a>
+            </li>
+        </ul>
+    </div>
+</nav>

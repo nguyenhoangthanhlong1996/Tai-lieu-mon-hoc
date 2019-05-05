@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:include="/userControls/_head"></th:block>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+		<th:block th:include="/userControls/_header"></th:block>
+		<th:block th:include="/userControls/_sidebar"></th:block>
+		<div class="content-wrapper">
+			<th:block th:include="/userControls/_breadcrumb"></th:block>
+			<section class="content">
+				<h1>Trang chủ</h1>
+			</section>
+		</div>
+		<th:block th:include="/userControls/_footer"></th:block>
+	</div>
+	<th:block th:include="/userControls/_script"></th:block>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:include="/userControls/_head"></th:block>
+	<!-- page CSS -->
+	<!-- DataTables -->
+	<link rel="stylesheet" href="/css/dataTables.bootstrap.min.css">
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+	<div id="preloder" class="loading">Loading&#8230;</div>
+	<div class="wrapper">
+		<th:block th:include="/userControls/_header"></th:block>
+		<th:block th:include="/userControls/_sidebar"></th:block>
+		<div class="content-wrapper">
+			<th:block th:include="/userControls/_breadcrumb"></th:block>
+			<section class="content">
+				<!--Begin content page-->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Thông tin khóa học</h3>
+					</div>
+					<form name="frmCourses" id="frmCourses" action="/courses" th:object="${coursesForm}" method="POST">
+						<div class="box-body">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="courseName">Tên khóa học</label>
+										<input type="text" class="form-control" id="courseName"
+											placeholder="Nhập tên khóa học" th:field="*{courseName}" required> <span
+											th:if="${#fields.hasErrors('courseName')}"
+															th:errors="*{courseName}" class="help-block">...</span>
+									</div>
+								</div>
+								<div class="col-md-6">
+										<div class="form-group">
+											<label for="courseCategory">Danh mục khóa học</label>
+											<select id="courseCategory" th:field="*{courseCategory}" class="form-control" required>
+												<option value="">-- Chọn --</option>
+												<option th:each="category : ${Categories}" th:value="${category.categoryId}" th:text="${category.categoryNbr} + ' - ' + ${category.categoryName}"></option>
+											</select>
+											<span th:if="${#fields.hasErrors('courseCategory')}"
+																th:errors="*{courseCategory}" class="help-block">...</span>
+										</div>
+									</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+										<div class="form-group">
+												<label for="courseNbr">Mã định danh</label> <input type="text"
+													class="form-control" id="courseNbr"
+													placeholder="Nhập mã định danh" th:field="*{courseNbr}"
+													required> <span
+													th:if="${#fields.hasErrors('courseNbr')}"
+													th:errors="*{courseNbr}" class="help-block">...</span>
+											</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<label for="courseLearningHour">Thời lượng học</label>
+										<input type="text"
+											class="form-control" id="courseLearningHour" placeholder="Nhập thời lượng khóa học"
+											th:field="*{courseLearningHour}" required> <span th:if="${#fields.hasErrors('courseLearningHour')}"
+															th:errors="*{courseLearningHour}" class="help-block">...</span>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<label for="coursePrice">Học phí khóa học</label> <input type="text"
+											class="form-control" id="coursePrice"
+											placeholder="Nhập học phí của khóa học" th:field="*{coursePrice}"
+											required> <span
+											th:if="${#fields.hasErrors('coursePrice')}"
+											th:errors="*{coursePrice}" class="help-block">...</span>
+									</div>
+								</div>
+								<div class="col-md-3">
+										<div class="form-group">
+												<label for="courseEnable">	</label>
+										<div class="checkbox">
+												<label> <input id="courseEnable" type="checkbox"
+													th:field="*{courseEnable}"> Mở đăng ký/Hiện thị
+												</label>
+											</div>
+											</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+										<div class="form-group">
+												<label for="courseDesc">Mô tả chi tiết khóa học</label>
+												<textarea th:field="*{courseDesc}" id="courseDesc" name="courseDesc" rows="10" cols="80" required></textarea>
+												<span th:if="${#fields.hasErrors('courseDesc')}" th:errors="*{courseDesc}" class="help-block">...</span>
+										</div>
+								</div>
+							</div>
+						</div>
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">Xác nhận
+								lưu thông tin</button>
+							<button id="bnt_Reset" type="button" class="btn btn-default">Nhập lại thông tin</button>
+							<input type="hidden" id="courseId" th:field="*{courseId}">
+						</div>
+						<span th:if="${errorMessage != null}" th:utext="${errorMessage}" class="help-block">...</span>
+					</form>
+				</div>
+				<div class="box box-success">
+					<div class="box-header">
+						<h3 class="box-title">Danh sách khóa học</h3>
+					</div>
+					<div class="box-body">
+						<table id="lstCourses"
+							class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th style="width: 20px;" class="no-sort"></th>
+									<th style="width: 15px;" class="no-sort">#</th>
+									<th>Mã định danh</th>
+									<th>Tên khóa học</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="course : ${Courses}" th:data-id="${course.courseId}">
+									<td>
+												<div class="btn-group">
+													<button type="button" class="btn btn-success btn-xs dropdown-toggle"
+														data-toggle="dropdown">
+														<span class="caret"></span> <span class="sr-only">Tùy chọn</span>
+													</button>
+													<ul class="dropdown-menu" role="menu">
+														<li><a th:title="${course.courseId}" id="btn_edit" href="#frmCourses">Chỉnh sửa</a></li>
+														<li class="divider"></li>
+														<li><a th:title="${course.courseId}" id="btn_delete" href="#lstCourses">Hủy bỏ</a></li>
+													</ul>
+												</div>
+									</td>
+									<td><input type="checkbox" th:checked="${course.courseEnable}" disabled="disabled" /></td>
+									<td th:text="${course.courseNbr}">...</td>
+									<td th:text="${course.courseName}">...</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<th></th>
+									<th>#</th>
+									<th>Mã định danh</th>
+									<th>Tên khóa học</th>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+				<!--End content page-->
+			</section>
+		</div>
+		<th:block th:include="/userControls/_footer"></th:block>
+	</div>
+	<th:block th:include="/userControls/_script"></th:block>
+	<!-- page script -->
+	<!-- CK Editor -->
+	<script src="/ckeditor/ckeditor.js"></script>
+	<!-- DataTables -->
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.bootstrap.min.js"></script>
+	<script src="/js/bkcourse/courses.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Đăng nhập</title>
+	<!-- Meta-Tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="keywords" content="Đại học Bách Khoa Tp.HCM">
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- Style -->
+	<link rel="stylesheet" href="/css/login.css" type="text/css" media="all">
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+</head>
+
+<body>
+	<h1>ĐĂNG NHẬP</h1>
+	<div class="w3layoutscontaineragileits">
+		<!-- /login?error=true -->
+		<div th:if="${#request.getParameter('error') == 'true'}"
+			style="color: red; margin: 10px 0px;">
+			<span
+				th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+				th:utext="${'Thông tin đăng nhập sai (' + #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message + ')'}">
+			</span>
+		</div>
+		<form id='frmLogin' name='frmLogin' th:action="@{/security_check_login}" method='POST'>
+			<input type='text' name='username' placeholder="Nhập tên đăng nhập"
+				value='' required> <input type='password' name='password'
+				placeholder="Nhập mật khẩu" required />
+			<ul class="agileinfotickwthree">
+				<li><input type="checkbox" id="remember-me" name="remember-me" />
+					<label for="remember-me"><span></span>Ghi nhớ</label> <a href="#">Quên
+						mật khẩu?</a></li>
+			</ul>
+			<div class="aitssendbuttonw3ls">
+				<input name="submit" type="submit" value="Đăng nhập" />
+				<p>
+					Đăng ký tài khoản mới <span>→</span> <a class="w3_play_icon1"
+						href="/register"> Nhấn vào đây</a>
+				</p>
+				<div class="clear"></div>
+			</div>
+		</form>
+	</div>
+	<div class="w3footeragile">
+		<p>&copy; 2019 All Rights Reserved</p>
+	</div>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/jquery.validate.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#frmLogin").validate({
+				rules: {
+					username: "required",
+					password: {
+						required: true,
+						minlength: 6
+					}
+				},
+				messages: {
+					username: "*",
+					password: {
+						required: "*",
+						minlength: "*"
+					}
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>
