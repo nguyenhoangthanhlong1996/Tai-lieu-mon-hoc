@@ -125,7 +125,98 @@ public class CoursesDAO extends HibernateGenericDao<Courses, Long> implements IC
 			throw e;
 		}
 	}
-	
+
+	@Override
+	public List<Courses> findCoursesByCategoryId(Long id) throws Exception {
+		try {
+			List<ConditionReport> cons = new ArrayList<ConditionReport>();
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("courseName");
+				con.setOperator("order");
+				con.setValue1("asc");
+				cons.add(con);
+			}
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("courseCategory.categoryId");
+				con.setOperator("eq");
+				con.setValue1(id);
+				cons.add(con);
+			}
+			List<Courses> result = this.findByCondition(Courses.class, cons, 0, 0);
+			if (result != null && !result.isEmpty()) {
+				return result;
+			}
+			return null;
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	@Override
+	public List<Courses> findCoursesByCategoryIdExceptCourseId(Long categoryId, Long courseId) throws Exception {
+		try {
+			List<ConditionReport> cons = new ArrayList<ConditionReport>();
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("courseName");
+				con.setOperator("order");
+				con.setValue1("asc");
+				cons.add(con);
+			}
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("id");
+				con.setOperator("ne");
+				con.setValue1(courseId);
+				cons.add(con);
+			}
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("courseCategory.categoryId");
+				con.setOperator("eq");
+				con.setValue1(categoryId);
+				cons.add(con);
+			}
+			List<Courses> result = this.findByCondition(Courses.class, cons, 0, 0);
+			if (result != null && !result.isEmpty()) {
+				return result;
+			}
+			return null;
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	@Override
+	public Integer countCourseByCategoryId(Long id) throws Exception {
+		try {
+			List<ConditionReport> cons = new ArrayList<ConditionReport>();
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("courseName");
+				con.setOperator("order");
+				con.setValue1("asc");
+				cons.add(con);
+			}
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("courseCategory.categoryId");
+				con.setOperator("eq");
+				con.setValue1(id);
+				cons.add(con);
+			}
+			List<Courses> result = this.findByCondition(Courses.class, cons, 0, 0);
+			if (result != null) {
+				return result.size();
+			}
+			return null;
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
 	@Override
 	public Long removeCourseExists(Long id) throws Exception {
 		try {
@@ -138,8 +229,79 @@ public class CoursesDAO extends HibernateGenericDao<Courses, Long> implements IC
 
 	@Override
 	public List<Courses> getAllCourses() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			List<ConditionReport> cons = new ArrayList<ConditionReport>();
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("courseName");
+				con.setOperator("order");
+				con.setValue1("asc");
+				cons.add(con);
+			}
+			List<Courses> result = this.findByCondition(Courses.class, cons, 0, 0);
+			if (result != null && !result.isEmpty()) {
+				return result;
+			}
+			return null;
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	@Override
+	public List<Courses> getAllCoursesOpended() throws Exception {
+		try {
+			List<ConditionReport> cons = new ArrayList<ConditionReport>();
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("courseName");
+				con.setOperator("order");
+				con.setValue1("asc");
+				cons.add(con);
+			}
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("courseEnable");
+				con.setOperator("eq");
+				con.setValue1(true);
+				cons.add(con);
+			}
+			List<Courses> result = this.findByCondition(Courses.class, cons, 0, 0);
+			if (result != null && !result.isEmpty()) {
+				return result;
+			}
+			return null;
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	@Override
+	public List<Courses> getAllCoursesNotOpened() throws Exception {
+		try {
+			List<ConditionReport> cons = new ArrayList<ConditionReport>();
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("courseName");
+				con.setOperator("order");
+				con.setValue1("asc");
+				cons.add(con);
+			}
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("courseEnable");
+				con.setOperator("eq");
+				con.setValue1(false);
+				cons.add(con);
+			}
+			List<Courses> result = this.findByCondition(Courses.class, cons, 0, 0);
+			if (result != null && !result.isEmpty()) {
+				return result;
+			}
+			return null;
+		} catch (Exception e) {
+			throw e;
+		}
 	}
 
 }

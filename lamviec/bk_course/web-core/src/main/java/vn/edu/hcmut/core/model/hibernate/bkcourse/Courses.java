@@ -28,6 +28,7 @@ public class Courses implements Serializable {
 	private Long courseId;
 	private String courseName;
 	private String courseNbr;
+	private String courseImage;
 	@Column(name = "learningHour")
 	private String courseLearningHour;
 	@Column(name = "price")

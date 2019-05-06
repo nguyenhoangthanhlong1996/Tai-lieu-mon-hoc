@@ -10,5 +10,7 @@ public interface ICategories {
 	Categories modifyCategoryExists(CategoriesForm obj) throws Exception;
 	Categories findCategoryById(Long categoryId) throws Exception;
 	List<Categories> getAllCategories() throws Exception;
+	List<Categories> getAllCategoriesOpened() throws Exception;
+	List<Categories> getAllCategoriesNotOpened() throws Exception;
 	Long removeCategoryExists(Long categoryId) throws Exception;
 }

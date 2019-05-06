@@ -46,4 +46,26 @@ public class CategoriesRawDAO extends HibernateGenericDao<CategoriesRaw, Long> i
 			throw e;
 		}
 	}
+
+	@Override
+	public CategoriesRaw findCategoriesRawById(Long id) throws Exception {
+		try {
+			List<ConditionReport> cons = new ArrayList<ConditionReport>();
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("categoryId");
+				con.setOperator("eq");
+				con.setValue1(id);
+				cons.add(con);
+			}
+			List<CategoriesRaw> result = this.findByCondition(CategoriesRaw.class, cons, 0, 0);
+			if (result != null && !result.isEmpty()) {
+				return result.get(0);
+			}
+			return null;
+		} catch (Exception e) {
+			//e.printStackTrace();
+			throw e;
+		}
+	}
 }

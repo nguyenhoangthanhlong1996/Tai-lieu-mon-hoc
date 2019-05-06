@@ -10,7 +10,7 @@ import lombok.var;
 public class WebConfiguration {
 	@Bean
     public ResourceBundleMessageSource messageSource() {
-        var source = new ResourceBundleMessageSource();
+        ResourceBundleMessageSource source = new ResourceBundleMessageSource();
         source.setBasenames("messages/validation");
         source.setDefaultEncoding("UTF-8");
         source.setCacheSeconds(3600);

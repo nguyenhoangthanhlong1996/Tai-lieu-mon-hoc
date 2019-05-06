@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:include="/_head"></th:block>
+</head>
+<body>
+	<th:block th:include="/_header-section"></th:block>
+	<!-- Page -->
+	<section class="contact-page spad pb-0">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="contact-form-warp">
+						<div class="section-title text-white text-left">
+							<h2>THÔNG BÁO CÓ LỖI XẢY RA</h2>
+							<p>
+								<b th:text="${msg}"></b>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Page end -->
+	<br />
+	<th:block th:include="/_footer-section"></th:block>
+</body>
+</html>

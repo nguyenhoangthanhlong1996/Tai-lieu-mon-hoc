@@ -4,11 +4,13 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -17,36 +19,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class DatabaseConfiguration {
 
-//	@Autowired
-//	private ApplicationContext context;
+	@Autowired
+	private Environment environment;
 
 	@Bean(name = "dataSource")
 	@Primary
-	@ConfigurationProperties(prefix = "datasource.db-extra-courses")
+	@ConfigurationProperties(prefix = "spring.datasource.db-extra-courses")
 	public DataSource dataSource() {
 		return DataSourceBuilder.create().build();
 	}
-
-	// @Bean(name = "dataSourceImage")
-	// @ConfigurationProperties(prefix = "datasource.db-image")
-	// public DataSource dataSourceNhapDiem() {
-	// return DataSourceBuilder.create().build();
-	// }
-	//
-	// @Bean(name = "dataSourceWSS")
-	// @ConfigurationProperties(prefix = "datasource.db-pdt-wss")
-	// public DataSource dataSourceWSS() {
-	// return DataSourceBuilder.create().build();
-	// }
-	// @Bean
-	// public DriverManagerDataSource getDataSource() {
-	// DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	// dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-	// dataSource.setUrl("jdbc:mysql://172.28.2.227:3306/bk_course_test?serverTimezone=UTC&autoReconnect=true&useSSL=false");
-	// dataSource.setUsername("bkcourse_user01_test");
-	// dataSource.setPassword("g]9(J{J/k!kZS2)R");
-	// return dataSource;
-	// }
 
 	// Hibernate
 	@Bean("sessionFactory")

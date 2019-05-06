@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 
 @SpringBootApplication(scanBasePackages = { "vn.edu.hcmut.*" })
-@EnableAutoConfiguration(exclude = { //  
+@EnableAutoConfiguration(exclude = { //
         //DataSourceAutoConfiguration.class, //
         //DataSourceTransactionManagerAutoConfiguration.class, //
         HibernateJpaAutoConfiguration.class })

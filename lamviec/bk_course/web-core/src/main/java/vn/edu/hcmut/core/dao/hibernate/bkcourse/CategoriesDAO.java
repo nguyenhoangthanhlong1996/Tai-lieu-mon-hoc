@@ -104,6 +104,62 @@ public class CategoriesDAO extends HibernateGenericDao<Categories, Long> impleme
 	}
 
 	@Override
+	public List<Categories> getAllCategoriesOpened() throws Exception {
+		try {
+			List<ConditionReport> cons = new ArrayList<ConditionReport>();
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("categoryName");
+				con.setOperator("order");
+				con.setValue1("asc");
+				cons.add(con);
+			}
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("categoryEnable");
+				con.setOperator("eq");
+				con.setValue1(true);
+				cons.add(con);
+			}
+			List<Categories> result = this.findByCondition(Categories.class, cons, 0, 0);
+			if (result != null && !result.isEmpty()) {
+				return result;
+			}
+			return null;
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	@Override
+	public List<Categories> getAllCategoriesNotOpened() throws Exception {
+		try {
+			List<ConditionReport> cons = new ArrayList<ConditionReport>();
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("categoryName");
+				con.setOperator("order");
+				con.setValue1("asc");
+				cons.add(con);
+			}
+			{
+				ConditionReport con = new ConditionReport();
+				con.setCol("categoryEnable");
+				con.setOperator("eq");
+				con.setValue1(false);
+				cons.add(con);
+			}
+			List<Categories> result = this.findByCondition(Categories.class, cons, 0, 0);
+			if (result != null && !result.isEmpty()) {
+				return result;
+			}
+			return null;
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	@Override
 	public Long removeCategoryExists(Long categoryId) throws Exception {
 		try {
 			this.delete(categoryId);
