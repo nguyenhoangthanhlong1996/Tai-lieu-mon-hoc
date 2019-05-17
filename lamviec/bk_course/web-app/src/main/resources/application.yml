@@ -40,9 +40,9 @@ spring:
     profiles: test
     datasource:
         db-extra-courses:
-            jdbc-url: jdbc:mysql://localhost:3306/bk_course_test?serverTimezone=UTC&autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
-            username: root
-            password:
+            jdbc-url: jdbc:mysql://172.28.2.227:3306/bk_course_test?serverTimezone=UTC&autoReconnect=true&useSSL=false
+            username: bkcourse_user01_test
+            password: g]9(J{J/k!kZS2)R
             driver-class-name: com.mysql.cj.jdbc.Driver
             test-on-borrow: false
             validation-query: SELECT 1 FROM dual

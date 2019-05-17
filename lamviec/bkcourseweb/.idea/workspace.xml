@@ -25,18 +25,25 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="bkcourse@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="bk_course_test@172.28.2.227" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="bkcourse@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="bk_course_test@172.28.2.227" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="bkcourse@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="bk_course_test@172.28.2.227" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="bk_course_test: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="bk_course_test: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="bk_course_test@172.28.2.227" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="bk_course_test: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
     <select />
@@ -45,60 +52,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/controller/MainController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="147" column="59" lean-forward="true" selection-start-line="147" selection-start-column="59" selection-end-line="147" selection-end-column="59" />
-              <folding>
-                <element signature="method#viewRegisterSuccessful1#0;class#MainController#0" />
-                <element signature="method#viewRegister#0;class#MainController#0" />
-                <element signature="e#7505#7587#0" />
-                <element signature="method#saveRegister#0;class#MainController#0" />
-                <element signature="method#xacNhanEmail#0;class#MainController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/resources/templates/welcomePage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="132" column="100" lean-forward="true" selection-start-line="132" selection-start-column="32" selection-end-line="132" selection-end-column="100" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/resources/templates/singleCoursePage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="50" lean-forward="true" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/model/CourseModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="19" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bk_course/web-core/src/main/java/vn/edu/hcmut/core/dao/hibernate/bkcourse/CoursesDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="178" column="42" lean-forward="true" selection-start-line="178" selection-start-column="42" selection-end-line="178" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -120,10 +74,11 @@
       <find>.categorie-item .ci-text</find>
       <find>.course-item</find>
       <find>getAll</find>
+      <find>.image</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -132,13 +87,11 @@
         <option value="$PROJECT_DIR$/../bk_course/web-app/web-core.iml" />
         <option value="$PROJECT_DIR$/../bk_course/web-app/pom.xml" />
         <option value="$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/configuration/DatabaseConfiguration.java" />
-        <option value="$PROJECT_DIR$/../bk_course/web-app/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/../bk_course/web-app/src/main/resources/application.properties" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/27ca0f37-f18b-40b5-b739-431ffc63a018/console_1.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/27ca0f37-f18b-40b5-b739-431ffc63a018/console_2.sql" />
         <option value="$PROJECT_DIR$/../bk_course/web-core/src/main/java/vn/edu/hcmut/core/repository/hibernate/bkcourse/ICategories.java" />
         <option value="$PROJECT_DIR$/../bk_course/web-core/src/main/java/vn/edu/hcmut/core/dao/hibernate/bkcourse/CategoriesDAO.java" />
-        <option value="$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/model/CategoryModel.java" />
         <option value="$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/WebAppApplication.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/model/CourseModel.java" />
@@ -157,8 +110,10 @@
         <option value="$PROJECT_DIR$/../bk_course/web-core/src/main/java/vn/edu/hcmut/core/repository/hibernate/bkcourse/ICourses.java" />
         <option value="$PROJECT_DIR$/../bk_course/web-core/src/main/java/vn/edu/hcmut/core/dao/hibernate/bkcourse/CoursesDAO.java" />
         <option value="$PROJECT_DIR$/../bk_course/web-app/src/test/java/vn/edu/hcmut/web/WebAppApplicationTests.java" />
-        <option value="$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/controller/MainController.java" />
         <option value="$PROJECT_DIR$/../bk_course/web-app/src/main/resources/templates/singleCoursePage.html" />
+        <option value="$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/model/CategoryModel.java" />
+        <option value="$PROJECT_DIR$/../bk_course/web-app/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/controller/MainController.java" />
       </list>
     </option>
   </component>
@@ -185,11 +140,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="3" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1" />
     <option name="y" value="5" />
-    <option name="width" value="1450" />
-    <option name="height" value="1028" />
+    <option name="width" value="1919" />
+    <option name="height" value="1030" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -197,6 +152,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -211,81 +168,6 @@
             </path>
             <path>
               <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="configuration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
               <item name="web-core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -313,73 +195,11 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="hibernate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="hibernate" type="462c0819:PsiDirectoryNode" />
-              <item name="bkcourse" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-              <item name="hibernate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bkcourseweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-              <item name="hibernate" type="462c0819:PsiDirectoryNode" />
-              <item name="bkcourse" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -389,10 +209,11 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bk_course/web-app/src/main/resources/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -401,22 +222,22 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="vn.edu.hcmut.web" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\THANHLONG-PC\Desktop\lamviec\bk_course\web-app\src\main\resources\templates" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="vn.edu.hcmut.web.model" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\THANHLONG-PC\Desktop\lamviec\bk_course\web-app\src\main\resources\static\images\courses" />
       <recent name="C:\Users\THANHLONG-PC\Desktop\lamviec\bk_course\web-app\src\main\resources\static\images" />
       <recent name="C:\Users\THANHLONG-PC\Desktop\lamviec\bk_course\web-app\src\main\resources\static" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="vn.edu.hcmut.web" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="vn.edu.hcmut.web.model" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\THANHLONG-PC\Desktop\lamviec\bk_course\web-app\src\main\resources\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -499,6 +320,8 @@
       <workItem from="1557111243816" duration="217000" />
       <workItem from="1557111501749" duration="11522000" />
       <workItem from="1557137826895" duration="12512000" />
+      <workItem from="1557194336808" duration="3877000" />
+      <workItem from="1557198810352" duration="13000" />
     </task>
     <servers />
   </component>
@@ -535,13 +358,21 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26056000" />
+    <option name="totallyTimeSpent" value="29946000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="3" y="5" width="1450" height="1028" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18489209" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29624665" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -551,18 +382,18 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32849163" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4039039" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32882884" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32849163" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32732734" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
-      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="14" weight="0.32932165" />
       <window_info anchor="bottom" id="Database Console" order="15" weight="0.32932165" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -572,7 +403,7 @@
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Codota" order="6" weight="0.3294964" />
-      <window_info anchor="right" id="Database" order="7" visible="true" weight="0.1676259" />
+      <window_info anchor="right" id="Database" order="7" weight="0.16666667" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info anchor="right" id="Bean Validation" order="10" />
@@ -594,14 +425,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/.project" />
-    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/.classpath" />
-    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/.gitignore" />
-    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/mvnw">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1026" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../bk_course/web-app/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
@@ -624,30 +447,6 @@
     <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/main.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="27" lean-forward="true" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
-          <caret line="58" column="3" lean-forward="true" selection-start-line="58" selection-start-column="3" selection-end-line="58" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bk_course/web-core/src/main/java/vn/edu/hcmut/core/utilities/Checksum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="54" column="12" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/controller/SecurityController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -665,23 +464,9 @@
     <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/resources/static/images/categories/1.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/27ca0f37-f18b-40b5-b739-431ffc63a018/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/27ca0f37-f18b-40b5-b739-431ffc63a018/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/27ca0f37-f18b-40b5-b739-431ffc63a018/console_2.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="28" selection-start-column="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/27ca0f37-f18b-40b5-b739-431ffc63a018/console.sql" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/27ca0f37-f18b-40b5-b739-431ffc63a018/console_1.sql" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/27ca0f37-f18b-40b5-b739-431ffc63a018/console_2.sql" />
     <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/controller/RestfulController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -703,24 +488,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://27ca0f37-f18b-40b5-b739-431ffc63a018/schema/bk_course_test/table/coursecategory">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://27ca0f37-f18b-40b5-b739-431ffc63a018/schema/bk_course_test/table/courseenrollment">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://27ca0f37-f18b-40b5-b739-431ffc63a018/schema/bk_course_test/table/coursecategory" />
+    <entry file="das://27ca0f37-f18b-40b5-b739-431ffc63a018/schema/bk_course_test/table/courseenrollment" />
     <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/WebAppApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -756,15 +525,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://27ca0f37-f18b-40b5-b739-431ffc63a018/schema/bk_course_test/table/cauhinhchung">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://27ca0f37-f18b-40b5-b739-431ffc63a018/schema/bk_course_test/table/cauhinhchung" />
     <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/resources/templates/403Page.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -775,13 +536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/model/CategoryModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" selection-start-line="4" selection-end-line="8" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -847,31 +601,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../bk_course/web-core/src/main/java/vn/edu/hcmut/core/dao/hibernate/bkcourse/CoursesDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="178" column="42" lean-forward="true" selection-start-line="178" selection-start-column="42" selection-end-line="178" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/model/CourseDetailModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="147" column="59" lean-forward="true" selection-start-line="147" selection-start-column="59" selection-end-line="147" selection-end-column="59" />
-          <folding>
-            <element signature="method#viewRegisterSuccessful1#0;class#MainController#0" />
-            <element signature="method#viewRegister#0;class#MainController#0" />
-            <element signature="e#7505#7587#0" />
-            <element signature="method#saveRegister#0;class#MainController#0" />
-            <element signature="method#xacNhanEmail#0;class#MainController#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -896,47 +629,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://27ca0f37-f18b-40b5-b739-431ffc63a018/schema/bk_course_test/table/course">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-          <column-attributes>
-            <column name="courseDesc" position="5" />
-            <column name="courseName" position="2" />
-            <column name="courseNbr" position="3" />
-            <column name="createdTime" position="6" />
-            <column name="hieuLucFlag" position="7" />
-            <column name="learningHour" position="8" />
-            <column name="price" position="9" />
-            <column name="courseCategoryId" position="10" />
-            <column name="courseImage" position="4" />
-          </column-attributes>
-        </state>
-      </provider>
+    <entry file="das://27ca0f37-f18b-40b5-b739-431ffc63a018/schema/bk_course_test/table/course" />
+    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/resources/templates/search-section.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/model/CourseModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
+        <state relative-caret-position="220">
           <caret line="10" column="19" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bk_course/web-core/src/main/java/vn/edu/hcmut/core/dao/hibernate/bkcourse/CoursesDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3520">
+          <caret line="178" column="42" selection-start-line="178" selection-start-column="42" selection-end-line="178" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/resources/templates/singleCoursePage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://7216223f-9cbb-401e-86ed-cb33c9d23186/schema/bk_course_test/table/course">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7216223f-9cbb-401e-86ed-cb33c9d23186/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/model/CategoryModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="14" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="44" column="38" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bk_course/web-core/src/main/java/vn/edu/hcmut/core/utilities/Checksum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/configuration/DatabaseConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-264">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="27" lean-forward="true" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/resources/templates/welcomePage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="132" column="100" lean-forward="true" selection-start-line="132" selection-start-column="32" selection-end-line="132" selection-end-column="100" />
+        <state relative-caret-position="181">
+          <caret line="120" column="89" lean-forward="true" selection-start-line="120" selection-start-column="89" selection-end-line="120" selection-end-column="89" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/resources/templates/search-section.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/resources/templates/singleCoursePage.html">
+    <entry file="file://$PROJECT_DIR$/../bk_course/web-core/src/main/java/vn/edu/hcmut/core/dao/GeneralDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="50" lean-forward="true" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+        <state relative-caret-position="661">
+          <caret line="54" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bk_course/web-app/src/main/java/vn/edu/hcmut/web/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="91" column="9" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
+          <folding>
+            <element signature="method#viewRegisterSuccessful1#0;class#MainController#0" />
+            <element signature="method#viewRegister#0;class#MainController#0" />
+            <element signature="method#saveRegister#0;class#MainController#0" />
+            <element signature="method#xacNhanEmail#0;class#MainController#0" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -100,7 +100,12 @@ public class MainController {
             List<CategoryModel> categoryModelList = new ArrayList<>();
             List<CourseModel> courseModelList = new ArrayList<>();
             for (Categories categories : categoriesList) {
-                categoryModelList.add(new CategoryModel(categories.getCategoryId(), categories.getCategoryName(), categories.getCategoryDesc(), coursesDAO.countCourseByCategoryId(categories.getCategoryId()), categories.getCategoryImage()));
+                categoryModelList.add(new CategoryModel(
+                        categories.getCategoryId(),
+                        categories.getCategoryName(),
+                        categories.getCategoryDesc(),
+                        coursesDAO.countCourseByCategoryId(categories.getCategoryId()),
+                        categories.getCategoryImage()));
             }
             for (Courses courses : coursesList) {
                 courseModelList.add(new CourseModel(courses.getCourseId(), courses.getCourseName(), courses.getCourseDesc(), courses.getCoursePrice(), courses.getCourseImage(), courses.getCourseCategory().getCategoryId()));
