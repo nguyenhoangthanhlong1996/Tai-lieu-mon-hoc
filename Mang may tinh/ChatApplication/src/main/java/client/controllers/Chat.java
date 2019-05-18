@@ -161,22 +161,24 @@ public class Chat {
         //Xử lý sự kiện chọn 1 cuộc hội thoại
         listenerConversation = (observable, oldValue, newValue) -> {
             //Gửi yêu cầu lấy danh tin nhắn của cuộc hội thoại này
-            int idConversation = newValue.getIdConversation();
-            if (currentIdConversation != idConversation) {
-                //Gán hình
-                if (newValue.getAvatar() != null) {
-                    try {
-                        ivAvatar.setImage(Base64Utils.getImageFromBase64String(newValue.getAvatar()));
-                    } catch (IOException e) {
-                        e.printStackTrace();
+            if (newValue != null) {
+                int idConversation = newValue.getIdConversation();
+                if (currentIdConversation != idConversation) {
+                    //Gán hình
+                    if (newValue.getAvatar() != null) {
+                        try {
+                            ivAvatar.setImage(Base64Utils.getImageFromBase64String(newValue.getAvatar()));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
-                }
-                //Gán tên
-                lblName.setText(newValue.getName());
-                circleStatus.setVisible(false);
-                lblLastVisit.setText(null);
+                    //Gán tên
+                    lblName.setText(newValue.getName());
+                    circleStatus.setVisible(false);
+                    lblLastVisit.setText(null);
 
-                requestListMessage(idConversation);
+                    requestListMessage(idConversation);
+                }
             }
         };
     }
@@ -194,6 +196,29 @@ public class Chat {
         vboxViewChat.prefWidthProperty().bind(scrollViewChat.widthProperty());
         //Tạo dữ liệu trong combobox lọc loại cuộc hội thoại
         cbbFilterConversation.getItems().addAll("Tất cả", "Cuộc hội thoại riêng tư", "Cuộc hội thoại nhóm");
+        cbbFilterConversation.setOnAction(event -> {
+            int index = cbbFilterConversation.getSelectionModel().getSelectedIndex();
+            switch (index) {
+                case 0:
+                    filterConversation.setPredicate((Predicate<? super ConversationData>) c -> {
+                        return true;
+                    });
+                    break;
+                case 1:
+                    filterConversation.setPredicate((Predicate<? super ConversationData>) c -> {
+                        return (c.isGroup() == false);
+                    });
+                    break;
+                case 2:
+                    filterConversation.setPredicate((Predicate<? super ConversationData>) c -> {
+                        return (c.isGroup() == true);
+                    });
+                    break;
+            }
+            SortedList<ConversationData> sortedList = new SortedList<>(filterConversation);
+            listViewConversation.setItems(sortedList);
+            txtSearch.setText("");
+        });
         //Tạo menu cho nút cài đặt
         settingMenu = new ContextMenu();
         MenuItem item1 = new MenuItem("Thiết lập");
@@ -275,8 +300,7 @@ public class Chat {
     @FXML
     void createGroup(ActionEvent event) {
         try {
-            if (dialogCreateGroup == null)
-                dialogCreateGroup = new DialogCreateGroup(app, connect);
+            dialogCreateGroup = new DialogCreateGroup(app, connect);
             dialogCreateGroup.display(listUser);
         } catch (IOException e) {
             e.printStackTrace();
@@ -458,6 +482,8 @@ public class Chat {
         lblName.setText(null);
         contactsMenuSelected(null);
         vboxConversation.setVisible(false);
+        cbbFilterConversation.getSelectionModel().selectFirst();
+        txtSearch.setText("");
     }
     //endregion
 }

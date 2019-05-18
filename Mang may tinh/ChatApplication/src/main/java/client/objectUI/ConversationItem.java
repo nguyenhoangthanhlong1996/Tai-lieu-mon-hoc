@@ -28,7 +28,7 @@ public class ConversationItem extends ListCell<ConversationData> {
     //Thời gian nhận tin nhắn cuói
     private String lastMessageTime;
     //Số tin nhắn chưa đọc
-    private int numberUnreadMessage;
+    private boolean group;
     FXMLLoader mLLoader;
 
     @FXML
@@ -42,7 +42,7 @@ public class ConversationItem extends ListCell<ConversationData> {
     @FXML
     private Label lblLastMessageTime;
     @FXML
-    private Label lblNumberUnreadMessage;
+    private ImageView ivGroup;
 
 //    public ConversationItem(int idConversation, String avatar, String username, String name, String shortenContent, String lastMessageTime, int numberUnreadMessage) {
 //        FXMLLoader loader = new FXMLLoader(Config.getPathViewConversationItem());
@@ -86,7 +86,7 @@ public class ConversationItem extends ListCell<ConversationData> {
             if (item.getLastMessageTime() != null) {
                 setLastMessageTime(item.getLastMessageTime().toString());
             }
-            setNumberUnreadMessage(item.getNumberUnreadMessage());
+            setGroup(item.isGroup());
             setText(null);
             setGraphic(mainNode);
         }
@@ -153,17 +153,12 @@ public class ConversationItem extends ListCell<ConversationData> {
         lblLastMessageTime.setText(lastMessageTime);
     }
 
-    public int getNumberUnreadMessage() {
-        return numberUnreadMessage;
-    }
-
-    public void setNumberUnreadMessage(int numberUnreadMessage) {
-        this.numberUnreadMessage = numberUnreadMessage;
-        if (numberUnreadMessage == 0) {
-            lblNumberUnreadMessage.setVisible(false);
+    public void setGroup(boolean isGroup) {
+        this.group = isGroup;
+        if (group == true) {
+            ivGroup.setVisible(true);
         } else {
-            lblNumberUnreadMessage.setVisible(true);
-            lblNumberUnreadMessage.setText(numberUnreadMessage + "");
+            ivGroup.setVisible(false);
         }
 
     }
@@ -176,7 +171,7 @@ public class ConversationItem extends ListCell<ConversationData> {
                 ", name='" + name + '\'' +
                 ", shortenContent='" + shortenContent + '\'' +
                 ", lastMessageTime='" + lastMessageTime + '\'' +
-                ", numberUnreadMessage=" + numberUnreadMessage +
+                ", group=" + group +
                 '}';
     }
 }
