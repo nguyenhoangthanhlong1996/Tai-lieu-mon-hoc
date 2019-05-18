@@ -143,7 +143,7 @@
 .list-view .list-cell {
     -fx-cursor: HAND;
     -fx-max-height: 100;
-    /*-fx-padding: 0;*/
+    -fx-padding: 5 0;
 }
 
 .list-view .list-cell:empty {
@@ -157,4 +157,14 @@
 
 .list-view .list-cell:hover {
     -fx-background-color: #e6f0ff;
+}
+
+.list-view:focused .list-cell:filled:focused:selected {
+    -fx-background-color: #c8d3e2;
+    -fx-background: #c8d3e2;
+    -fx-text-fill: red;
+}
+
+.combo-box .cell{
+    -fx-text-fill: black;
 }
