@@ -272,7 +272,7 @@ public class ThreadConnection extends Thread {
                     int conversationId = sendMessageData.getConversationId();
                     String content = sendMessageData.getContent();
                     //Thêm tin nhắn vào csdl
-                    if (messageDAO.createMessage(conversationId, user.getUsername(), content)) {
+                    if (messageDAO.createMessage(conversationId, user.getUsername(), content, sendMessageData.getAttachment(), sendMessageData.getAttachmentName(), sendMessageData.getAttachmentExtension())) {
                         response = new Response(ResponseType.SEND_MESSAGE, true, null);
                         handleConnect.appendSysLog(user.getUsername() + " gửi tin nhắn thành công | " + response.toString(), LogLevel.INFO);
                         sendResponse(response);
@@ -307,6 +307,24 @@ public class ThreadConnection extends Thread {
                 } else {
                     response = new Response(ResponseType.CREATE_CONVERSATION_GROUP, false, "Có lỗi trong quá trình tạo nhóm");
                     handleConnect.appendSysLog(user.getUsername() + " tạo nhóm thất bại | " + response.toString(), LogLevel.INFO);
+                    sendResponse(response);
+                }
+                break;
+            //endregion
+            case GET_ATTACHMENT:
+                //region GET_ATTACHMENT
+                if (user != null) {
+                    int messageId = (int) request.getData();
+                    FileInfoData fileInfoData = messageDAO.getAttachmentById(messageId);
+                    if (fileInfoData != null) {
+                        response = new Response(ResponseType.GET_ATTACHMENT, true, fileInfoData);
+                        sendResponse(response);
+                    } else {
+                        response = new Response(ResponseType.GET_ATTACHMENT, false, "Có lỗi trong quá trình lấy tệp đính kèm");
+                        sendResponse(response);
+                    }
+                } else {
+                    response = new Response(ResponseType.GET_ATTACHMENT, false, "Có lỗi trong quá trình lấy tệp đính kèm");
                     sendResponse(response);
                 }
                 break;

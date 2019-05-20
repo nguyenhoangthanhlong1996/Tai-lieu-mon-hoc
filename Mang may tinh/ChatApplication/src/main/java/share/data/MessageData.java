@@ -6,16 +6,28 @@ import java.sql.Timestamp;
 
 public class MessageData implements Serializable {
 
+    int messageId;
     String sender;
     String avatar;
     String content;
+    String attachmentName;
     Timestamp time;
 
-    public MessageData(String sender, String avatar, String content, Timestamp time) {
+    public MessageData(int messageId, String sender, String avatar, String content, String attachmentName, Timestamp time) {
+        this.messageId = messageId;
         this.sender = sender;
         this.avatar = avatar;
         this.content = content;
+        this.attachmentName = attachmentName;
         this.time = time;
+    }
+
+    public int getMessageId() {
+        return messageId;
+    }
+
+    public void setMessageId(int messageId) {
+        this.messageId = messageId;
     }
 
     public String getSender() {
@@ -42,6 +54,14 @@ public class MessageData implements Serializable {
         this.content = content;
     }
 
+    public String getAttachmentName() {
+        return attachmentName;
+    }
+
+    public void setAttachmentName(String attachmentName) {
+        this.attachmentName = attachmentName;
+    }
+
     public Timestamp getTime() {
         return time;
     }
@@ -53,10 +73,11 @@ public class MessageData implements Serializable {
     @Override
     public String toString() {
         return "MessageData{" +
-                "sender='" + sender + '\'' +
-                //"avatar='" + avatar + '\'' +
-                "avatar='" + "base64_encode" + '\'' +
+                "messageId=" + messageId +
+                ", sender='" + sender + '\'' +
+                ", avatar='" + "base64_encode" + '\'' +
                 ", content='" + content + '\'' +
+                ", attachmentName='" + attachmentName + '\'' +
                 ", time=" + time +
                 '}';
     }

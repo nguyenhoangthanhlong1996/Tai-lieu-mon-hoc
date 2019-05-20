@@ -10,6 +10,32 @@ compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
 javadoc.options.encoding = 'UTF-8'
 
+//mainClassName = "server.Main"
+
+task ServerJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Server Chat App',
+                    'Implementation-Version': '1.0',
+                    'Main-Class': 'server.Main'
+    }
+    archiveName  = 'Server App.jar'
+    baseName = 'ServerApp'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task ClientJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Client Chat App',
+                'Implementation-Version': '1.0',
+                'Main-Class': 'client.Main'
+    }
+    archiveName  = 'Client App.jar'
+    baseName = 'ClientApp'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
 task(Client, dependsOn: 'classes', type: JavaExec) {
     main = 'client.Main'
     classpath = sourceSets.main.runtimeClasspath
@@ -18,6 +44,7 @@ task(Server, dependsOn: 'classes', type: JavaExec) {
     main = 'server.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
+
 
 repositories {
     mavenCentral()

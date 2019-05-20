@@ -4,16 +4,19 @@ import client.Config;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import share.data.ConversationData;
+import share.entity.User;
 import share.util.Base64Utils;
 
 import java.io.IOException;
 
-public class ContactItem extends HBox {
+public class ContactItem extends ListCell<User> {
 
     //base64
     private String avatar;
@@ -27,6 +30,10 @@ public class ContactItem extends HBox {
     private String lastVisitTime;
     //Trạng thái trực tuyến
     private boolean online;
+    FXMLLoader mLLoader;
+
+    @FXML
+    private HBox mainNode;
     @FXML
     private ImageView ivAvatar;
     @FXML
@@ -36,19 +43,46 @@ public class ContactItem extends HBox {
     @FXML
     private Label lblLastVisitTime;
 
-    public ContactItem(String avatar, String username, String name, boolean gender, String lastVisitTime, boolean online) {
-        FXMLLoader loader = new FXMLLoader(Config.getPathViewContactItem());
-        loader.setRoot(this);
-        loader.setController(this);
-        try {
-            loader.load();
-            setAvatar(avatar);
-            setUsername(username);
-            setName(name);
-            setLastVisitTime(lastVisitTime);
-            setOnline(online);
-        } catch (IOException e) {
-            e.printStackTrace();
+//    public ContactItem(String avatar, String username, String name, boolean gender, String lastVisitTime, boolean online) {
+//        FXMLLoader loader = new FXMLLoader(Config.getPathViewContactItem());
+//        loader.setRoot(this);
+//        loader.setController(this);
+//        try {
+//            loader.load();
+//            setAvatar(avatar);
+//            setUsername(username);
+//            setName(name);
+//            setLastVisitTime(lastVisitTime);
+//            setOnline(online);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+
+    @Override
+    protected void updateItem(User item, boolean empty) {
+        super.updateItem(item, empty);
+        if (empty || item == null) {
+            setText(null);
+            setGraphic(null);
+        } else {
+            if (mLLoader == null) {
+                mLLoader = new FXMLLoader(Config.getPathViewContactItem());
+                mLLoader.setController(this);
+                try {
+                    mLLoader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            setAvatar(item.getAvatar());
+            setUsername(item.getUsername());
+            setName(item.getName());
+            setLastVisitTime(null);
+            setOnline(item.isOnline());
+            setText(null);
+            setGraphic(mainNode);
         }
     }
 

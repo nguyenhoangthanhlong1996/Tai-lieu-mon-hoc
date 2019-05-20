@@ -11,6 +11,7 @@ public enum ResponseType {
     GET_LIST_CONVERSATION,
     GET_LIST_MESSAGE,
     SEND_MESSAGE,
+    GET_ATTACHMENT,
     //Loại phản hồi nhằm thông báo sự thay đổi cho client
     NOTIFY_LIST_USER,
     NOTIFY_LIST_CONVERSATION,

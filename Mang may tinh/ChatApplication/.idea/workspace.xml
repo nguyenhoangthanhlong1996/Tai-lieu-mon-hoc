@@ -1,27 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="chat-app.main:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/main/java/client/socket/SingletonConnect.java" line="1" />
     <bookmark url="file://$PROJECT_DIR$/src/main/java/client/controllers/Chat.java" line="71" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8fbf17a-8b07-4f8f-8ce3-9f47ae3790fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/share/data/FileInfoData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/share/util/FileUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Lap trinh mang/Bai tap/BaiTapChuong4_3" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lap trinh mang/Bai tap/BaiTapChuong4_3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/client/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/client/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/client/controllers/Chat.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/client/controllers/Chat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/resources/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/resources/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/resources/MessageItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/resources/MessageItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/MainTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/client/views/Chat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/client/views/Chat.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/client/views/ConversationItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/client/views/ConversationItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/boy1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/boy2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/boy3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/boy4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/boy5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/girl1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/girl2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/gril3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/group.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/man.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/unknow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/woman.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/styles/Chat.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/Chat.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/ContactItem.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/ConversationItem.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/CreateGroup.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/MessageItem.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/SignIn.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/SignUp.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/TimelineItem.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/server/views/Server.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/resources/Main.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/resources/MessageItem.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/resources/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/resources/log4j.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/controllers/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/controllers/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/objectUI/ContactItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/objectUI/ContactItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/objectUI/MessageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/objectUI/MessageItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/controllers/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/controllers/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/objectUI/InfoConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/controllers/objectUI/InfoConnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/socket/HandleConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/socket/HandleConnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MessageItemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MessageItemTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/socket/SingletonConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/socket/SingletonConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/socket/ThreadConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/socket/ThreadConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/share/dao/MessageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/share/dao/MessageDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/share/data/MessageData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/share/data/MessageData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/share/data/SendMessageData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/share/data/SendMessageData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/share/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/share/entity/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/share/protocol/RequestType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/share/protocol/RequestType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/share/protocol/ResponseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/share/protocol/ResponseType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/client/views/Chat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/client/views/Chat.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/client/views/ContactItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/client/views/ContactItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/client/views/ConversationItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/client/views/ConversationItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/MyCtr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MyCtr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/MessageItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/MessageItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../báo cáo bài tập lớn/Bao cao de tai chat.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../báo cáo bài tập lớn/Bao cao de tai chat.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../báo cáo bài tập lớn/Chat System Use Case Diagram.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -71,6 +133,22 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="chat-app" type="f1a62948:ProjectNode" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="chat-app" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="chat-app" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="chat-app" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -83,74 +161,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf />
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/MainTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2">
-              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/client/controllers/Chat.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="257" lean-forward="true" selection-start-line="257" selection-end-line="257" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/client/Config.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="149" column="43" selection-start-line="149" selection-start-column="43" selection-end-line="149" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/client/objectUI/MessageItem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="17" column="39" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#MessageItemTest#0;class#MessageItemTest#0" />
-                <element signature="method#init#0;class#MessageItemTest#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/MyCtr.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/Main.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -192,20 +202,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-
-        <option value="$PROJECT_DIR$/src/main/java/share/data/SignInData.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/share/protocol/Response.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/stages/Server.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/client/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/client/stages/ScenceOption.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/client/views/SignIn.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/client/stages/Authenticate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/client/stages/Chat.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/client/views/SignUp.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/share/entity/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/client/controllers/SignIn.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/objectUI/InfoConnect.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/controllers/ServerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/client/controllers/SignUp.java" />
@@ -256,15 +252,19 @@
         <option value="$PROJECT_DIR$/src/main/java/client/Config.java" />
         <option value="$PROJECT_DIR$/src/main/java/client/objectUI/MessageItemTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/client/controllers/Chat.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="3" />
-    <option name="width" value="1099" />
-    <option name="height" value="1050" />
-    <option name="x" value="-6" />
-    <option name="y" value="4" />
+    <option name="x" value="849" />
+    <option name="y" value="16" />
     <option name="width" value="1450" />
     <option name="height" value="1047" />
   </component>
@@ -276,7 +276,6 @@
     <panes>
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -287,64 +286,12 @@
             <path>
               <item name="chat-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="ChatApplication" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chat-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatApplication" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="chat-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatApplication" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chat-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatApplication" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chat-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatApplication" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="objectUI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chat-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatApplication" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chat-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatApplication" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chat-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatApplication" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -353,29 +300,32 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\THANHLONG-PC\Desktop\Tai-lieu-mon-hoc\Mang may tinh\ChatApplication\src\main\resources" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="share.entity" />
+      <recent name="" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="client.objectUI" />
       <recent name="" />
       <recent name="share.data" />
       <recent name="share.dao" />
       <recent name="share.entity" />
-    </key>
-    <key name="ImportMappingsDialog.RecentPackages">
-      <recent name="share.entity" />
-      <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\THANHLONG-PC\Desktop\Tai-lieu-mon-hoc\Mang may tinh\ChatApplication\src\test\resources" />
@@ -397,7 +347,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client 1">
+  <component name="RunManager" selected="Gradle.ChatApplication [ClientJar]">
     <configuration name="Client 1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="client.Main" />
       <module name="chat-app.main" />
@@ -426,14 +376,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="MainTest" />
-      <module name="chat-app.test" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ChatApplication [Client]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ChatApplication [ClientJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -444,7 +387,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="Client" />
+            <option value="ClientJar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -452,7 +395,7 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ChatApplication [Server]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ChatApplication [ServerJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -463,7 +406,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="Server" />
+            <option value="ServerJar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -471,7 +414,7 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ChatApplication [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ChatApplication [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -482,7 +425,45 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="test" />
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ChatApplication [serverBuildJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="serverBuildJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ChatApplication [serverJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="serverJar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -495,17 +476,19 @@
       <item itemvalue="Application.Client 1" />
       <item itemvalue="Application.Client 2" />
       <item itemvalue="Application.Client 3" />
-      <item itemvalue="Application.Test" />
-      <item itemvalue="Gradle.ChatApplication [Client]" />
-      <item itemvalue="Gradle.ChatApplication [Server]" />
-      <item itemvalue="Gradle.ChatApplication [test]" />
+      <item itemvalue="Gradle.ChatApplication [serverJar]" />
+      <item itemvalue="Gradle.ChatApplication [serverBuildJar]" />
+      <item itemvalue="Gradle.ChatApplication [ClientJar]" />
+      <item itemvalue="Gradle.ChatApplication [ServerJar]" />
+      <item itemvalue="Gradle.ChatApplication [clean]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Gradle.ChatApplication [Client]" />
-        <item itemvalue="Gradle.ChatApplication [Server]" />
-        <item itemvalue="Gradle.ChatApplication [test]" />
+        <item itemvalue="Gradle.ChatApplication [clean]" />
+        <item itemvalue="Gradle.ChatApplication [ServerJar]" />
+        <item itemvalue="Gradle.ChatApplication [ClientJar]" />
+        <item itemvalue="Gradle.ChatApplication [serverBuildJar]" />
+        <item itemvalue="Gradle.ChatApplication [serverJar]" />
       </list>
     </recent_temporary>
   </component>
@@ -545,6 +528,7 @@
       <workItem from="1556535206376" duration="5627000" />
       <workItem from="1556606028518" duration="1436000" />
       <workItem from="1556848364463" duration="6376000" />
+      <workItem from="1558319006747" duration="3735000" />
     </task>
     <servers />
   </component>
@@ -554,7 +538,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151381000" />
+    <option name="totallyTimeSpent" value="155116000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -566,9 +550,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="4" width="1450" height="1047" extended-state="0" />
+    <frame x="849" y="16" width="1450" height="1047" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.60251796" visible="true" weight="0.20215827" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.60251796" visible="true" weight="0.20503597" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" sideWeight="0.397482" side_tool="true" weight="0.20887919" />
       <window_info id="Designer" order="3" />
@@ -578,7 +562,7 @@
       <window_info id="Favorites" order="7" sideWeight="0.50152904" side_tool="true" weight="0.24948876" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.16739607" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.74505794" weight="0.2177243" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.74505794" weight="0.5306346" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49965918" weight="0.40153173" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -598,8 +582,8 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Codota" order="4" weight="0.32945737" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Maven" order="6" />
-      <window_info anchor="right" id="Gradle" order="7" weight="0.13386978" />
+      <window_info anchor="right" id="Maven" order="6" weight="0.3294964" />
+      <window_info anchor="right" id="Gradle" order="7" visible="true" weight="0.19496402" />
       <window_info anchor="right" id="Database" order="8" weight="0.31441048" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
@@ -760,41 +744,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/share/data/SignUpData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="109" column="56" lean-forward="true" selection-start-line="109" selection-start-column="56" selection-end-line="109" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/share/protocol/Response.java">
-    <entry file="file://$PROJECT_DIR$/src/main/java/share/data/SignInData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="56" column="78" lean-forward="true" selection-start-line="56" selection-start-column="78" selection-end-line="56" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/share/util/DateTimeUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="20" column="68" lean-forward="true" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/share/util/Base64Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="31" column="82" selection-start-line="31" selection-start-column="82" selection-end-line="31" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/share/entity/ConversationUserPK.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/share/util/HibernateUtils.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -819,12 +768,12 @@
     </entry>
     <entry file="dbSrc:///1799170f/8ec63844-8704-4802-90e8-0399a192dfd4/schema/chatapp/routine/sp_GetAllConversationPrivateByUsername@(varchar(40)).sql" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/client/views/ConversationItem.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
           <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1034,12 +983,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/client/views/CreateGroup.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
           <caret line="11" column="171" selection-start-line="11" selection-start-column="171" selection-end-line="11" selection-end-column="171" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/client/controllers/SignUp.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1158,32 +1107,32 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/client/views/Chat.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="191" column="84" selection-start-line="191" selection-start-column="84" selection-end-line="191" selection-end-column="84" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/hibernate.cfg.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/Chat.fxml" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/client/views/MessageItem.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1523">
           <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/Main.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/MyCtr.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1195,26 +1144,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/objectUI/MessageItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="43" column="101" lean-forward="true" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/client/images/unknow.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/MessageItemTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/MessageItemTest.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/MainTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2">
@@ -1241,23 +1174,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/MessageItem.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
-          <folding>
-            <element signature="n#BorderPane#0;n#children#0;n#fx:root#0;n#!!top" />
-            <element signature="n#children#0;n#VBox#0;n#children#0;n#fx:root#0;n#!!top" />
-            <element signature="n#Label#0;n#children#0;n#VBox#0;n#children#0;n#fx:root#0;n#!!top" />
-            <element signature="n#StackPane#0;n#children#0;n#HBox#0;n#children#0;n#VBox#0;n#children#0;n#fx:root#0;n#!!top" />
-            <element signature="n#children#0;n#StackPane#0;n#children#0;n#HBox#0;n#children#0;n#VBox#0;n#children#0;n#fx:root#0;n#!!top" />
-            <element signature="n#HBox.margin#0;n#VBox#0;n#children#0;n#fx:root#0;n#!!top" />
-            <element signature="n#padding#0;n#VBox#0;n#children#0;n#fx:root#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/MessageItem.fxml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/client/controllers/Chat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -1265,6 +1182,27 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1285,10 +1223,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>chat-app.main:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

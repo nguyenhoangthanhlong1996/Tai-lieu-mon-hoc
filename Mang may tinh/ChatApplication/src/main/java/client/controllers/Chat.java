@@ -10,6 +10,7 @@ import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -18,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -25,17 +27,20 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import share.data.ConversationData;
-import share.data.ListMessageData;
-import share.data.MessageData;
-import share.data.SendMessageData;
+import share.data.*;
 import share.entity.User;
 import share.protocol.Request;
 import share.protocol.RequestType;
 import share.util.Base64Utils;
+import share.util.FileUtils;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -54,9 +59,15 @@ public class Chat {
     int currentIdConversation = 0;
     double x = 0, y = 0;
     boolean isMaximize = false;
-    boolean filterContact = true;
-    //Danh sách các user
-    List<User> listUser;
+    boolean isFilterContact = true;
+    //Lưu file đính kèm hiện tại;
+    File attachment = null;
+    //Danh sách các liên hệ
+    ObservableList<User> listContact;
+    //Filter danh sách các liên hệ
+    FilteredList filterContact;
+    //Bắt sự kiện chọn 1 liên hệ
+    ChangeListener<User> listenerContact;
     //Danh sách các cuộc hội thoại
     ObservableList<ConversationData> listConversation;
     //Filter danh sách các cuộc hội thoại
@@ -97,13 +108,13 @@ public class Chat {
     private VBox vboxContacts;
 
     @FXML
-    private VBox vboxListContact;
-
-    @FXML
     private VBox vboxConversations;
 
     @FXML
     private ComboBox<String> cbbFilterConversation;
+
+    @FXML
+    private ListView<User> listViewContact;
 
     @FXML
     private ListView<ConversationData> listViewConversation;
@@ -130,6 +141,12 @@ public class Chat {
     private VBox vboxViewChat;
 
     @FXML
+    private HBox hboxAttachment;
+
+    @FXML
+    private Label lblPathAttachment;
+
+    @FXML
     private JFXTextField txtInputMessage;
 
     @FXML
@@ -141,7 +158,8 @@ public class Chat {
     public Chat(ClientApp app, Stage stage) {
         this.app = app;
         this.stage = stage;
-        listUser = new ArrayList<>();
+        listContact = FXCollections.observableArrayList();
+        filterContact = new FilteredList<>(listContact, c -> true);
         listConversation = FXCollections.observableArrayList();
         filterConversation = new FilteredList<>(listConversation, c -> true);
         listMessage = new ArrayList<>();
@@ -151,17 +169,25 @@ public class Chat {
 
     //region Event Handler
     private void initEventHandler() {
-        //Xử lý sự kiện 1 user được click chọn ở danh sách tất cả các liên hệ
-        eventHandlerListContact = event -> {
-            ContactItem contact = (ContactItem) event.getSource();
-            //Gửi yêu cầu tạo 1 cuộc hội thoại với người được click chọn
-            request = new Request(RequestType.CREATE_CONVERSATION_PRIVATE, contact.getUsername());
-            connect.sendRequest(request);
+//        //Xử lý sự kiện 1 user được click chọn ở danh sách tất cả các liên hệ
+//        eventHandlerListContact = event -> {
+//            ContactItem contact = (ContactItem) event.getSource();
+//            //Gửi yêu cầu tạo 1 cuộc hội thoại với người được click chọn
+//            request = new Request(RequestType.CREATE_CONVERSATION_PRIVATE, contact.getUsername());
+//            connect.sendRequest(request);
+//        };
+        //Xử lý sự kiện chọn 1 liên hệ
+        listenerContact = (observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                //Gửi yêu cầu tạo 1 cuộc hội thoại với người được click chọn
+                request = new Request(RequestType.CREATE_CONVERSATION_PRIVATE, newValue.getUsername());
+                connect.sendRequest(request);
+            }
         };
         //Xử lý sự kiện chọn 1 cuộc hội thoại
         listenerConversation = (observable, oldValue, newValue) -> {
-            //Gửi yêu cầu lấy danh tin nhắn của cuộc hội thoại này
             if (newValue != null) {
+                //Gửi yêu cầu lấy danh tin nhắn của cuộc hội thoại này
                 int idConversation = newValue.getIdConversation();
                 if (currentIdConversation != idConversation) {
                     //Gán hình
@@ -188,15 +214,18 @@ public class Chat {
     //Hàm khởi chạy khi giao diện được load lên
     @FXML
     void initialize() {
-        //Khung hiển thị cuộc hội thoại hiện tại ẩn đi
+        //Khung hiển thị các tin nhắn của cuộc hội thoại hiện tại ẩn đi
         vboxConversation.setVisible(false);
         //khung hiển thị danh sách các cuộc hội thoại ẩn đi
         vboxConversations.setVisible(false);
+        //phần hiển thị tệp đính kèm ẩn đi
+        hboxAttachment.setVisible(false);
         //Gán ràng buộc kích thước chiều rộng khung hiển thị nội dung chat hiện tại bằng khung cuộn hiển thị (Khi khung cuộn thay đổi chiều rộng thì khung chat cũng thay đổi theo)
         vboxViewChat.prefWidthProperty().bind(scrollViewChat.widthProperty());
         //Tạo dữ liệu trong combobox lọc loại cuộc hội thoại
         cbbFilterConversation.getItems().addAll("Tất cả", "Cuộc hội thoại riêng tư", "Cuộc hội thoại nhóm");
         cbbFilterConversation.setOnAction(event -> {
+            txtSearch.setText("");
             int index = cbbFilterConversation.getSelectionModel().getSelectedIndex();
             switch (index) {
                 case 0:
@@ -217,7 +246,6 @@ public class Chat {
             }
             SortedList<ConversationData> sortedList = new SortedList<>(filterConversation);
             listViewConversation.setItems(sortedList);
-            txtSearch.setText("");
         });
         //Tạo menu cho nút cài đặt
         settingMenu = new ContextMenu();
@@ -230,6 +258,9 @@ public class Chat {
             connect.sendRequest(request);
         });
         settingMenu.getItems().addAll(item1, item2);
+        //Gán dữ liệu cho listViewContact
+        listViewContact.setItems(listContact);
+        listViewContact.setCellFactory(param -> new ContactItem());
         //Gán dữ liệu cho listViewConversation
         listViewConversation.setItems(listConversation);
         listViewConversation.setCellFactory(param -> new ConversationItem());
@@ -280,7 +311,8 @@ public class Chat {
         vboxContacts.setVisible(true);
         vboxConversations.setVisible(false);
         //Gán cờ hiệu
-        filterContact = true;
+        isFilterContact = true;
+        txtSearch.setText("");
     }
 
     @FXML
@@ -294,14 +326,15 @@ public class Chat {
         vboxContacts.setVisible(false);
         vboxConversations.setVisible(true);
         //Gán cờ hiệu
-        filterContact = false;
+        isFilterContact = false;
+        txtSearch.setText("");
     }
 
     @FXML
     void createGroup(ActionEvent event) {
         try {
             dialogCreateGroup = new DialogCreateGroup(app, connect);
-            dialogCreateGroup.display(listUser);
+            dialogCreateGroup.display(listContact);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -314,7 +347,7 @@ public class Chat {
 
     @FXML
     void searchKeyReleased(KeyEvent event) {
-        if (!filterContact) { //Lọc cuộc hội thoại
+        if (!isFilterContact) { //Lọc cuộc hội thoại
             txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
                 filterConversation.setPredicate((Predicate<? super ConversationData>) c -> {
                     if (newValue == null || newValue.isEmpty())
@@ -331,6 +364,21 @@ public class Chat {
             });
             SortedList<ConversationData> sortedList = new SortedList<>(filterConversation);
             listViewConversation.setItems(sortedList);
+        } else {
+            txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+                filterContact.setPredicate((Predicate<? super User>) c -> {
+                    if (newValue == null || newValue.isEmpty())
+                        return true;
+                    String valueFilter = newValue.trim().toLowerCase();
+                    if (c.getUsername() != null && c.getUsername().toLowerCase().contains(valueFilter))
+                        return true;
+                    if (c.getName() != null && c.getName().toLowerCase().contains(valueFilter))
+                        return true;
+                    return false;
+                });
+            });
+            SortedList<User> sortedList = new SortedList<>(filterContact);
+            listViewContact.setItems(sortedList);
         }
     }
 
@@ -346,12 +394,50 @@ public class Chat {
         if (currentIdConversation != 0) {
             String content = txtInputMessage.getText().trim();
             if (!content.equals("")) {
-                request = new Request(RequestType.SEND_MESSAGE, new SendMessageData(currentIdConversation, content));
+                if (attachment != null) {
+                    FileInfoData fileInfoData = FileUtils.getFileInfo(attachment);
+                    if (fileInfoData != null) {
+                        request = new Request(RequestType.SEND_MESSAGE, new SendMessageData(currentIdConversation, content, fileInfoData.getDataBytes(), fileInfoData.getFileName(), fileInfoData.getFileExtension()));
+                    } else {
+                        request = new Request(RequestType.SEND_MESSAGE, new SendMessageData(currentIdConversation, content, null, null, null));
+                    }
+                } else {
+                    request = new Request(RequestType.SEND_MESSAGE, new SendMessageData(currentIdConversation, content, null, null, null));
+                }
                 connect.sendRequest(request);
                 //Làm mới khung nhập tin nhắn
                 txtInputMessage.clear();
+                //Ẩn đi thông tin tệp đính kèm
+                lblPathAttachment.setText("");
+                hboxAttachment.setVisible(false);
             }
         }
+    }
+
+
+    @FXML
+    void fileAttachment(MouseEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Chọn tệp");
+        //Hiện cửa sổ chọn file
+        attachment = fileChooser.showOpenDialog(stage);
+        if (attachment != null) {
+            if (attachment.length() > 2097152) {
+                app.showAlert("Kích thước tệp lớn hơn 2 MB", "Vui lòng chọn tệp có kích thước <= 2 MB");
+                attachment = null;
+            } else {
+                //Hiển thị thông tin tệp đính kèm
+                lblPathAttachment.setText(attachment.getName());
+                hboxAttachment.setVisible(true);
+            }
+        }
+    }
+
+    @FXML
+    void clearAttachment(MouseEvent event) {
+        attachment = null;
+        lblPathAttachment.setText("");
+        hboxAttachment.setVisible(false);
     }
     //endregion
 
@@ -409,13 +495,11 @@ public class Chat {
     //region Các hàm làm mới UI, các hàm này được gọi bởi lớp SingletonConnect
     public void refreshUI_ListUser(List<User> list) {
         Platform.runLater(() -> {
-            vboxListContact.getChildren().clear();
-            listUser = list;
-            for (User user : listUser) {
-                ContactItem contact = new ContactItem(user.getAvatar(), user.getUsername(), user.getName(), user.getGender(), null, user.isOnline());
-                contact.setOnMousePressed(eventHandlerListContact);
-                vboxListContact.getChildren().add(contact);
-            }
+            ReadOnlyObjectProperty<User> property = listViewContact.getSelectionModel().selectedItemProperty();
+            property.removeListener(listenerContact);
+            listContact.clear();
+            listContact.addAll(list);
+            property.addListener(listenerContact);
         });
     }
 
@@ -448,16 +532,20 @@ public class Chat {
                 }
                 if (!data.getSender().equals(currentUsername)) {
                     item = new MessageItem(
+                            data.getMessageId(),
                             data.getAvatar(),
                             data.getContent(),
+                            data.getAttachmentName(),
                             timeFormat,
                             null,
                             data.getSender().equals(user.getUsername())
                     );
                 } else {
                     item = new MessageItem(
+                            data.getMessageId(),
                             null,
                             data.getContent(),
+                            data.getAttachmentName(),
                             timeFormat,
                             null,
                             data.getSender().equals(user.getUsername())
@@ -471,9 +559,36 @@ public class Chat {
         });
     }
 
+    public void saveAttachment(FileInfoData fileInfoData) {
+        Platform.runLater(() -> {
+            //Thực hiện lưu file về máy
+            FileChooser fileChooser = new FileChooser();
+            //Set extension filter for text files
+            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("File", "*." + fileInfoData.getFileExtension());
+            fileChooser.getExtensionFilters().add(extFilter);
+            fileChooser.setInitialFileName(fileInfoData.getFileName());
+            //Show save file dialog
+            File file = fileChooser.showSaveDialog(stage);
+
+            if (file != null) {
+                byte[] data = fileInfoData.getDataBytes();
+                FileOutputStream fos = null;
+                try {
+                    fos = new FileOutputStream(file.getAbsolutePath());
+                    fos.write(data);
+                    fos.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
     //Làm mới giao diện lại như ban đầu
     public void clearInfo() {
-        listUser.clear();
+        listContact.clear();
         listConversation.clear();
         listMessage.clear();
         ivAvatar.setImage(null);
@@ -484,6 +599,8 @@ public class Chat {
         vboxConversation.setVisible(false);
         cbbFilterConversation.getSelectionModel().selectFirst();
         txtSearch.setText("");
+        currentIdConversation = 0;
+        isFilterContact = true;
     }
     //endregion
 }

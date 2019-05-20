@@ -1,15 +1,21 @@
 package client.objectUI;
 
 import client.Config;
+import client.socket.SingletonConnect;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import share.protocol.Request;
+import share.protocol.RequestType;
 import share.util.Base64Utils;
 
 import java.io.IOException;
@@ -28,7 +34,7 @@ public class MessageItem extends HBox {
     Font font1;
     Font font2;
 
-    public MessageItem(String avatar, String content, String time, String status, boolean isMyMessage) {
+    public MessageItem(int messageId, String avatar, String content, String attachmentName,String time, String status, boolean isMyMessage) {
         init();
         if (avatar != null) {
             if (!avatar.equals("")) {
@@ -50,6 +56,12 @@ public class MessageItem extends HBox {
             setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         } else {
             setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+        }
+        //Hiển thị phần tệp đính kèm nếu có
+        if (attachmentName !=  null) {
+            Hyperlink hyperlink = new Hyperlink(attachmentName);
+            vBox.getChildren().add(hyperlink);
+            hyperlink.setOnAction(event -> SingletonConnect.getInstance().sendRequest(new Request(RequestType.GET_ATTACHMENT, messageId)));
         }
     }
 

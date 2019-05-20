@@ -30,12 +30,12 @@
                         <Font name="System Bold" size="13.0" />
                     </font>
                 </Label>
-                <Label fx:id="lblShortentContent" prefHeight="18.0" prefWidth="252.0" text="Xin chào bạn" textFill="#686666" />
+                <Label fx:id="lblShortentContent" prefHeight="18.0" prefWidth="252.0" textFill="#686666" />
                 <HBox alignment="CENTER" prefHeight="30.0" prefWidth="229.0">
                     <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="184.0">
                             <children>
-                                <Label fx:id="lblLastMessageTime" prefHeight="18.0" text="1 ngày" HBox.hgrow="ALWAYS" />
+                                <Label fx:id="lblLastMessageTime" prefHeight="18.0" HBox.hgrow="ALWAYS" />
                             </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="25.0" prefWidth="55.0" HBox.hgrow="ALWAYS">

@@ -2,8 +2,10 @@ package client.socket;
 
 import client.stages.ClientApp;
 import client.stages.ScenceOption;
+import javafx.stage.FileChooser;
 import share.Config;
 import share.data.ConversationData;
+import share.data.FileInfoData;
 import share.data.ListMessageData;
 import share.entity.Conversation;
 import share.entity.Message;
@@ -240,7 +242,15 @@ public class SingletonConnect {
                     app.showAlert("Lỗi", (String) response.getData());
                 }
                 break;
-            //endregion
+                //endregion
+            case GET_ATTACHMENT:
+                //region GET_ATTACHMENT
+                if (response.isSuccess()) {
+                    FileInfoData fileInfoData = (FileInfoData) response.getData();
+                    app.ctrChat.saveAttachment(fileInfoData);
+                }
+                break;
+                //endregion
         }
     }
 }
