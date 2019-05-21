@@ -408,6 +408,7 @@ public class Chat {
                 //Làm mới khung nhập tin nhắn
                 txtInputMessage.clear();
                 //Ẩn đi thông tin tệp đính kèm
+                attachment = null;
                 lblPathAttachment.setText("");
                 hboxAttachment.setVisible(false);
             }
