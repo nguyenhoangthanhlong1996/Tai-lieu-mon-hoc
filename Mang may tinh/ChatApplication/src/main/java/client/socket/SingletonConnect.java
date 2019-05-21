@@ -157,7 +157,7 @@ public class SingletonConnect {
                     app.showAlert("Đăng xuất thất bại", (String) response.getData());
                 }
                 break;
-            //end
+            //endregion
             case REGISTER:
                 //region REGISTER
                 if (response.isSuccess()) {//Đăng ký thành công
