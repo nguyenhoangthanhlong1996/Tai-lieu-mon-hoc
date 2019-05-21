@@ -86,49 +86,14 @@
     <favorites_list name="ChatApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/client/socket/SingletonConnect.java">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/client/controllers/Chat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3432">
-              <caret line="237" selection-start-line="237" selection-end-line="237" />
+            <state relative-caret-position="127">
+              <caret line="409" column="46" lean-forward="true" selection-start-line="409" selection-start-column="46" selection-end-line="409" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4349#4363#0" />
-                <element signature="e#4921#4936#0" />
-                <element signature="e#5275#5292#0" />
-                <element signature="e#5335#5499#1" />
-                <element signature="e#5765#5787#0" />
-                <element signature="e#6077#6105#0" />
-                <element signature="e#6262#6290#0" />
-                <element signature="e#6792#6822#0" />
-                <element signature="e#7248#7281#0" />
-                <element signature="e#7498#7523#0" />
-                <element signature="e#7940#7961#0" />
-                <element signature="e#8197#8225#0" />
-                <element signature="e#8268#8421#1" />
-                <element signature="e#8529#8563#0" />
-                <element signature="e#8884#8907#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/server/socket/ThreadConnection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="255" column="38" selection-start-line="255" selection-start-column="24" selection-end-line="255" selection-end-column="38" />
-              <folding>
-                <element signature="e#3016#3030#0" />
-                <element signature="e#5803#5818#0" />
-                <element signature="e#7535#7552#0" />
-                <element signature="e#9994#10016#0" />
-                <element signature="e#11527#11563#0" />
-                <element signature="e#13773#13803#0" />
-                <element signature="e#15885#15906#0" />
-                <element signature="e#17482#17516#0" />
-                <element signature="e#19277#19300#0" />
               </folding>
             </state>
           </provider>
@@ -224,9 +189,8 @@
         <option value="$PROJECT_DIR$/src/test/java/MessageItemTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/client/Config.java" />
         <option value="$PROJECT_DIR$/src/main/java/client/objectUI/MessageItemTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/client/controllers/Chat.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/client/socket/SingletonConnect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/client/controllers/Chat.java" />
       </list>
     </option>
   </component>
@@ -441,8 +405,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ChatApplication [Client]" />
         <item itemvalue="Gradle.ChatApplication [Server]" />
+        <item itemvalue="Gradle.ChatApplication [Client]" />
         <item itemvalue="Gradle.ChatApplication [clean]" />
         <item itemvalue="Gradle.ChatApplication [ServerJar]" />
         <item itemvalue="Gradle.ChatApplication [ClientJar]" />
@@ -1117,16 +1081,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/MessageItem.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/controllers/Chat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="257" lean-forward="true" selection-start-line="257" selection-end-line="257" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -1181,6 +1135,16 @@
             <element signature="e#15885#15906#0" />
             <element signature="e#17482#17516#0" />
             <element signature="e#19277#19300#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/client/controllers/Chat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="409" column="46" lean-forward="true" selection-start-line="409" selection-start-column="46" selection-end-line="409" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
