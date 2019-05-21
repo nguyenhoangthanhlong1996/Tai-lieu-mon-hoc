@@ -11,79 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8fbf17a-8b07-4f8f-8ce3-9f47ae3790fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/share/data/FileInfoData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/share/util/FileUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Lap trinh mang/Bai tap/BaiTapChuong4_3" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lap trinh mang/Bai tap/BaiTapChuong4_3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/client/controllers/Chat.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/client/controllers/Chat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/MainTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/client/views/Chat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/client/views/Chat.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/client/views/ConversationItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/client/views/ConversationItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/boy1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/boy2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/boy3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/boy4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/boy5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/girl1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/girl2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/gril3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/group.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/man.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/unknow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/images/woman.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/styles/Chat.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/Chat.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/ContactItem.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/ConversationItem.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/CreateGroup.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/MessageItem.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/SignIn.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/SignUp.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/client/views/TimelineItem.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/hibernate.cfg.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/server/views/Server.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/resources/Main.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/resources/MessageItem.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/resources/hibernate.cfg.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/resources/log4j.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/controllers/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/controllers/Chat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/objectUI/ContactItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/objectUI/ContactItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/objectUI/MessageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/objectUI/MessageItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/socket/SingletonConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/socket/SingletonConnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/socket/ThreadConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/socket/ThreadConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/share/dao/MessageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/share/dao/MessageDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/share/data/MessageData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/share/data/MessageData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/share/data/SendMessageData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/share/data/SendMessageData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/share/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/share/entity/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/share/protocol/RequestType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/share/protocol/RequestType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/share/protocol/ResponseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/share/protocol/ResponseType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/client/views/Chat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/client/views/Chat.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/client/views/ContactItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/client/views/ContactItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/client/views/ConversationItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/client/views/ConversationItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MyCtr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MyCtr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../báo cáo bài tập lớn/Bao cao de tai chat.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../báo cáo bài tập lớn/Bao cao de tai chat.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../báo cáo bài tập lớn/Chat System Use Case Diagram.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -262,9 +195,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="849" />
-    <option name="y" value="16" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="50" />
+    <option name="y" value="13" />
     <option name="width" value="1450" />
     <option name="height" value="1047" />
   </component>
@@ -274,8 +207,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -292,6 +223,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -347,7 +280,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.ChatApplication [ClientJar]">
+  <component name="RunManager" selected="Gradle.ChatApplication [Client]">
     <configuration name="Client 1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="client.Main" />
       <module name="chat-app.main" />
@@ -395,6 +328,25 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="ChatApplication [Client]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="Client" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="ChatApplication [ServerJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -407,6 +359,25 @@
         <option name="taskNames">
           <list>
             <option value="ServerJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ChatApplication [Server]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="Server" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -433,62 +404,24 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ChatApplication [serverBuildJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="serverBuildJar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="ChatApplication [serverJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="serverJar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.Client 1" />
       <item itemvalue="Application.Client 2" />
       <item itemvalue="Application.Client 3" />
-      <item itemvalue="Gradle.ChatApplication [serverJar]" />
-      <item itemvalue="Gradle.ChatApplication [serverBuildJar]" />
       <item itemvalue="Gradle.ChatApplication [ClientJar]" />
       <item itemvalue="Gradle.ChatApplication [ServerJar]" />
       <item itemvalue="Gradle.ChatApplication [clean]" />
+      <item itemvalue="Gradle.ChatApplication [Server]" />
+      <item itemvalue="Gradle.ChatApplication [Client]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ChatApplication [Client]" />
+        <item itemvalue="Gradle.ChatApplication [Server]" />
         <item itemvalue="Gradle.ChatApplication [clean]" />
         <item itemvalue="Gradle.ChatApplication [ServerJar]" />
         <item itemvalue="Gradle.ChatApplication [ClientJar]" />
-        <item itemvalue="Gradle.ChatApplication [serverBuildJar]" />
-        <item itemvalue="Gradle.ChatApplication [serverJar]" />
       </list>
     </recent_temporary>
   </component>
@@ -529,6 +462,7 @@
       <workItem from="1556606028518" duration="1436000" />
       <workItem from="1556848364463" duration="6376000" />
       <workItem from="1558319006747" duration="3735000" />
+      <workItem from="1558450191982" duration="179000" />
     </task>
     <servers />
   </component>
@@ -538,7 +472,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155116000" />
+    <option name="totallyTimeSpent" value="155295000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -550,9 +484,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="849" y="16" width="1450" height="1047" extended-state="0" />
+    <frame x="50" y="13" width="1450" height="1047" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.60251796" visible="true" weight="0.20503597" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.60251796" visible="true" weight="0.20791367" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" sideWeight="0.397482" side_tool="true" weight="0.20887919" />
       <window_info id="Designer" order="3" />
@@ -562,7 +496,7 @@
       <window_info id="Favorites" order="7" sideWeight="0.50152904" side_tool="true" weight="0.24948876" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.16739607" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.74505794" weight="0.5306346" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.74505794" visible="true" weight="0.5306346" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49965918" weight="0.40153173" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
