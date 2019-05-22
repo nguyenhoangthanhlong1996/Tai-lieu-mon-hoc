@@ -12,7 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d8fbf17a-8b07-4f8f-8ce3-9f47ae3790fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../Lap trinh mang/Bai tap/BaiTapChuong4_3" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lap trinh mang/Bai tap/BaiTapChuong4_3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../báo cáo bài tập lớn/Bao cao de tai chat.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../báo cáo bài tập lớn/Bao cao de tai chat.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -89,20 +89,7 @@
     <favorites_list name="ChatApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/client/controllers/Chat.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="409" column="46" lean-forward="true" selection-start-line="409" selection-start-column="46" selection-end-line="409" selection-end-column="46" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -203,7 +190,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1063" />
+    <option name="y" value="5" />
     <option name="width" value="1435" />
     <option name="height" value="1050" />
   </component>
@@ -213,7 +202,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
@@ -454,6 +443,7 @@
       <workItem from="1556848364463" duration="6376000" />
       <workItem from="1558319006747" duration="3735000" />
       <workItem from="1558450191982" duration="1528000" />
+      <workItem from="1558528830281" duration="699000" />
     </task>
     <servers />
   </component>
@@ -463,7 +453,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156644000" />
+    <option name="totallyTimeSpent" value="157343000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -475,9 +465,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="50" y="13" width="1450" height="1047" extended-state="0" />
+    <frame x="1063" y="5" width="1435" height="1050" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.60251796" visible="true" weight="0.20791367" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.60251796" visible="true" weight="0.21090908" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" sideWeight="0.397482" side_tool="true" weight="0.20887919" />
       <window_info id="Designer" order="3" />
@@ -487,7 +477,7 @@
       <window_info id="Favorites" order="7" sideWeight="0.50152904" side_tool="true" weight="0.24948876" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.16739607" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.74505794" weight="0.53001463" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.74505794" weight="0.5299891" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49965918" weight="0.40153173" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -508,7 +498,7 @@
       <window_info anchor="right" id="Codota" order="4" weight="0.32945737" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Maven" order="6" weight="0.32908848" />
-      <window_info anchor="right" id="Gradle" order="7" visible="true" weight="0.19496402" />
+      <window_info anchor="right" id="Gradle" order="7" visible="true" weight="0.1949091" />
       <window_info anchor="right" id="Database" order="8" weight="0.31441048" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
@@ -1141,7 +1131,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/client/controllers/Chat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
-          <caret line="409" column="46" lean-forward="true" selection-start-line="409" selection-start-column="46" selection-end-line="409" selection-end-column="46" />
+          <caret line="409" column="46" selection-start-line="409" selection-start-column="46" selection-end-line="409" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
