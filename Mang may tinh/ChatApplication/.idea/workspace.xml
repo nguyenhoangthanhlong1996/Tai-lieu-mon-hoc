@@ -12,7 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d8fbf17a-8b07-4f8f-8ce3-9f47ae3790fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../Lap trinh mang/Bai tap/BaiTapChuong4_3" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lap trinh mang/Bai tap/BaiTapChuong4_3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../báo cáo bài tập lớn/Bao cao de tai chat.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../báo cáo bài tập lớn/Bao cao de tai chat.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../day la file duoc them o branch develop.txt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -89,7 +90,7 @@
     <favorites_list name="ChatApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -444,6 +445,7 @@
       <workItem from="1558319006747" duration="3735000" />
       <workItem from="1558450191982" duration="1528000" />
       <workItem from="1558528830281" duration="699000" />
+      <workItem from="1558922006427" duration="103000" />
     </task>
     <servers />
   </component>
@@ -453,7 +455,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157343000" />
+    <option name="totallyTimeSpent" value="157446000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -467,7 +469,7 @@
   <component name="ToolWindowManager">
     <frame x="1063" y="5" width="1435" height="1050" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.60251796" visible="true" weight="0.21090908" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.60251796" visible="true" weight="0.21381818" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" sideWeight="0.397482" side_tool="true" weight="0.20887919" />
       <window_info id="Designer" order="3" />
