@@ -1,0 +1,20 @@
+.wrapper {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.wrapper .col-left {
+    width: 200px;
+    float: left;
+}
+.wrapper .col-right {
+    width: 600px;
+    float: left;
+    text-align: center;
+}
+.wrapper .col-right .content {
+    border: 2px solid black;
+}
+.wrapper .col-right .content img {
+    margin-bottom: 30px;
+}
