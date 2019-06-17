@@ -1,0 +1,10 @@
+﻿#Cookie
+	- Ưu điểm:Giúp việc truy cập Website của người dùng nhanh hơn, tiện lợi hơn, không quá mất nhiều thời gian đăng nhập lại nhiều lần.
+Đối với các doanh nghiệp, việc sử dụng Cookie sẽ giúp họ theo dõi được hành vi người dùng, từ đó biết được họ thường truy cập ít hay nhiều, thời gian là bao lâu hay các sở thích khác để có thể tối ưu hóa Website, dịch vụ của mình.
+Ngoài ra, việc lưu trữ Cookie đối với các doanh nghiệp sẽ giúp khách hàng của họ thuận tiện hơn trong việc truy cập hay đơn giản là việc nhập liệu ở Website đó trở nên tiện lợi khi các thông tin đã được lưu trữ
+	- Nhược điểm: Vì Cookie là một file dùng để lưu trữ các thông tin, hoạt động sử dụng của người dùng mang tính cá nhân vì vậy sẽ dễ dàng bị các Hacker dòm ngó, tìm cách đột nhập hệ thống Website, máy tính cá nhân để lấy cắp thông tin và sử dụng cho các mục đích xấu mà bạn không thể lường trước được.
+
+#Session
+	- Ưu điểm: khi dùng session để lưu thông tin thì những thông tin này sẽ được lưu ở phía Server cho nên việc tấn công dữ liệu sẽ khó hơn so với việc sử dụng Cookie
+	- Nhược điểm:
+	- Ứng dụng: ví dụ như lưu thông tin số lượng sản phẩm người dùng đã thêm vào giỏ nhưng chưa mua, hay những nhật xét đang được viết và lưu dưới dạng nháp nhưng chưa gửi đi. Những dữ liệu sử dụng lâu dài như nội dung nhận xét đã được gửi đi hay số sản phẩm đã được mua thì nên được thực hiện ở máy chủ chứa cơ sở dữ liệu

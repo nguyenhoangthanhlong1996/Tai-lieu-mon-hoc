@@ -1,7 +1,7 @@
 CREATE DATABASE `examples`;
 USE `examples`;
 CREATE TABLE `cars` (
-   `id` int UNIQUE NOT NULL,
+   `id` int UNIQUE NOT NULL AUTO_INCREMENT,
    `name` varchar(40),
    `year` varchar(50),
    PRIMARY KEY(id)

@@ -1,0 +1,85 @@
+
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img style="max-width: 180px; max-height: 180px;" src="{{data.avatar}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h5>
+                        {{data.full_name}}
+                    </h5>
+                    <h6>
+                        {{data.role_name}}
+                    </h6>
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active in" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Tên tài khoản</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{data.username}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Họ và tên</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{data.full_name}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{data.email}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Số điện thoại</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{data.phone}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Địa chỉ</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{data.address}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Thời điểm tạo</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{data.created_at}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Thời điểm cập nhật</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{data.updated_at}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-button mat-dialog-close>Đóng</button>
+        </div>
+    </form>
+</div>

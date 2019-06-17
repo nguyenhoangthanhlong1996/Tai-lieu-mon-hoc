@@ -1,0 +1,112 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Sản phẩm
+        <small>Thêm mới</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a routerLink=""><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+        <li class="active">Sản phẩm</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Thông tin sản phẩm</h3>
+                    <a href="product-list" routerLink="/product-list"><i class="fa fa-list fa-2x"
+                                                                         style="margin-left: 10px; color: green;"></i></a>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form (ngSubmit)="onSubmit()" [formGroup]="formProduct" role="form">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Danh mục</label><br/>
+                            <select2 (valueChanged)="selectCategoryChange($event)" [data]="listCategories"
+                                     class="form-group" [value]="formProduct.get('categoryId').value" width="100%" placeholder="'--Chọn--'"></select2>
+                            <input formControlName="categoryId" type="hidden" disabled>
+                            <span *ngIf="formProduct.touched && formProduct.get('categoryId').hasError('required')"
+                                  class="error text-danger">
+                                Phải chọn danh mục
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Đơn vị tính</label><br/>
+                            <select2 (valueChanged)="selectUnitChange($event)" [data]="listUnits"
+                                     class="form-group" [value]="formProduct.get('unitId').value" width="100%" placeholder="'--Chọn--'"></select2>
+                            <input formControlName="unitId" type="hidden" disabled>
+                            <span *ngIf="formProduct.touched && formProduct.get('unitId').hasError('required')"
+                                  class="error text-danger">
+                                Phải chọn đơn vị tính
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Tên sản phẩm</label>
+                            <input formControlName="name" type="text" class="form-control"
+                                   placeholder="Nhập tên sản phẩm">
+                            <span *ngIf="formProduct.get('name').touched && formProduct.get('name').hasError('required')"
+                                  class="error text-danger">
+                                Tên sản phẩm không được bỏ trống
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Giá</label>
+                            <input formControlName="price" type="number" class="form-control" placeholder="Nhập giá">
+                            <span *ngIf="formProduct.get('price').touched && formProduct.get('price').hasError('required')"
+                                  class="error text-danger">
+                                Giá sản phẩm không được bỏ trống
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Số lượng còn trong kho</label>
+                            <input formControlName="quantityRemaining" type="number" class="form-control" placeholder="Nhập số lượng sản phẩm còn trong kho">
+                            <span *ngIf="formProduct.get('quantityRemaining').touched && formProduct.get('quantityRemaining').hasError('required')"
+                                  class="error text-danger">
+                                Sồ lượng còn trong kho không được bỏ trống
+                            </span>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="form-group">
+                            <label>
+                                <input formControlName="outOfStockFlag" type="checkbox">
+                                Tạm hết hàng
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Mô tả ngắn</label>
+                        <input formControlName="description" type="text" class="form-control"
+                               placeholder="Nhập mô tả ngắn">
+                    </div>
+                    <div class="form-group">
+                        <label>Nội dung bài viết mô tả về sản phẩm</label>
+                        <ckeditor formControlName="posts"></ckeditor>
+                    </div>
+                    <div class="form-group">
+                        <label>Thẻ tags (mỗi tag cách nhau bởi dấu ,)</label>
+                        <input formControlName="tags" type="text" class="form-control"
+                               placeholder="Nhập tags">
+                    </div>
+                    <div class="form-group">
+                        <label>Ảnh bìa sản phẩm </label>
+                        <input type="file" (change)="chooseCoverImage($event);" accept="image/*">
+                        <button *ngIf="formProduct.get('coverImage').value != ''" (click)="removeCoverImage();">Xóa hình</button>
+                        <input formControlName="coverImage" type="hidden" class="form-control">
+                        <img style="max-width: 120px; max-height: 120px;" [src]="formProduct.get('coverImage').value || 'assets/dist/img/no_image.png'" alt="Ảnh bìa sản phẩm" />
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button [disabled]="formProduct.invalid" type="submit" class="btn btn-primary">Lưu</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.box -->
+        </div>
+        <!--/.col (left) -->
+    </div>
+    <!-- /.row -->
+</section>
