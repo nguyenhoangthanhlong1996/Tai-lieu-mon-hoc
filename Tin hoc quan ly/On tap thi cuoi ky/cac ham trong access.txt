@@ -1,0 +1,15 @@
+﻿Hàm tính khoảng cách giữa 2 ngày
+DateDiff ( interval, date1, date2)
+	+ interval = "d" (trả về khoảng cách là số ngày)
+
+Hàm đếm các giá trị duy nhất trong một tập bản ghi
+DCount("biểu_thức_xác_định_các_trường_muốn_trả_về", "tên_của_truy_vấn_hoặc_bảng", "điều_kiện_so_sánh")
+
+Hàm kiểm tra so sánh
+IIf ( biểu_thức ; phần_định_nghĩa_khi_biểu_thức_đúng ; phần_định_nghĩa_khi_biểu_thức_sai )
+
+
+Hàm lấy ra các giá trị trong một tập bản ghi
+DLookup("biểu_thức_xác_định_các_trường_muốn_trả_về", "tên_của_truy_vấn_hoặc_bảng", "điều_kiện_so_sánh")
+
+
