@@ -1806,26 +1806,32 @@ d. economic
 //Regex 1 câu trắc nghiệm hợp lệ
 const regexMCQValid = /^[0-9]{1,3}\.\s.*\na\.\s.*\nb\.\s.*\nc\.\s.*\nd\.\s.*\n>\s[a-d]/gm;
 
+//Giới hạn số lượng câu hỏi
+let totalQuestion = 100;
+
 //Lấy tất cả câu hỏi
 const regexQuestions = /(?<=^[0-9]{1,3}\.\s).*/gm;
 let arrQuestions = content.match(regexQuestions);
+arrQuestions = arrQuestions.slice(0, totalQuestion);
 document.write('Tổng số câu hỏi: ' + arrQuestions.length + '<br>');
 //Lấy tất cả câu trả lời đúng
 const regexCorrectAnswers = /(?<=^>\s).*/gm;
 let arrCorrectAnswers = content.match(regexCorrectAnswers);
+arrCorrectAnswers = arrCorrectAnswers.slice(0, totalQuestion);
 document.write('Tổng số đáp án đúng: ' + arrCorrectAnswers.length + '<br>');
 //Lấy tất cả câu trả lời
 const regexAnswers = /(?<=^[a-d]\.\s).*/gm;
 var arrAnswers = content.match(regexAnswers);
+arrAnswers = arrAnswers.slice(0, totalQuestion * 4)
 document.write('Tổng số đáp án: ' + arrAnswers.length + '<br>');
 
 
 //Duyệt mảng câu hỏi
-// arrQuestions.forEach(str => {
-//     str = removeSpaceString(str);
-//     //document.write(str+'<br>');
-//     document.write(stringInsertQuestion(str)+'<br>');
-// });
+arrQuestions.forEach(str => {
+    str = removeSpaceString(str);
+    //document.write(str+'<br>');
+    document.write(stringInsertQuestion(str)+'<br>');
+});
 
 // Duyệt mảng câu trả lời đúng
 // arrCorrectAnswers.forEach(str => {
@@ -1837,7 +1843,7 @@ document.write('Tổng số đáp án: ' + arrAnswers.length + '<br>');
 let idQuestionStartWith = 1;
 let idQuestion = 0;
 let indexQuestion = 0;
-arrAnswers.forEach((value, index) = > {
+arrAnswers.forEach((value, index) => {
     value = removeSpaceString(value);
 //document.write(value+'<br>');
 indexQuestion = Math.floor(index / 4);
@@ -1853,8 +1859,7 @@ if (
 } else {
     document.write(stringInsertAnswer(value, 0, idQuestion) + '<br>');
 }
-})
-;
+});
 
 
 function stringInsertQuestion(contentQuestion) {

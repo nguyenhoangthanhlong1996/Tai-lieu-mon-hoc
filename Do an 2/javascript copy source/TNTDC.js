@@ -14525,7 +14525,7 @@ d. go on
 const regexMCQValid = /^[0-9]{2}\.\s.*\na\.\s.*\nb\.\s.*\nc\.\s.*\nd\.\s.*\n\s[a-d]/gm;
 
 //Giới hạn số lượng câu hỏi
-let totalQuestion = 500;
+let totalQuestion = 100;
 
 //Lấy tất cả câu hỏi
 const regexQuestions = /(?<=^[0-9][0-9]\.\s).*/gm;
@@ -14545,11 +14545,11 @@ document.write('Tổng số đáp án: ' + arrAnswers.length + '<br>');
 
 
 //Duyệt mảng câu hỏi
-// arrQuestions.forEach(str => {
-//     str = removeSpaceString(str);
-//     //document.write(str+'<br>');
-//     document.write(stringInsertQuestion(str)+'<br>');
-// });
+arrQuestions.forEach(str => {
+    str = removeSpaceString(str);
+    //document.write(str+'<br>');
+    document.write(stringInsertQuestion(str)+'<br>');
+});
 
 //Duyệt mảng câu trả lời đúng
 // arrCorrectAnswers.forEach(str => {
@@ -14558,10 +14558,10 @@ document.write('Tổng số đáp án: ' + arrAnswers.length + '<br>');
 
 
 //Duyệt mảng câu trả lời
-let idQuestionStartWith = 801;
+let idQuestionStartWith = 201;
 let idQuestion = 0;
 let indexQuestion = 0;
-arrAnswers.forEach((value, index) = > {
+arrAnswers.forEach((value, index) => {
     value = removeSpaceString(value);
 //document.write(value+'<br>');
 indexQuestion = Math.floor(index / 4);
