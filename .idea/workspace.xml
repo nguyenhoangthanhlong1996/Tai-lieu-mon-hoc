@@ -1,12 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e14c9d7f-4027-4ba3-afc9-2a004964a970" name="Default Changelist" comment="" />
+    <list default="true" id="e14c9d7f-4027-4ba3-afc9-2a004964a970" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Do an 2/Báo cáo.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Do an 2/Báo cáo.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Do an 2/mcqenglish.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/bin/client/LoginFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/bin/client/LoginFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/bin/client/LoginFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/bin/client/LoginFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/bin/client/LoginFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/bin/client/LoginFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/bin/client/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/bin/client/MainFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/bin/client/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/bin/client/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/bin/share/RequestType.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/bin/share/RequestType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/bin/share/ResponseType.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/bin/share/ResponseType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/client/InfoDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/client/InfoDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/client/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/client/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/client/LoginListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/client/LoginListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/client/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/client/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/client/ThreadReceiveResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/client/ThreadReceiveResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/server/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/server/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/server/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/server/ServerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/server/ServerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/server/SyslogListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/server/SyslogListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/server/ThreadConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/server/ThreadConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/server/ThreadListenConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/server/ThreadListenConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/server/ThreadReceiveRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/server/ThreadReceiveRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/share/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/share/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/share/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/share/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/share/RequestType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/share/RequestType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/share/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/share/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/share/ResponseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lap trinh mang/Bai tap/BaiTapChuong4_3/src/share/ResponseType.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -16,6 +52,7 @@
     <option name="width" value="1845" />
     <option name="height" value="1040" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -56,26 +93,25 @@
       <option name="presentableId" value="Default" />
       <updated>1556190705013</updated>
       <workItem from="1556190706382" duration="3000" />
+      <workItem from="1562983507446" duration="4000" />
+      <workItem from="1562989489175" duration="22000" />
+      <workItem from="1564288356019" duration="48000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3000" />
+    <option name="totallyTimeSpent" value="77000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25596184" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -83,16 +119,26 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Database Changes" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
     </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Do an 2/doan2/_ide_helper.php" />
+    <entry file="file://$PROJECT_DIR$/backup do an website/moodle/lib/google/src/Google/Service/Gmail.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
   </component>
   <component name="masterDetails">
     <states>

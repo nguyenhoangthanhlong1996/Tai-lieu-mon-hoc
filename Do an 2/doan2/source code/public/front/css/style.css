@@ -1,0 +1,36 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    height: 100%;
+    width: 100%;
+    background-color: #085d96;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div .jumbotron {
+    text-align: center;
+}
+
+.logo {
+    width: 8rem;
+}
+
+a {
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+button {
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.text-center {
+    text-align: center;
+}
