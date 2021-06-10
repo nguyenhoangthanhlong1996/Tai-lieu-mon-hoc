@@ -1,0 +1,41 @@
+	Ten tu dien				Ten bang
+---------------------------------------------------------------------------------------------------------
+Academic Sessions				sessions
+Managers					timetable_manager
+Departments					department
+Subject Areas					subject_area
+Buildings					building
+Date pattern					date_pattern
+Time pattern					time_pattern
+Exact time pattern				exact_time_mins
+Academic Areas					academic_area
+Academic Classifications			academic_classification
+Degrees						degree
+Majors						pos_major (n->1 pos_acad_area_major)
+Concentrations					pos_major_conc
+Minors						pos_minor (n->1 pos_acad_area_minor)
+Student Groups					student_group 
+							(n->1 std_group_type)
+							(1->n student_to_group)
+Student Accommodations				student_accomodation (1->n student_to_acomodation)
+Student Advisors				advisor
+							(1->1 roles)
+							(1->n student_advisor)
+Examination Statuses				exam_type, exam_status, exam_managers
+Examination Period				exam_period
+Learning Management Systems			learn_mgmt_sys_info
+--------------------------------------------------------------------------------------------------------
+Instructional Types				itype_desc
+Room Types					room_type
+Room Feature Types				feature_type (1->n room_feature)
+Course Types					course_type (1->n course_offering)
+Instructional Methods				instructional_method
+Override Types					override_type
+Instructor Attribute Types			attribute_type		
+Sponsoring Organizations			sponsoring_organization
+Position Types					position_type
+Teaching Responsibility				teaching_responsibility
+Student Group Types				std_group_type
+Examination Types				exam_type
+
+						
