@@ -1,7 +1,3 @@
-<style>
-ans { color: Orange }
-th { color: LightGreen }
-</style>
 CNXML - Quiz 05
 =====
 
