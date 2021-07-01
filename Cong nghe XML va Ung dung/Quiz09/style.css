@@ -1,0 +1,112 @@
+html body {
+    font-family: monospace;
+}
+
+/* Remove default bullets */
+ul,
+#domTree {
+    list-style-type: none;
+}
+
+/* Remove margins and padding from the parent ul */
+#domTree {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Style the caret/arrow */
+.caret {
+    cursor: pointer;
+    user-select: none;
+    /* Prevent text selection */
+}
+
+/* Create the caret/arrow with a unicode, and style it */
+.caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+.caret-down::before {
+    transform: rotate(90deg);
+}
+
+/* Hide the nested list */
+.nested {
+    display: none;
+}
+
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+.active {
+    display: block;
+}
+
+#domTree li:not(:last-child)::after {
+    position: absolute;
+    top: 0;
+    bottom: -0.7em;
+    left: -0.75em;
+    width: 0.5em;
+    border-style: none none solid solid;
+    content: '';
+    border-width: 0.1em;
+}
+
+#domTree li.node_name {
+    font-size: 15px;
+    color: purple;
+    font-weight: bold;
+}
+
+#domTree li.node_name code {
+    font-weight: bold;
+    color: gray;
+}
+
+#domTree li.text_node {
+    font-style: italic;
+    font-family: serif;
+    color: black;
+    font-weight: normal;
+}
+
+/*
+#domTree li.text_node::before {
+    content: "#text:";
+    font-style: italic;
+    font-weight: bold;
+    margin-right: 10px;
+} */
+
+#domTree li.node_name span.props {
+    margin-left: 12px;
+}
+
+#domTree li.node_name .props .prop:not(:nth-child(1)) {
+    margin-left: 10px;
+}
+
+#domTree li.node_name .props .prop .prop_name {
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+}
+
+#domTree li.node_name .props .prop .prop_value {
+    color: blue;
+    font-weight: normal;
+}
+
+.result {
+    width: 100%;
+}
+
+.result left-col,
+.result right-col {
+    width: 50%;
+    float: left;
+}

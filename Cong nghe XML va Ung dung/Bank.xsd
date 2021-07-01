@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!--  _______________________________Simple Type_____________________________________ -->
+    <!-- idType -->
+    <xs:simpleType name="idType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9]+" />
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- balanceType -->
+    <xs:simpleType name="balanceType">
+        <xs:restriction base="xs:integer">
+            <xs:minExclusive value="-5000" />
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- interestType -->
+    <xs:simpleType name="interestType">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="4" />
+            <xs:fractionDigits value="2" />
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- nameType -->
+    <xs:simpleType name="nameType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z][a-zA-Z\s]+" />
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- addressType -->
+    <xs:simpleType name="addressType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9][a-zA-Z0-9,\s]+" />
+        </xs:restriction>
+    </xs:simpleType>
+    <!--  _______________________________Complex Type_____________________________________ -->
+    <!-- commonAccountType -->
+    <xs:complexType name="commonAccountType">
+        <xs:all>
+            <xs:element name="balance" type="balanceType" />
+        </xs:all>
+        <xs:attribute name="id" type="idType" use="required" />
+    </xs:complexType>
+    <!-- savingAccountType base on commonAccountType -->
+    <xs:complexType name="savingAccountType">
+        <xs:complexContent>
+            <xs:extension base="commonAccountType">
+                <xs:attribute name="interest" type="interestType" use="required" />
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <!-- checkingAccountType base on commonAccountType -->
+    <xs:complexType name="checkingAccountType">
+        <xs:complexContent>
+            <xs:extension base="commonAccountType" />
+        </xs:complexContent>
+    </xs:complexType>
+    <!-- customerType -->
+    <xs:complexType name="customerType">
+        <xs:all>
+            <xs:element name="name" type="nameType" />
+            <xs:element name="address" type="addressType" />
+        </xs:all>
+        <xs:attribute name="id" type="idType" use="required" />
+    </xs:complexType>
+    <!-- customerAccountType -->
+    <xs:complexType name="customerAccountType">
+        <xs:attribute name="c_id" type="idType" use="required" />
+        <xs:attribute name="ac_id" type="idType" use="required" />
+    </xs:complexType>
+    <!--  _______________________________Define structure of XML Document_____________________________________ -->
+    <xs:element name="bank">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="accounts">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="savings_accounts">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="savings_account" type="savingAccountType" minOccurs="0" maxOccurs="unbounded" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="checking_accounts">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="checking_account" type="checkingAccountType" minOccurs="0" maxOccurs="unbounded" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="customers">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="customer" type="customerType" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="customer_accounts">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="customer_account" type="customerAccountType" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+        <!--  _____________ ID and Reference ID _____________ -->
+        <!-- Unique ID of Account -->
+        <xs:key name="accountId">
+            <xs:selector xpath="./accounts/savings_accounts/savings_account|./accounts/checking_accounts/checking_account" />
+            <xs:field xpath="@id" />
+        </xs:key>
+        <!-- Unique ID of Customer -->
+        <xs:key name="customerId">
+            <xs:selector xpath="./customers/customer" />
+            <xs:field xpath="@id" />
+        </xs:key>
+        <!-- Reference to ID of Account -->
+        <xs:keyref name="accountIdRef" refer="accountId">
+            <xs:selector xpath="./customer_accounts/customer_account" />
+            <xs:field xpath="@ac_id" />
+        </xs:keyref>
+        <!-- Reference to ID of Customer -->
+        <xs:keyref name="customerIdRef" refer="customerId">
+            <xs:selector xpath="./customer_accounts/customer_account" />
+            <xs:field xpath="@c_id" />
+        </xs:keyref>
+    </xs:element>
+</xs:schema>

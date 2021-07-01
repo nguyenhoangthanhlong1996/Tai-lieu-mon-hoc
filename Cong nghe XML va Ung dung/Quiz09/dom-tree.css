@@ -1,0 +1,217 @@
+h1 {
+    margin: 0;
+}
+
+h2 {
+    font-size: small;
+    margin: 1em 0 0;
+}
+
+p,
+ul,
+pre {
+    margin: 0;
+}
+
+p {
+    border: inset thin;
+}
+
+textarea {
+    width: 100%;
+    -width: 99%;
+    height: 8em;
+    border: 0;
+}
+
+iframe {
+    width: 100%;
+    height: 12em;
+    border: 0;
+}
+
+/* iframe.large { height: 24em; } */
+pre {
+    border: inset thin;
+    padding: 0.5em;
+    color: gray;
+}
+
+pre samp {
+    color: black;
+}
+
+.dom {
+    border: inset thin;
+    padding: 0.5em 0.5em 0.5em 1em;
+    color: black;
+    min-height: 5em;
+    font-family: monospace;
+    background: white;
+    /* margin-top: 20px; */
+}
+
+.dom ul {
+    padding: 0 0 0 1em;
+    margin: 0;
+}
+
+.dom li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+}
+
+.dom li li {
+    list-style: disc;
+}
+
+.dom .t1 code {
+    color: purple;
+    font-weight: bold;
+}
+
+.dom .t2 {
+    font-style: normal;
+    font-family: monospace;
+}
+
+.dom .t2 .name {
+    color: black;
+    font-weight: bold;
+}
+
+.dom .t2 .value {
+    color: blue;
+    font-weight: normal;
+}
+
+.dom .t3 code,
+.dom .t4 code,
+.dom .t5 code {
+    color: gray;
+}
+
+.dom .t7 code,
+.dom .t8 code {
+    color: green;
+}
+
+.dom span {
+    font-style: italic;
+    font-family: serif;
+}
+
+.dom .t10 code {
+    color: teal;
+}
+
+.dom .misparented,
+.dom .misparented code {
+    color: red;
+    font-weight: bold;
+}
+
+.dom .unnamed {
+    color: red;
+    font-style: italic;
+}
+
+.dom .template {
+    padding: 0 0 0 1.5em;
+    background: #EEEEEE;
+    color: black;
+    position: relative;
+    overflow: hidden;
+}
+
+.dom .template::after {
+    position: absolute;
+    top: 1em;
+    right: -2.6em;
+    content: 'TEMPLATE';
+    width: 10em;
+    text-align: center;
+    transform: rotate(30deg);
+    background: black;
+    color: white;
+}
+
+.dom.hidden,
+.hidden {
+    visibility: hidden;
+    margin: 0.5em 0;
+    padding: 0;
+    height: 0;
+    min-height: 0;
+}
+
+pre#log {
+    color: black;
+    font: small monospace;
+}
+
+script+p {
+    border: none;
+    font-size: smaller;
+    margin: 0.8em 0.25em 0.1em;
+}
+
+script+p+details {
+    font-size: smaller;
+    margin: 0 0.25em;
+}
+
+script+p+details dl {
+    margin: 0 0 0 1.5em;
+}
+
+script+p+details dl dd {
+    margin: 0 0 0.35em 1em;
+}
+
+/*  Treeview */
+.dom li li {
+    list-style: none;
+}
+
+.dom li:first-child::before {
+    position: absolute;
+    top: 0;
+    height: 0.7em;
+    left: -0.75em;
+    width: 0.5em;
+    border-style: none none solid solid;
+    content: '';
+    border-width: 0.1em;
+}
+
+.dom li:not(:last-child)::after {
+    position: absolute;
+    top: 0;
+    bottom: -0.7em;
+    left: -0.75em;
+    width: 0.5em;
+    border-style: none none solid solid;
+    content: '';
+    border-width: 0.1em;
+}
+
+.wrap_control {
+    position: sticky;
+    top: 0px;
+    background-color: white;
+    padding: 15px 0px;
+    z-index: 100;
+}
+
+.result {
+    width: 100%;
+}
+
+.result .left-col,
+.result .right-col {
+    width: 50%;
+    float: left;
+}

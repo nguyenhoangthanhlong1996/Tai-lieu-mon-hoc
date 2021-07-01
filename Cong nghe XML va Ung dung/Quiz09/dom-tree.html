@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <link rel="stylesheet" href="dom-tree.css"/>
+    
+</head>
+
+<body>
+    <div class="wrap_control">
+        <input id="fileUpload" type="file" />
+        <button id="btnDrawDomTree" style="margin-right: 40px;">Draw DOM Tree</button>
+        
+        Query by 
+        <select id="selectTypeQuery">
+            <option value="tag">Tag name</option>
+            <option value="id">id</option>
+        </select>
+        <input type="text" id="txtQueryValue">
+        <button id="btnSearch">Search</button>
+    </div>
+
+    <div class="result">
+        <div class="left-col">
+            <ul id="domTree" class="dom"></ul>
+        </div>
+        <div id="wrapDom" class="right-col">
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

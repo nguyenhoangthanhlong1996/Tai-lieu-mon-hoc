@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <title>Quiz 08</title>
+</head>
+
+<body>
+
+    <ul id="domTree">
+        <li class="node_name"><span class="caret caret-down">Beverages</span>
+            <ul class="nested active">
+                <li class="node_name">
+                    Water
+                    <span class="props">
+                        <span class="prop">
+                            <span class="prop_name">format</span>="<span class="prop_value">123456</span>"
+                        </span>
+                        <span class="prop">
+                            <span class="prop_name">lang</span>="<span class="prop_value">en</span>"
+                        </span>
+                    </span>
+                </li>
+                <li class="node_name">Coffee</li>
+                <li class="node_name"><span class="caret  caret-down">Tea</span>
+                    <ul class="nested active">
+                        <li class="node_name">Black Tea</li>
+                        <li class="node_name">White Tea</li>
+                        <li class="node_name"><span class="caret caret-down">Green Tea</span>
+                            <ul class="nested active">
+                                <!-- <span class="text_node">#text:</span> -->
+                                <li class="node_name">Sencha</li>
+                                <li class="node_name">Gyokuro
+                                    <ul class="nested active">
+                                        <li class="node_name text_node"><code>#text: </code>Giada De Laurentiis</li>
+                                    </ul>
+                                </li>
+                                <li class="node_name">Matcha</li>
+                                <li class="node_name">Pi Lo Chun</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

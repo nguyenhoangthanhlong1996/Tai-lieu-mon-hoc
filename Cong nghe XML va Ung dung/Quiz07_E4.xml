@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Quiz07_E4.xsd">
+    <books>
+        <book>
+            <bookID>123-4567-890</bookID>
+            <title>XML</title>
+            <pubDate>2001-10-20</pubDate>
+            <replacementValue>15.95</replacementValue>
+            <maxDaysOut>14</maxDaysOut>
+        </book>
+        <book>
+            <bookID>123-4567-891</bookID>
+            <title>Artificial Intelligence</title>
+            <pubDate>2000-05-30</pubDate>
+            <replacementValue>30.25</replacementValue>
+            <maxDaysOut>14</maxDaysOut>
+        </book>
+        <book>
+            <bookID>123-4567-892</bookID>
+            <title>Semantic Web</title>
+            <pubDate>2004-03-10</pubDate>
+            <replacementValue>17.99</replacementValue>
+            <maxDaysOut>14</maxDaysOut>
+        </book>
+        <book>
+            <bookID>123-4567-893</bookID>
+            <title>Agent</title>
+            <pubDate>2005-06-10</pubDate>
+            <replacementValue>11.95</replacementValue>
+            <maxDaysOut>14</maxDaysOut>
+        </book>
+    </books>
+    <transactions>
+        <transaction id="1">
+            <lender>
+                <name>Michael Calder</name>
+                <address>41 McMahons Rd, Frankston, WI</address>
+                <phone>9903 4563</phone>
+            </lender>
+            <borrower>
+                <name>Craig Gavin</name>
+                <address>56 Overport Rd, Karingal, WI</address>
+                <phone>9903 3455</phone>
+            </borrower>
+            <checkout>2007-10-15</checkout>
+            <note>lender wants these books back in two weeks!</note>
+            <bookIds>
+                <bookId>123-4567-890</bookId>
+                <bookId>123-4567-892</bookId>
+            </bookIds>
+        </transaction>
+    </transactions>
+</library>

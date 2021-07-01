@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- bookIdType  -->
+    <xs:simpleType name="bookIdType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]+[0-9-]*" />
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- personInfoType  -->
+    <xs:complexType name="personInfoType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"></xs:element>
+            <xs:element name="address" type="xs:string"></xs:element>
+            <xs:element name="phone" type="xs:string"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <!-- Structure of XML  -->
+    <xs:element name="library">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="book" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="bookID" type="bookIdType" />
+                                        <xs:element name="title" type="xs:string" />
+                                        <xs:element name="pubDate" type="xs:date" />
+                                        <xs:element name="replacementValue" type="xs:decimal" />
+                                        <xs:element name="maxDaysOut" type="xs:positiveInteger" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="transactions">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="transaction" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="lender" type="personInfoType"></xs:element>
+                                        <xs:element name="borrower" type="personInfoType"></xs:element>
+                                        <xs:element name="checkout" type="xs:date"></xs:element>
+                                        <xs:element name="note" type="xs:string"></xs:element>
+                                        <xs:element name="bookIds">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="bookId" type="bookIdType" maxOccurs="unbounded" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:positiveInteger"></xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+        <!-- ID Unique, Ref ID  -->
+        <xs:key name="bookIdUnique">
+            <xs:selector xpath="books/book/bookID" />
+            <xs:field xpath="." />
+        </xs:key>
+        <xs:keyref name="refBookID" refer="bookIdUnique">
+            <xs:selector xpath="transactions/transaction/bookIds/bookId" />
+            <xs:field xpath="." />
+        </xs:keyref>
+    </xs:element>
+</xs:schema>

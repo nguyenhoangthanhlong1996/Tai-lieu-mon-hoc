@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Quiz07_E2.xsd">
+    <book>
+        <title>A semantic web primer. MIT press</title>
+        <year>2004</year>
+        <publisher>MIT press</publisher>
+        <authors>
+            <author>Antoniou</author>
+            <author>G.</author>
+            <author>&amp; Van Harmelen</author>
+            <author>F</author>
+        </authors>
+    </book>
+    <book>
+        <title>The Semantic Web: a guide to the future of XML, Web services, and knowledge management. John Wiley &amp; Sons</title>
+        <year>2003</year>
+        <publisher>John Wiley &amp; Sons</publisher>
+        <authors>
+            <author>Daconta</author>
+            <author>M. C.</author>
+            <author>Obrst</author>
+            <author>L. J.</author>
+            <author>&amp; Smith</author>
+            <author>K. T</author>
+        </authors>
+    </book>
+</books>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<members xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Quiz07_E1.xsd">
+    <member>
+        <name>Chris Smith</name>
+        <yearsOfMembership>4</yearsOfMembership>
+    </member>
+    <member>
+        <name>Judi Zimmerman</name>
+        <yearsOfMembership>5</yearsOfMembership>
+    </member>
+    <member>
+        <name>Michael Calder</name>
+        <yearsOfMembership>3</yearsOfMembership>
+    </member>
+</members>
